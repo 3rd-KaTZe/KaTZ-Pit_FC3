@@ -1,0 +1,39 @@
+DCS, Section Weapon Panel
+
+Les pylones sont affectés des exports suivants :
+
+1> Le Weapon Quantity : nombre de munitions présentes
+	Dans les cas d'un panier de roquet ou de container, la valeur peut chuter à zero, mais le container reste accroché sous l'aile
+	Dans le cas d'un bidon, la veleur vaut également 1
+	
+2> Le Container quantity : nombre de panier de munitions présents :
+	La valeur vaut 1 tant que le panier est accroché (roquettes, KGMU, ...)
+	Pour un bidon, missile, bombre lisse, la valeur vaut zero
+	
+3> Le weapon type : subdivisé en quatre catégories type
+	exemple : R73 : type 1 = 4 , type 2 = 4 , type 3 = 7 , type 4 = 18
+	
+Conséquence pour DCS export / Sioc / KaTZ-Link / KaTZ-Pit
+
+Dans l'export DCS, pour éviter de surcharger l'export, on ne scan le weapon panel que si son contenu a changé.
+Pour ce faire, on calcul un paramêtre checksum  =  somme des quantités et containers de l'emport
+Tant que ce check sum ne varie pas, l'avion n'a rien largué , donc pas de scan
+
+Si l'emport a changé, on va exporter séparément, les quantités (mises à jours à chaque tir), et les types (mis à jours à chaque reload).
+La chaine SIOC/KTZ-Link/KTZ-Pit ne transportera que les quantités/containers.
+
+Export DCS : Quantités 
+1) calcul du checksum sur munitions + panier (container)
+2) si variation export pour chaque pylone des quantités + panier sous forme 
+d'un nombre à 4 chiffres = container * 1000 + quantité
+
+Exemple : R77 >> 1 ; KGMU >> 1096 ; B8 >> 1020 ; RBK >> 1001 ; S24 >> 1
+
+Dans le KaTZ-Pit, on récupère le nb de munition avec si  n > 1000 alors qty = n - 1000
+Quand le container est vide , n = 1000 (on peut allumer un voyant de couleur différente), et l'éteindre quand container largué
+
+Export DCS : Type
+On regroupe le type dans un nombre a 7 chiffres (1:22:33:44) (le type 1 est toujours sur un chiffre)
+Le chiffre est décomposé et interprété dans le KaTZ-Pit
+
+
