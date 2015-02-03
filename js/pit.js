@@ -12,41 +12,54 @@ var Plane_data = {};
 var FL_data = {};
 var RWY_data = {};
 var Weapon_data={};
+var Order_List = new Array();
+var CmdDelay;
 
 
 
 window.onload = function(){
+	// Chargement et indication de l'IP et Port
+	// Sur le panel Emergency
 
-// Chargement et indication de l'IP et Port
-// Sur le panel Emergency
-panel_emergency_update(KaTZPit_data)
-//temp for tests;
-//mytimer = setInterval(main, 200);
+	menu_connection(KaTZPit_data)
+
+	// Initialisation des Panels affichés
+	Panel_On = panel_On_init();
+	menu_Toggle("Init")
 
 }
 
 
-function main(){
+function pit_main(){
 
 	// Iteration Principale, fréquence fixée dans mytimer
 		
 	panel_emergency_update(KaTZPit_data)
-	panel_attitude_update(KaTZPit_data)
 	panel_moteur_update(KaTZPit_data)
 	panel_fuel_update(KaTZPit_data)
-	panel_pilototo_update(KaTZPit_data)
 	panel_navigation_update(KaTZPit_data)
-	panel_weapon_update(KaTZPit_data)
 	panel_gear_update(KaTZPit_data)
-	panel_ils_update(KaTZPit_data)
-	panel_radio_update(KaTZPit_data)
 	panel_detection_update(KaTZPit_data)
 	panel_target_update(KaTZPit_data)
+	
+	if (Plane_data["ID"] == 15) {
+	panel_instrument_flight_F15(KaTZPit_data)
+	panel_instrument_engine_F15(KaTZPit_data)}
 	// panel_debug_update(KaTZPit_data)
 	
-	// window.blur()
+	// SYSTEM PANEL ------------------------------------------------------
 	
+	// Lancement des subroutines en fonction des panneaux affichés dans le KaKZ_Pit
+		
+	if (Panel_On["ILS"]==1){
+	panel_ils_update(KaTZPit_data)}
 	
+	if (Panel_On["Combat"]==1){
+	panel_weapon_update(KaTZPit_data)}
+	
+	if (Panel_On["Radio_360"]==1){panel_radio_update(KaTZPit_data)}
+		
+	CmdSend()
 	
 }
 
@@ -98,7 +111,7 @@ function Pit_Start(plane){
 	panel_radio_init(KaTZPit_data)
 
 	// Affichage Initial
-	main()
+	pit_main()
 	//paneldata_update(KaTZPit_data)
 
 	// Lancement de la procédure de connection
@@ -107,58 +120,8 @@ function Pit_Start(plane){
 }
 
 
-function serverws_Open(){
-
-	console.log("connection serveur démarrée")
-	
-	//Passage du voyant de connection de orange >> vert
-	$("#Led_Connect").attr("src","images/z_Led-Verte.gif")
-
-	// Initialisation du KaTZPit à zero
-	console.log("KATZ-Pit Initialisé")
-	//console.log(KaTZPit_data)
-
-	// Lancement de la boucle de rafraichissement du KaTZ-Pit
-	mytimer = setInterval(main, 200);
-	
-}
-
-function serverws_Message(event){
-
-	received_msg = event.data
-
-	// stockage du message sous forme d'objet
-	var new_data = JSON.parse(received_msg)
-	//console.log("message received",new_data);
-	
-	var dataref;
-	
-	// Transfert des données recues dans le tableau KaTZ-Pit_Data
-	for (dataref in new_data){
-		KaTZPit_data[dataref]=new_data[dataref]
-		}
-		
-	// Si reception d'un Ping, on répond sur le canal 8
-	if (KaTZPit_data["Ping"] != KaTZPit_data["Ping_old"]){
-		CmdSiocSpe(7, KaTZPit_data["Ping"])
-		KaTZPit_data["Ping_old"] = KaTZPit_data["Ping"]
-	}
-		
-}
-
-function serverws_Close(){
-	console.log("Deconnection du Serveur");
-	$("#Led_Connect").attr("src","images/z_Led-Rouge_2020.gif")
-	
-	clearInterval(mytimer);
-}
-
-function serverws_Error(error){
-	console.log("Erreur serveur : ");
-	$("#Led_Connect").attr("src","images/z_Led-Rouge_2020.gif")
-}
-
 // Envoi de Commande vers Sioc>DCS, Argument Num voir Liste des Commandes DCS 
+// Commande type FC2-FC3
 
 function CmdSioc(Val) {
 	
@@ -180,18 +143,6 @@ function CmdSiocSpe(Num, Val) {
 }
 //timer_capot = setTimeout(function(){mafonction(argument)},duree_survol)
 
-function CmdSiocSpe2(Num, Val) {
-	
-	var timer_delai
-	var timer_capot = 20
-	// Envoi de la commande d'ouverture du capot
-	CmdSiocSpe(Num, Val)
-	
-	// Envoi du basculement de l'interrupteur
-	timer_delai = setTimeout(function(){CmdSiocSpe(Num, Val)},timer_capot)
-	
-	
-}
 
 
 
