@@ -133,4 +133,22 @@ function instrument_EngTemp_F15(left,right){
 		'-ms-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
 	})
 }
+
+function instrument_EngFF_F15(left,right){
+	var t_origine = 60
+	var t_gain = 0.24
+	
+	$("#AM_FF_L").css({
+		'-moz-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
+		'-webkit-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
+		'-ms-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
+	})
+	
+	$("#AM_FF_R").css({
+		'-moz-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
+		'-webkit-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
+		'-ms-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
+	})
+}
+
 	

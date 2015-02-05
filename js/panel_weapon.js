@@ -64,119 +64,119 @@ function weapon_panel_scan(){
 	if (KaTZPit_data["WPS1_Q"] == 0) {$("#VW_Pos1").fadeOut()} 
 	else {
 		$("#VW_Pos1").fadeIn()
-		if (KaTZPit_data["WPS_select"] == 1 && KaTZPit_data["FL_main"]>1){$("#VW_Pos1").attr("src","images/W_Select.gif")} 
-		else {$("#VW_Pos1").attr("src","images/W_Full.gif")}
-		if (KaTZPit_data["WPS1_T"]< 2000000){$("#VW_Pos1").attr("src","images/W_TankOn.gif")}	
+		if (KaTZPit_data["WPS_select"] == 1 && KaTZPit_data["FL_main"]>1){$("#VW_Pos1").attr("src","images/weapon/W_Select.gif")} 
+		else {$("#VW_Pos1").attr("src","images/weapon/W_Full.gif")}
+		if (KaTZPit_data["WPS1_T"]< 2000000){$("#VW_Pos1").attr("src","images/weapon/W_TankOn.gif")}	
 	}
 		
 	if (KaTZPit_data["WPS2_Q"] == 0) {$("#VW_Pos2").fadeOut()} 
 	else {
 		$("#VW_Pos2").fadeIn()
-		if (KaTZPit_data["WPS_select"] == 2 && KaTZPit_data["FL_main"]>1){$("#VW_Pos2").attr("src","images/W_Select.gif")} 
-		else {$("#VW_Pos2").attr("src","images/W_Full.gif")}
-		if (KaTZPit_data["WPS2_T"]< 2000000){$("#VW_Pos2").attr("src","images/W_TankOn.gif")}
+		if (KaTZPit_data["WPS_select"] == 2 && KaTZPit_data["FL_main"]>1){$("#VW_Pos2").attr("src","images/weapon/W_Select.gif")} 
+		else {$("#VW_Pos2").attr("src","images/weapon/W_Full.gif")}
+		if (KaTZPit_data["WPS2_T"]< 2000000){$("#VW_Pos2").attr("src","images/weapon/W_TankOn.gif")}
 	}	
 		
 	if (KaTZPit_data["WPS3_Q"] == 0) {$("#VW_Pos3").fadeOut()} 
 	else {
 		$("#VW_Pos3").fadeIn()
-		if (KaTZPit_data["WPS_select"] == 3 && KaTZPit_data["FL_main"]>1){$("#VW_Pos3").attr("src","images/W_Select.gif")} 
-		else {$("#VW_Pos3").attr("src","images/W_Full.gif")}
-		if (KaTZPit_data["WPS3_T"]< 2000000){$("#VW_Pos3").attr("src","images/W_TankOn.gif")}
-		if (KaTZPit_data["WPS3_Q"] == 1000) {$("#VW_Pos3").attr("src","images/W_Vide.gif")}
+		if (KaTZPit_data["WPS_select"] == 3 && KaTZPit_data["FL_main"]>1){$("#VW_Pos3").attr("src","images/weapon/W_Select.gif")} 
+		else {$("#VW_Pos3").attr("src","images/weapon/W_Full.gif")}
+		if (KaTZPit_data["WPS3_T"]< 2000000){$("#VW_Pos3").attr("src","images/weapon/W_TankOn.gif")}
+		if (KaTZPit_data["WPS3_Q"] == 1000) {$("#VW_Pos3").attr("src","images/weapon/W_Vide.gif")}
 	}
 		
 	if (KaTZPit_data["WPS4_Q"] == 0) {$("#VW_Pos4").fadeOut()} 
 	else {
 		$("#VW_Pos4").fadeIn()
-		if (KaTZPit_data["WPS_select"] == 4 && KaTZPit_data["FL_main"]>1){$("#VW_Pos4").attr("src","images/W_Select.gif")} 
-		else {$("#VW_Pos4").attr("src","images/W_Full.gif")}
-		if (KaTZPit_data["WPS4_T"]< 2000000){$("#VW_Pos4").attr("src","images/W_TankOn.gif")}
-		if (KaTZPit_data["WPS4_Q"] == 1000) {$("#VW_Pos4").attr("src","images/W_Vide.gif")}
+		if (KaTZPit_data["WPS_select"] == 4 && KaTZPit_data["FL_main"]>1){$("#VW_Pos4").attr("src","images/weapon/W_Select.gif")} 
+		else {$("#VW_Pos4").attr("src","images/weapon/W_Full.gif")}
+		if (KaTZPit_data["WPS4_T"]< 2000000){$("#VW_Pos4").attr("src","images/weapon/W_TankOn.gif")}
+		if (KaTZPit_data["WPS4_Q"] == 1000) {$("#VW_Pos4").attr("src","images/weapon/W_Vide.gif")}
 	}
 
 		
 	if (KaTZPit_data["WPS5_Q"] == 0) {$("#VW_Pos5").fadeOut()} 
 	else {
 		$("#VW_Pos5").fadeIn()
-		if (KaTZPit_data["WPS_select"] == 5 && KaTZPit_data["FL_main"]>1){$("#VW_Pos5").attr("src","images/W_Select.gif")} 
-		else {$("#VW_Pos5").attr("src","images/W_Full.gif")}
-		if (KaTZPit_data["WPS5_T"]< 2000000){$("#VW_Pos5").attr("src","images/W_TankOn.gif")}
-		if (KaTZPit_data["WPS5_Q"] == 1000) {$("#VW_Pos5").attr("src","images/W_Vide.gif")}
+		if (KaTZPit_data["WPS_select"] == 5 && KaTZPit_data["FL_main"]>1){$("#VW_Pos5").attr("src","images/weapon/W_Select.gif")} 
+		else {$("#VW_Pos5").attr("src","images/weapon/W_Full.gif")}
+		if (KaTZPit_data["WPS5_T"]< 2000000){$("#VW_Pos5").attr("src","images/weapon/W_TankOn.gif")}
+		if (KaTZPit_data["WPS5_Q"] == 1000) {$("#VW_Pos5").attr("src","images/weapon/W_Vide.gif")}
 	}
 
 	
 	if (KaTZPit_data["WPS6_Q"] == 0) {$("#VW_Pos6").fadeOut()} 
 	else {
 		$("#VW_Pos6").fadeIn()
-		if (KaTZPit_data["WPS_select"] == 6 && KaTZPit_data["FL_main"]>1){$("#VW_Pos6").attr("src","images/W_Select.gif")} 
-		else {$("#VW_Pos6").attr("src","images/W_Full.gif")}
-		if (KaTZPit_data["WPS6_T"]< 2000000){$("#VW_Pos6").attr("src","images/W_TankOn.gif")}
-		if (KaTZPit_data["WPS6_Q"] == 1000) {$("#VW_Pos6").attr("src","images/W_Vide.gif")}
+		if (KaTZPit_data["WPS_select"] == 6 && KaTZPit_data["FL_main"]>1){$("#VW_Pos6").attr("src","images/weapon/W_Select.gif")} 
+		else {$("#VW_Pos6").attr("src","images/weapon/W_Full.gif")}
+		if (KaTZPit_data["WPS6_T"]< 2000000){$("#VW_Pos6").attr("src","images/weapon/W_TankOn.gif")}
+		if (KaTZPit_data["WPS6_Q"] == 1000) {$("#VW_Pos6").attr("src","images/weapon/W_Vide.gif")}
 	}
 		
 	if (KaTZPit_data["WPS7_Q"] == 0) {$("#VW_Pos7").fadeOut()} 
 	else {
 		$("#VW_Pos7").fadeIn()
-		if (KaTZPit_data["WPS_select"] == 7 && KaTZPit_data["FL_main"]>1){$("#VW_Pos7").attr("src","images/W_Select.gif")} 
-		else {$("#VW_Pos7").attr("src","images/W_Full.gif")}
-		if (KaTZPit_data["WPS7_T"]< 2000000){$("#VW_Pos7").attr("src","images/W_TankOn.gif")}
-		if (KaTZPit_data["WPS7_Q"] == 1000) {$("#VW_Pos7").attr("src","images/W_Vide.gif")}
+		if (KaTZPit_data["WPS_select"] == 7 && KaTZPit_data["FL_main"]>1){$("#VW_Pos7").attr("src","images/weapon/W_Select.gif")} 
+		else {$("#VW_Pos7").attr("src","images/weapon/W_Full.gif")}
+		if (KaTZPit_data["WPS7_T"]< 2000000){$("#VW_Pos7").attr("src","images/weapon/W_TankOn.gif")}
+		if (KaTZPit_data["WPS7_Q"] == 1000) {$("#VW_Pos7").attr("src","images/weapon/W_Vide.gif")}
 	}	
 
 	if (KaTZPit_data["WPS8_Q"] == 0) {$("#VW_Pos8").fadeOut()} 
 	else {
 		$("#VW_Pos8").fadeIn()
-		if (KaTZPit_data["WPS_select"] == 8 && KaTZPit_data["FL_main"]>1){$("#VW_Pos8").attr("src","images/W_Select.gif")} 
-		else {$("#VW_Pos8").attr("src","images/W_Full.gif")}
-		if (KaTZPit_data["WPS8_T"]< 2000000){$("#VW_Pos8").attr("src","images/W_TankOn.gif")}
-		if (KaTZPit_data["WPS8_Q"] == 1000) {$("#VW_Pos8").attr("src","images/W_Vide.gif")}
+		if (KaTZPit_data["WPS_select"] == 8 && KaTZPit_data["FL_main"]>1){$("#VW_Pos8").attr("src","images/weapon/W_Select.gif")} 
+		else {$("#VW_Pos8").attr("src","images/weapon/W_Full.gif")}
+		if (KaTZPit_data["WPS8_T"]< 2000000){$("#VW_Pos8").attr("src","images/weapon/W_TankOn.gif")}
+		if (KaTZPit_data["WPS8_Q"] == 1000) {$("#VW_Pos8").attr("src","images/weapon/W_Vide.gif")}
 	}	
 
 	if (KaTZPit_data["WPS9_Q"] == 0) {$("#VW_Pos9").fadeOut()} 
 	else {
 		$("#VW_Pos9").fadeIn()
-		if (KaTZPit_data["WPS_select"] == 9 && KaTZPit_data["FL_main"]>1){$("#VW_Pos9").attr("src","images/W_Select.gif")} 
-		else {$("#VW_Pos9").attr("src","images/W_Full.gif")}
-		if (KaTZPit_data["WPS9_T"]< 2000000){$("#VW_Pos9").attr("src","images/W_TankOn.gif")}
-		if (KaTZPit_data["WPS9_Q"] == 1000) {$("#VW_Pos9").attr("src","images/W_Vide.gif")}
+		if (KaTZPit_data["WPS_select"] == 9 && KaTZPit_data["FL_main"]>1){$("#VW_Pos9").attr("src","images/weapon/W_Select.gif")} 
+		else {$("#VW_Pos9").attr("src","images/weapon/W_Full.gif")}
+		if (KaTZPit_data["WPS9_T"]< 2000000){$("#VW_Pos9").attr("src","images/weapon/W_TankOn.gif")}
+		if (KaTZPit_data["WPS9_Q"] == 1000) {$("#VW_Pos9").attr("src","images/weapon/W_Vide.gif")}
 	}	
 
 	
 	if (KaTZPit_data["WPS10_Q"] == 0) {$("#VW_Pos10").fadeOut()} 
 	else {
 		$("#VW_Pos10").fadeIn()
-		if (KaTZPit_data["WPS_select"] == 10 && KaTZPit_data["FL_main"]>1){$("#VW_Pos10").attr("src","images/W_Select.gif")} 
-		else {$("#VW_Pos10").attr("src","images/W_Full.gif")}
-		if (KaTZPit_data["WPS10_T"]< 2000000){$("#VW_Pos10").attr("src","images/W_TankOn.gif")}
-		if (KaTZPit_data["WPS10_Q"] == 1000) {$("#VW_Pos10").attr("src","images/W_Vide.gif")}
+		if (KaTZPit_data["WPS_select"] == 10 && KaTZPit_data["FL_main"]>1){$("#VW_Pos10").attr("src","images/weapon/W_Select.gif")} 
+		else {$("#VW_Pos10").attr("src","images/weapon/W_Full.gif")}
+		if (KaTZPit_data["WPS10_T"]< 2000000){$("#VW_Pos10").attr("src","images/weapon/W_TankOn.gif")}
+		if (KaTZPit_data["WPS10_Q"] == 1000) {$("#VW_Pos10").attr("src","images/weapon/W_Vide.gif")}
 	}
 
 	if (KaTZPit_data["WPS11_Q"] == 0) {$("#VW_Pos11").fadeOut()} 
 	else {
 		$("#VW_Pos11").fadeIn()
-		if (KaTZPit_data["WPS_select"] == 11 && KaTZPit_data["FL_main"]>1){$("#VW_Pos11").attr("src","images/W_Select.gif")} 
-		else {$("#VW_Pos11").attr("src","images/W_Full.gif")}
-		if (KaTZPit_data["WPS11_T"]< 2000000){$("#VW_Pos11").attr("src","images/W_TankOn.gif")}
-		if (KaTZPit_data["WPS11_Q"] == 1000) {$("#VW_Pos11").attr("src","images/W_Vide.gif")}
+		if (KaTZPit_data["WPS_select"] == 11 && KaTZPit_data["FL_main"]>1){$("#VW_Pos11").attr("src","images/weapon/W_Select.gif")} 
+		else {$("#VW_Pos11").attr("src","images/weapon/W_Full.gif")}
+		if (KaTZPit_data["WPS11_T"]< 2000000){$("#VW_Pos11").attr("src","images/weapon/W_TankOn.gif")}
+		if (KaTZPit_data["WPS11_Q"] == 1000) {$("#VW_Pos11").attr("src","images/weapon/W_Vide.gif")}
 	}
 	
 	if (KaTZPit_data["WPS12_Q"] == 0) {$("#VW_Pos12").fadeOut()} 
 	else {
 		$("#VW_Pos12").fadeIn()
-		if (KaTZPit_data["WPS_select"] == 12 && KaTZPit_data["FL_main"]>1){$("#VW_Pos12").attr("src","images/W_Select.gif")} 
-		else {$("#VW_Pos12").attr("src","images/W_Full.gif")}
-		if (KaTZPit_data["WPS12_T"]< 2000000){$("#VW_Pos12").attr("src","images/W_TankOn.gif")}
-		if (KaTZPit_data["WPS12_Q"] == 1000) {$("#VW_Pos12").attr("src","images/W_Vide.gif")}
+		if (KaTZPit_data["WPS_select"] == 12 && KaTZPit_data["FL_main"]>1){$("#VW_Pos12").attr("src","images/weapon/W_Select.gif")} 
+		else {$("#VW_Pos12").attr("src","images/weapon/W_Full.gif")}
+		if (KaTZPit_data["WPS12_T"]< 2000000){$("#VW_Pos12").attr("src","images/weapon/W_TankOn.gif")}
+		if (KaTZPit_data["WPS12_Q"] == 1000) {$("#VW_Pos12").attr("src","images/weapon/W_Vide.gif")}
 	}
 
 	if (KaTZPit_data["WPS13_Q"] == 0) {$("#VW_Pos13").fadeOut()} 
 	else {
 		$("#VW_Pos13").fadeIn()
-		if (KaTZPit_data["WPS_select"] == 13 && KaTZPit_data["FL_main"]>1){$("#VW_Pos13").attr("src","images/W_Select.gif")} 
-		else {$("#VW_Pos13").attr("src","images/W_Full.gif")}
-		if (KaTZPit_data["WPS13_T"]< 2000000){$("#VW_Pos13").attr("src","images/W_TankOn.gif")}
-		if (KaTZPit_data["WPS13_Q"] == 1000) {$("#VW_Pos13").attr("src","images/W_Vide.gif")}
+		if (KaTZPit_data["WPS_select"] == 13 && KaTZPit_data["FL_main"]>1){$("#VW_Pos13").attr("src","images/weapon/W_Select.gif")} 
+		else {$("#VW_Pos13").attr("src","images/weapon/W_Full.gif")}
+		if (KaTZPit_data["WPS13_T"]< 2000000){$("#VW_Pos13").attr("src","images/weapon/W_TankOn.gif")}
+		if (KaTZPit_data["WPS13_Q"] == 1000) {$("#VW_Pos13").attr("src","images/weapon/W_Vide.gif")}
 	}
 
 

@@ -54,7 +54,7 @@ function pit_main(){
 	if (Panel_On["ILS"]==1){
 	panel_ils_update(KaTZPit_data)}
 	
-	if (Panel_On["Combat"]==1){
+	if (Panel_On["Weapon"]==1){
 	panel_weapon_update(KaTZPit_data)}
 	
 	if (Panel_On["Radio_360"]==1){panel_radio_update(KaTZPit_data)}

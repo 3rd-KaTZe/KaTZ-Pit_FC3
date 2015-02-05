@@ -163,3 +163,45 @@ function Door(){
 		CmdDCSRaw('11701600')}
 
 }
+
+function Start_Eng_L(){
+
+	EngRpm = dataread_split_2(KaTZPit_data["Eng_rpm"])
+		
+	// Si 200RPM, on démarre le moteur et allume le voyant	
+	// Sinon, on arrète le moteur (fonctionnement toggle)
+	if (EngRpm[1] < 200) {
+		KaTZPit_data["VM_Start_L"] = 1
+		$("#VM_Start_L").fadeIn()
+		CmdSioc(311)
+	} 
+
+	else {
+		KaTZPit_data["VM_Start_L"] = 0
+		$("#VM_Start_L").fadeOut()
+		CmdSioc(313)
+	}	
+
+
+}
+
+function Start_Eng_R(){
+
+	
+	EngRpm = dataread_split_2(KaTZPit_data["Eng_rpm"])
+
+	// Si 200RPM, on démarre le moteur et allume le voyant	
+	// Sinon, on arrète le moteur (fonctionnement toggle)
+	if (EngRpm[0] < 200) {
+		KaTZPit_data["VM_Start_R"] = 1
+		$("VM_Start_R").fadeIn()
+		CmdSioc(312)
+	} 
+
+	else {
+		KaTZPit_data["VM_Start_L"] = 0
+		$("#VM_Start_R").fadeOut()
+		CmdSioc(314)
+	}		
+}
+

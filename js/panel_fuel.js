@@ -107,42 +107,6 @@ function Jauge_Fuel(pct_i, pct_e){
 
 }
 
-function Start_Eng_L(){
-
-	// Si 200RPM, on démarre le moteur et allume le voyant	
-	// Sinon, on arrète le moteur (fonctionnement toggle)
-	if (KaTZPit_data["RPM_L"] < 200) {
-		KaTZPit_data["VM_Start_L"] = 1
-		$("#VM_Start_L").fadeIn()
-		CmdSioc(311)
-	} 
-
-	else {
-		KaTZPit_data["VM_Start_L"] = 0
-		$("#VM_Start_L").fadeOut()
-		CmdSioc(313)
-	}	
-
-
-}
-
-function Start_Eng_R(){
-
-	// Si 200RPM, on démarre le moteur et allume le voyant	
-	// Sinon, on arrète le moteur (fonctionnement toggle)
-	if (KaTZPit_data["RPM_R"] < 200) {
-		KaTZPit_data["VM_Start_R"] = 1
-		$("VM_Start_R").fadeIn()
-		CmdSioc(312)
-	} 
-
-	else {
-		KaTZPit_data["VM_Start_L"] = 0
-		$("#VM_Start_R").fadeOut()
-		CmdSioc(314)
-	}		
-}
-
 
 
 
