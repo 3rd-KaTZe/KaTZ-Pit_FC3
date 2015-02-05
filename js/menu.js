@@ -26,14 +26,15 @@ function menu_Toggle(panel){
 	
 	// Affichage des différents panneaux en fonction de leur valeur dans la liste "Panel_On"	
 	
-	if (Panel_On["ILS"] == 0) {
-	document.getElementById("Panel_ILS").style.display = "none"
-	Panel_On["Weapon"] =1
-	}
-	else {
-	Panel_On["Weapon"] =0
-	document.getElementById("Panel_ILS").style.display = "block"}
-	
+	if (Plane_data["ID"] == 15){
+		if (Panel_On["ILS_15"] == 0) {
+		document.getElementById("Panel_ILS_15").style.display = "none"
+		Panel_On["Weapon"] =1
+		}
+		else {
+		Panel_On["Weapon"] =0
+		document.getElementById("Panel_ILS_15").style.display = "block"}
+	}	
 	
 	// Panel Weapon en toggle avec ILS
 	if (Panel_On["Weapon"] == 0) {

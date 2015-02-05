@@ -45,13 +45,17 @@ function pit_main(){
 	if (Plane_data["ID"] == 15) {
 	panel_instrument_flight_F15(KaTZPit_data)
 	panel_instrument_engine_F15(KaTZPit_data)}
+	else {
+	panel_pilototo_update(KaTZPit_data)
+	panel_attitude_update(KaTZPit_data)
+	}
 	// panel_debug_update(KaTZPit_data)
 	
 	// SYSTEM PANEL ------------------------------------------------------
 	
 	// Lancement des subroutines en fonction des panneaux affichés dans le KaKZ_Pit
 		
-	if (Panel_On["ILS"]==1){
+	if (Panel_On["ILS"]==1 || Panel_On["ILS_15"]==1){
 	panel_ils_update(KaTZPit_data)}
 	
 	if (Panel_On["Weapon"]==1){

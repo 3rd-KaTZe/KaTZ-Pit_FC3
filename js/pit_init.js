@@ -8,7 +8,7 @@ function panel_On_init(){
 	console.log("Initialisation des panels affichés")
 
 var Panel_On = { Init:0, Breakers:0, Electric_DC:0, Electric_AC:0, APU:0, Oil:1, Start:0, Rotor:1, Analog_1:0, Analog_2:0, 
-	ARK_9:0, ARK_UD:0, Doppler:0, Radio_360:1, Fuel:0, Vierge:0, Navigation:0, Target:0, Weapon:0, UV26:0, ILS:0,
+	ARK_9:0, ARK_UD:0, Doppler:0, Radio_360:1, Fuel:1, Vierge:0, Navigation:1, Target:1, Weapon:1, UV26:0, ILS:1, ILS_15:0,
 	CheckList:0, FreqList:0,
 	Pilototo:1,Datalink:0, Abris:0}
 
@@ -148,7 +148,7 @@ function weapon_name_type(){
 		4040719:"X3", 4040721:"7M",4040722:"9M", 4040724:"120B",
 		4040713:"X1",4040714:"X1", 
 		4040806:"120C", 4040835:"9P",
-		4040845:"K25L",4040846:"Kh58",4040849:"K29L",4040858:"Vkr",
+		4040845:"K25L",4040846:"Kh58",4040849:"K29L",4040858:"Vkr",4040875:"K29T",
 		4040933:"S25L",
 		4050906:"FB2",4050907:"FB5",4050965:"???",
 		4053703:"Bet",4053704:"Bet",
