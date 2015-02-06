@@ -50,14 +50,20 @@ function panel_instrument_engine_F15(KaTZPit_data){
 		
 		// Consommation moteur, total puis calculé en fonction des rpm moteur
 		// Affichage des RPM sur les tachometres
-		EngRpm = dataread_split_2(KaTZPit_data["Eng_rpm"])
-		var delRpmL = Math.max((EngRpm[1]-500),0)
-		var delRmpR = Math.max((EngRpm[0]-500),0)
-		
-		if (delRpmL + delRmpR == 0) { var pct_L = 0.5 }
-		else {var pct_L = delRpmL / (delRpmL + delRmpR)}
-	
+		EngTmp = dataread_split_2(KaTZPit_data["Eng_temp"])
+		var delL = Math.max((EngTmp[1]-150),0)
+		var delR = Math.max((EngTmp[0]-150),0)
+				
 		var i_Conso = KaTZPit_data["Conso"] / 100 * 2.205 * 60
+		
+		if (delL + delR == 0) { 
+		var pct_L = 0 
+		var i_Conso = 0
+		}
+		
+		else {var pct_L = delL / (delL + delR)}
+		
+		
 		var i_ConsoL = (i_Conso * pct_L)
 		var i_ConsoR = (i_Conso * (1-pct_L))
 				

@@ -20,6 +20,9 @@ function menu_connection_led(flag){
 
 function menu_Toggle(panel){
 	
+	console.log("menu toggle")
+	console.log(panel)
+	
 	// Toggle de la valeur du panel à changer 0>1 et 1>0
 	Panel_On[panel] = (Panel_On[panel]+1) % 2
 	console.log(panel," = ",Panel_On[panel])
@@ -28,12 +31,15 @@ function menu_Toggle(panel){
 	
 	if (Plane_data["ID"] == 15){
 		if (Panel_On["ILS_15"] == 0) {
-		document.getElementById("Panel_ILS_15").style.display = "none"
-		Panel_On["Weapon"] =1
+		console.log("ils15 ==0")
+			document.getElementById("Panel_ILS_15").style.display = "none"
+			Panel_On["Weapon"] =1
 		}
 		else {
+		console.log("ils15 ==1")		
 		Panel_On["Weapon"] =0
-		document.getElementById("Panel_ILS_15").style.display = "block"}
+			document.getElementById("Panel_ILS_15").style.display = "block"
+		}
 	}	
 	
 	// Panel Weapon en toggle avec ILS

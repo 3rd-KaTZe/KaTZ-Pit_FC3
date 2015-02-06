@@ -114,6 +114,8 @@ function Pit_Start(plane){
 	// Initialisation de la Radio
 	panel_radio_init(KaTZPit_data)
 
+	menu_Toggle("Init")
+
 	// Affichage Initial
 	pit_main()
 	//paneldata_update(KaTZPit_data)

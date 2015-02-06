@@ -8,7 +8,7 @@
 function instrument_AoA_F15(angle){
 
 	var a_origine = -100
-	var a_gain = -7.5
+	var a_gain = -2.72  //-7.5 par rapport à valeur exporté ?? valeur exporté est zarbi ??
 	
 	$("#AIG_AoA").css({
 		'-moz-transform':'rotate('+(a_origine+a_gain*angle)+'deg)',
@@ -105,17 +105,7 @@ function instrument_AltiBaro_F15(alti){
 	})
 }
 
-function instrument_AoA_F15(angle){
 
-	var a_origine = -100
-	var a_gain = -7.5
-	
-	$("#AIG_AoA").css({
-		'-moz-transform':'rotate('+(a_origine+a_gain*angle)+'deg)',
-		'-webkit-transform':'rotate('+(a_origine+a_gain*angle)+'deg)',
-		'-ms-transform':'rotate('+(a_origine+a_gain*angle)+'deg)',
-	})
-}
 
 function instrument_EngTemp_F15(left,right){
 	var t_origine = 20
