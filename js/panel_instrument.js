@@ -74,6 +74,34 @@ function panel_instrument_engine_F15(KaTZPit_data){
 
 }
 
+function panel_instrument_flight_SU25(KaTZPit_data){
+	
+		// Animation des jauges instrument de vol du F15-------------------------------------------------------------
+		console.log("Mise à jour des instruements du panel")
+		
+		// Badin et Vario
+
+		var iTas = Math.max(KaTZPit_data["TAS"]/10,40)
+		
+		instrument_IAS_SU25(KaTZPit_data["IAS"]/10,iTas)
+		instrument_AltiBaro_SU25(KaTZPit_data["QNH"])
+		// IAS en 1000 , puis en dessous le chiffre total
+		document.getElementById('A1000').innerHTML = Math.floor(KaTZPit_data["QNH"] / 1000)
+		document.getElementById('A100').innerHTML = (KaTZPit_data["QNH"]).toFixed(0)
+		// Flag pour les 10000
+		//if ((KaTZPit_data["QNH"] * 3.281 / 1000) < 10) {$("#AFlag").fadeIn()} else {$("#AFlag").fadeOut()}
+		
+		
+		
+		// Altimetre Baro , 2 aiguilles  -------------------------------------------------------------
+		
+		
+		// Rotation HSI   dans Navigation Panel Update -------------------------------------------------------------------
+			
+		
+		
+}
+
 
 
 

@@ -39,13 +39,19 @@ function pit_main(){
 	panel_fuel_update(KaTZPit_data)
 	panel_navigation_update(KaTZPit_data)
 	panel_gear_update(KaTZPit_data)
-	panel_detection_update(KaTZPit_data)
+	// panel_detection_update(KaTZPit_data)
 	panel_target_update(KaTZPit_data)
 	
 	if (Plane_data["ID"] == 15) {
 	panel_instrument_flight_F15(KaTZPit_data)
-	panel_instrument_engine_F15(KaTZPit_data)}
-	else {
+	panel_instrument_engine_F15(KaTZPit_data)
+	
+	} else if (Plane_data["ID"] == 25) {
+	panel_instrument_flight_SU25(KaTZPit_data)
+	panel_pilototo_update(KaTZPit_data)
+	panel_attitude_update(KaTZPit_data)
+	
+	} else {
 	panel_pilototo_update(KaTZPit_data)
 	panel_attitude_update(KaTZPit_data)
 	}

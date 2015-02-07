@@ -12,8 +12,13 @@ function panel_gear_update(KaTZPit_data){
 		// Levier de train
 		if (dataread_posit(KaTZPit_data["Train"],2) == 1) {$("#VG_Lever").attr("src","images/gear/gear-lever_dn.png")} 
 		else {$("#VG_Lever").attr("src","images/gear/gear-lever_up.png")}
+	} 
+	else if (Plane_data["ID"] == 25){
+		// Levier de train
+		if (dataread_posit(KaTZPit_data["Train"],2) == 1) {$("#G_Lever").attr("src","images/gear/gear-lever-25_dn.png")} 
+		else {$("#G_Lever").attr("src","images/gear/gear-lever-25_up.png")}
 	}
-	else
+	
 	{
 		// Voyants d'AF
 		if (dataread_posit(KaTZPit_data["AF_Pos"],1) == 0) {
@@ -26,7 +31,7 @@ function panel_gear_update(KaTZPit_data){
 		}
 		
 		// Voyants de Flaps
-		if (dataread_posit(KaTZPit_data["Flaps_Pos"],1) == 0) {
+		if (dataread_posit(KaTZPit_data["Flaps_Pos"],2) == 0) {
 			$("#VG_Flaps_L").fadeOut()
 			$("#VG_Flaps_R").fadeOut()
 		} 

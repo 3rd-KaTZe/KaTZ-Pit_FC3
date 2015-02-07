@@ -141,4 +141,36 @@ function instrument_EngFF_F15(left,right){
 	})
 }
 
+function instrument_AltiBaro_SU25(alti){
+
+	var a_origine = 0
+	var a_gain = 0.36
+	
+	$("#AIG_AltiBaro").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+	})
+}
+
+function instrument_IAS_SU25(ias,tas){
+	var i_origine = 0
+	var i_gain = 3.6
+	
+	var t_origine = -190
+	var t_gain = -4.75
+	
+	$("#AIG_IAS25").css({
+		'-moz-transform':'rotate('+(i_origine+i_gain*ias)+'deg)',
+		'-webkit-transform':'rotate('+(i_origine+i_gain*ias)+'deg)',
+		'-ms-transform':'rotate('+(i_origine+i_gain*ias)+'deg)',
+	})
+	
+	$("#AIG_Mach25").css({
+		'-moz-transform':'rotate('+(t_origine+t_gain*tas)+'deg)',
+		'-webkit-transform':'rotate('+(t_origine+t_gain*tas)+'deg)',
+		'-ms-transform':'rotate('+(t_origine+t_gain*tas)+'deg)',
+	})
+}
+
 	
