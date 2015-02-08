@@ -1,5 +1,5 @@
 /*  ----------------------------------------  */
-/* Feuille de style KaTZ-Pit Mig-29           */
+/* Feuille de style KaTZ-Pit  SU-25T          */
 /* Définir dans BODY, le motif d'arrière plan */
 /* Définir pour chaque Panel :                */ 
 /*  - La position sur la feuille              */
@@ -17,9 +17,9 @@ html{
 
 
 body {
-	background-color: #FF0033; 
-	background-image: url(Z_Carbon4.gif);
-		/*margin: 5px 5px 5px 5px;*/
+	/*background-color: #7BA09E; */
+	background-image: url(texture_fond-29.png);
+	/*margin: 5px 5px 5px 5px; */
 	
 	font-family: arial, sans-serif;
 	font-size: 100%;
@@ -33,8 +33,7 @@ p {
 	color:white;
 	background-color:transparent;
 	text-align: left;
-	margin-left:5px;
-	margin-right:5px;
+
 }
 
 /* Jauge Moteur                                              */
@@ -43,7 +42,7 @@ p {
 
 #Panel_Connection_Emergency {
 	position: absolute;
-	top: 0px;
+	top: 40px;
 	left: 0px;
 	
 	font-family:arial, sans-serif;
@@ -58,7 +57,7 @@ p {
 
 	position: absolute;
 	top: 00px;
-	left: 1550px;
+	left: 1700px;
 	/* Dimension 100 x 775			              */
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -70,8 +69,8 @@ p {
 
 #Panel_Light {
 	position: absolute;
-	top: 0px;
-	left: 100px;
+	top: 20px;
+	left: 110px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -83,8 +82,8 @@ p {
 
 #Panel_Attitude {
 	position: absolute;
-	top: 60px;
-	left: 100px;
+	top: 80px;
+	left: 110px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -94,10 +93,38 @@ p {
 
 }
 
+#Cadran_IAS {
+	position: absolute;
+	top: 290px;
+	left: 250px;
+	/* Dimension 200 x 200			              */
+}
+
+#Cadran_Alti {
+	position: absolute;
+	top: 510px;
+	left: 250px;
+	/* Dimension 200 x 200			              */
+}
+
+#Cadran_Vario {
+	position: absolute;
+	top: 290px;
+	left: 1050px;
+	/* Dimension 400 x 400			              */
+}
+
+#Cadran_Mach {
+	position: absolute;
+	top: 510px;
+	left: 1050px;
+	/* Dimension 400 x 400			              */
+}
+
 #Panel_Motor {
 	position: absolute;
-	top: 260px;
-	left: 100px;
+	top: 40px;
+	left: 1310px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -109,8 +136,8 @@ p {
 
 #Panel_Fuel {
 	position: absolute;
-	top: 600px;
-	left: 100px;
+	top: 390px;
+	left: 1310px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -123,7 +150,7 @@ p {
 #Panel_Pilototo {
 	position: absolute;
 	top: 0px;
-	left: 480px;
+	left: 490px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -136,7 +163,7 @@ p {
 #Panel_Navigation {
 	position: absolute;
 	top: 100px;
-	left: 480px;
+	left: 490px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -148,8 +175,8 @@ p {
 
 #Panel_Weapon {
 	position: absolute;
-	top: 600px;
-	left: 480px;
+	top: 610px;
+	left: 500px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -161,21 +188,21 @@ p {
 
 #Panel_Gear {
 	position: absolute;
-	top: 0px;
-	left: 980px;
-	
-	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
-	background-color:transparent;
-	text-align: right; 
+	top: 730px;
+	left: 110px;
 
+}
+
+#Panel_Gear_2 {
+	position: absolute;
+	top: 400px;
+	left: 110px;
 }
 
 #Panel_ILS {
 	position: absolute;
-	top: 160px;
-	left: 980px;
+	top: 20px;
+	left: 990px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -185,23 +212,11 @@ p {
 
 }
 
-#Panel_Detection {
-	position: absolute;
-	top: 620px;
-	left: 980px;
-	
-	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
-	background-color:transparent;
-	text-align: right; 
-
-}
 
 #Panel_Target {
 	position: absolute;
-	top: 0px;
-	left: 1300px;
+	top: 050px;
+	left: 1810px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -213,8 +228,8 @@ p {
 
 #Panel_Radio {
 	position: absolute;
-	top: 410px;
-	left: 980px;
+	top: 0580px;
+	left: 1340px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -226,8 +241,8 @@ p {
 
 #Frequency_List {
 	position: absolute;
-	top: 10px;
-	left: 1660px;
+	top: 250px;
+	left: 1810px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
