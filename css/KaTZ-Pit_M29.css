@@ -1,0 +1,210 @@
+/*  ----------------------------------------  */
+/* Feuille de style KaTZ-Pit  SU-25T          */
+/* Définir dans BODY, le motif d'arrière plan */
+/* Définir pour chaque Panel :                */ 
+/*  - La position sur la feuille              */
+/*  - Le formatage des affichage numériques : */
+/*     # Font                                 */
+/*     # Couleur                              */
+/*     # Alignement ...                       */
+/*  ----------------------------------------  */
+
+
+
+html{
+	font-size: 100%;
+}
+
+
+body {
+	/*background-color: #7BA09E; */
+	background-image: url(texture_fond-29.png);
+	/*margin: 5px 5px 5px 5px; */
+
+}
+
+p {
+	background-color:transparent;
+}
+
+/* Jauge Moteur                                              */
+/* Pour changer position, ajuster top: et left:              */
+/* Pour changer l'affichage des rpm, ajuster font, color ... */
+
+#Panel_Connection_Emergency {
+	position: absolute;
+	top: 100px;
+	left: 0px;
+	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
+#Panel_Launcher {
+
+	position: absolute;
+	top: 00px;
+	left: 1705px;
+	/* Dimension 100 x 775			              */
+}
+
+#Panel_Light {
+	position: absolute;
+	top: 35px;
+	left: 105px;
+}
+
+#Panel_Attitude {
+	position: absolute;
+	top: 100px;
+	left: 105px;
+
+	font-family:arial, sans-serif;
+	text-align: center; 
+}
+
+#Cadran_IAS {
+	position: absolute;
+	top: 310px;
+	left: 250px;
+	font-family:arial, sans-serif;
+	/* Dimension 200 x 200			              */
+}
+
+#Cadran_Alti {
+	position: absolute;
+	top: 530px;
+	left: 250px;
+	/* Dimension 200 x 200			              */
+}
+
+
+
+#Panel_Pilototo {
+	position: absolute;
+	top: 0px;
+	left: 490px;
+}
+
+#Panel_Navigation {
+	position: absolute;
+	top: 100px;
+	left: 490px;
+	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
+#Panel_Weapon {
+	position: absolute;
+	top: 610px;
+	left: 490px;
+	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
+#Panel_Gear {
+	position: absolute;
+	top: 750px;
+	left: 110px;
+
+}
+
+#Panel_Gear_2 {
+	position: absolute;
+	top: 400px;
+	left: 110px;
+}
+
+#Panel_ILS {
+	position: absolute;
+	top: 55px;
+	left: 995px;
+	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
+#Cadran_Vario {
+	position: absolute;
+	top: 310px;
+	left: 1050px;
+	/* Dimension 400 x 400			              */
+}
+
+#Cadran_Mach {
+	position: absolute;
+	top: 530px;
+	left: 1050px;
+	/* Dimension 400 x 400			              */
+}
+
+
+
+#Panel_Motor {
+	position: absolute;
+	top: 100px;
+	left: 1320px;
+
+
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+}
+
+#Panel_Fuel {
+	position: absolute;
+	top: 450px;
+	left: 1320px;
+
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+}
+
+
+#Panel_Target {
+	position: absolute;
+	top: 050px;
+	left: 1810px;
+
+	font-family:arial, sans-serif;
+	text-align: center; 
+}
+
+#Panel_Radio {
+	position: absolute;
+	top: 0640px;
+	left: 1360px;
+
+	font-family:arial, sans-serif;
+	text-align: center; 
+}
+
+#Frequency_List {
+	position: absolute;
+	top: 250px;
+	left: 1810px;
+}
+

@@ -1,0 +1,224 @@
+/*  ----------------------------------------  */
+/* Feuille de style KaTZ-Pit Mig-29           */
+/* Définir dans BODY, le motif d'arrière plan */
+/* Définir pour chaque Panel :                */ 
+/*  - La position sur la feuille              */
+/*  - Le formatage des affichage numériques : */
+/*     # Font                                 */
+/*     # Couleur                              */
+/*     # Alignement ...                       */
+/*  ----------------------------------------  */
+
+
+
+html{
+	font-size: 100%;
+}
+
+
+body {
+	background-color: #80848D; 
+	/* 4F4F50 ou 222222 */
+	background-image: url(texture_fond.png);
+	margin: 5px 5px 5px 5px;
+}
+
+p {
+	margin-left:5px;
+	margin-right:5px;
+}
+
+/* Jauge Moteur                                              */
+/* Pour changer position, ajuster top: et left:              */
+/* Pour changer l'affichage des rpm, ajuster font, color ... */
+
+#Panel_Connection_Emergency {
+	position: absolute;
+	top: 40px;
+	left: 10px;
+	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
+#Panel_Launcher {
+
+	position: absolute;
+	top: 10px;
+	left: 1700px;
+	/* Dimension 100 x 775			              */
+	}
+
+#Cadran_Mach {
+	position: absolute;
+	top: 35px;
+	left: 130px;
+	/* Dimension 200 x 200			              */
+}
+
+#Cadran_AoA {
+	position: absolute;
+	top: 350px;
+	left: 150px;
+	/* Dimension 200 x 200			              */
+}
+
+#Cadran_G {
+	position: absolute;
+	top: 600px;
+	left: 150px;
+	/* Dimension 200 x 200			              */
+}
+
+#Cadran_Alti {
+	position: absolute;
+	top: 35px;
+	left: 975px;
+	/* Dimension 400 x 400			              */
+}
+
+
+
+#Cadran_Vario {
+	position: absolute;
+	top: 350px;
+	left: 1000px;
+	/* Dimension 400 x 400			              */
+}
+
+#Cadran_AirSpeed {
+	position: absolute;
+	top: 250px;
+	left: 450px;
+	/* Dimension 400 x 400			              */
+}
+
+#Panel_Light {
+	position: absolute;
+	top: 10px;
+	left: 450px;
+}
+
+#Panel_Attitude {
+	position: absolute;
+	top: 60px;
+	left: 2500px;
+}
+
+#Panel_Motor {
+	position: absolute;
+	top: 10px;
+	left: 1300px;
+}
+
+#Panel_Motor-2 {
+	position: absolute;
+	top: 330px;
+	left: 1300px;
+}
+
+#Panel_Fuel {
+	position: absolute;
+	top: 730px;
+	left: 1300px;
+	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
+#Panel_Pilototo {
+	position: absolute;
+	top: 0px;
+	left: 2480px;
+}
+
+#Panel_Navigation {
+	position: absolute;
+	top: 80px;
+	left: 450px;
+	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
+#Panel_Weapon {
+	position: absolute;
+	top: 600px;
+	left: 450px;
+	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
+#Panel_Gear {
+	position: absolute;
+	top: 870px;
+	left: 10px;
+}
+
+#Panel_ILS_15 {
+	position: absolute;
+	top: 660px;
+	left: 970px;
+	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
+#Panel_Detection {
+	position: absolute;
+	top: 620px;
+	left: 2500px;
+}
+
+#Panel_Target {
+	position: absolute;
+	top: 250px;
+	left: 1810px;
+	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
+#Panel_Radio {
+	position: absolute;
+	top: 010px;
+	left: 1810px;
+	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
+#Frequency_List {
+	position: absolute;
+	top: 250px;
+	left: 1810px;
+}
