@@ -167,7 +167,7 @@
 	</SPAN>
 
 	<!-- Indication Valeur Data Roulis -->
-	<SPAN style="position: absolute; left: 280px; top: 160px; width: 30px; height: 22px ; color:white ; text-align:center; font-size:1.2em" id="Bank_val"> </SPAN>
+	<SPAN style="position: absolute; left: 275px; top: 160px; width: 30px; height: 22px ; color:white ; text-align:center; font-size:1.2em" id="Bank_val"> </SPAN>
 	
 
 </div>
@@ -457,13 +457,14 @@
 	<img src="images/navigation/N_HSI_Rosace.gif" width="201" height="201" border="0" id="AN_Rosace">
 	</SPAN>
 
-	<SPAN style="position: absolute; left: 150px; top: 108px; width: 201px; height: 201px">
-	<img src="images/navigation/N_HSI_Way.gif" width="201" height="201" border="0" id="AN_Way">
+	<SPAN style="position: absolute; left: 150px; top: 108px; width: 200px; height: 200px">
+	<img src="images/navigation/N_HSI_Way.png" width="200" height="200" border="0" id="AN_Way">
 	</SPAN>
 
-	<SPAN style="position: absolute; left: 150px; top: 108px; width: 201px; height: 201px">
-	<img src="images/navigation/N_HSI_Route.gif" width="201" height="201" border="0" id="AN_Route">
+	<SPAN style="position: absolute; left: 150px; top: 108px; width: 200px; height: 200px">
+	<img src="images/navigation/N_HSI_Route.png" width="200" height="200" border="0" id="AN_Route">
 	</SPAN>
+
 
 	<SPAN style="position: absolute; left: 150px; top: 108px; width: 201px; height: 201px">
 	<img src="images/navigation/N_HSI_TgT.gif" width="201" height="201" border="0" id="AN_TgT">
@@ -633,7 +634,13 @@
 
 	<!-- Levier Train -->
 	<SPAN style="position: absolute; left: 0px; top: 0px; width: 100px; height: 225px">
-	<img src="images/gear/gear-lever-25_dn.png" width="150" height="225" id="G_Lever">
+	<img src="images/gear/gear-lever-25_dn.png" width="150" height="225" id="G_Lever" usemap="#Gear_Cmd"> 
+
+	<!-- Mapping des boutons d'Alarme (144), Verrière (71), Parachute(76), Demmarage KaTZ-Pit-->
+	<map name="Gear_Cmd">
+		<area shape="rect" coords="0,0,150,225" href="javascript:CmdSioc(68)">
+	</map>
+	
 	</SPAN> 
 	
 </div>

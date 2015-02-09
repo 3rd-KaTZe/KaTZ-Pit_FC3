@@ -22,8 +22,8 @@ function paneldata_init(){
 
 	var KaTZPit_data = {Error:0, Ping:0, Ping_old:0, Ordre1:0, Ordre2:0, PingBack:0, Plane_Id:50, Test_val:0,
 		Clock:0, TimeMis:0, TimeFly:0, Shoot_time:99, Chrono:0,
-		IAS:0, TAS:8888, QNH:0, QFE:0, AltiRad_DX:50005000, AltiRad_FI:555, Mach:"---", Vario:0, Vari_unit:1,
-		AoA:0, Acc_G:0, Acc_Gmax:0, Acc_Gmin:0, 
+		IAS:0, TAS:8888, QNH:0, QFE:0, AltiRad_DX:50005000, AltiRad_FI:555, Mach:0, Vario:0, Vari_unit:1,
+		AoA:0, Acc_G:0, Acc_Gmax:0, Acc_Gmin:0, Bille:0,
 		Pitch:0, Bank:00, Yaw:0, ADI_FI:50005000, 
 		Way:90, Route:360, Cap:0, WP_dist:0, WP_num:88, Bullseye:0, EUP:50005000,
 		Eng_rpm:50005000, Eng_temp:50005000, Eng_conso:50005000, Power_L:0, Power_R:0, Power_X:0, COff:0,
@@ -52,7 +52,7 @@ function paneldata_init(){
 		TGT1_deg:360, TGT1_km:888, TGT2_deg:360, TGT2_km:888, TGT3_deg:360, TGT3_km:888, TGT_keyin:"", TGT_select:1,
 		T1_km:0, T1_deg:0, T2_km:0, T2_deg:0, T3_km:0, T3_deg:0, WPR1:1, WPR2:1, WPR3:1,
 		Freq_main:310, Freq_sub:100, Radiotype:1,
-		Chan_1_main:310, Chan_2_main:320, Chan_3_main:330, Chan_4_main:340, Chan_1_dec:100, Chan_2_dec:200, Chan_3_dec:300, Chan_4_dec:400,
+		Chan_1_main:310, Chan_2_main:320, Chan_3_main:330, Chan_4_main:340, Chan_1_dec:100, Chan_2_dec:200, Chan_3_dec:300, Chan_4_dec:400, TS_Chan:000,
 		Active_main:310, Active_sub:100, Active_chan:1,	VT_M1:0, VT_M2:0, VT_M3:0,
 		}
 	

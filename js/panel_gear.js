@@ -19,6 +19,12 @@ function panel_gear_update(KaTZPit_data){
 		else {$("#G_Lever").attr("src","images/gear/gear-lever-25_up.png")}
 	}
 	
+	else if (Plane_data["ID"] == 29){
+		// Levier de train
+		if (dataread_posit(KaTZPit_data["Train"],2) == 1) {$("#G_Lever").attr("src","images/gear/gear-lever-29_dn.png")} 
+		else {$("#G_Lever").attr("src","images/gear/gear-lever-29_up.png")}
+	}
+	
 	{
 		// Voyants d'AF
 		if (dataread_posit(KaTZPit_data["AF_Pos"],1) == 0) {

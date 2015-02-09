@@ -9,8 +9,11 @@ function panel_navigation_update(KaTZPit_data){
 	// *****************************************************************************
 	
 	// Time pour le WP(sec) = Distance (km) / TAS (km/h) * 3600 (sec/hr)
-	// Plafonné à 99mn59sec quand TAS=0, pour éviter division par zero TAS augmenté de 0.1
-	i_TAS = KaTZPit_data["TAS"] + 0.1
+	// Plafonné à 99mn59sec quand TAS=0, pour éviter division par zero TAS et Conso augmentés de 0.1
+	var i_TAS = KaTZPit_data["TAS"] + 0.1
+	var i_Conso = KaTZPit_data["Conso"] / 100 + 1
+	var i_Fuel_tot = (KaTZPit_data["Fuel_1"] + KaTZPit_data["Fuel_2"])/100
+	
 	i_time2wp = Math.min(KaTZPit_data["WP_dist"] / i_TAS * 3600, 5999)
 	// ETA au WP (sec) = Heure actuelle (Clock) + Time2WP
 	i_eta2wp = KaTZPit_data["Clock"] + i_time2wp
@@ -21,8 +24,9 @@ function panel_navigation_update(KaTZPit_data){
 	// Calcul de la TAS_Eco en fonction de l'altitude QNH
 	KaTZPit_data["TAS_Opt"]= Plane_data["TAS_eco"] + Plane_data["TAS_alt"] * KaTZPit_data["QNH"] / 1000
 	// Calcul Fuel2WP (time2wp(sec) * conso (kg/mn) / 60 (sec/mn))
-	i_fuel2wp = Math.min(i_time2wp * KaTZPit_data["Conso"] / 60,9999)
-	i_playtime = Math.min(((KaTZPit_data["Fuel_e"] + KaTZPit_data["Fuel_i"])- i_fuel2wp)/KaTZPit_data["Conso"],5999)
+	i_fuel2wp = Math.min(i_time2wp * i_Conso / 60,9999)
+	i_playtime = Math.min((i_Fuel_tot - i_fuel2wp)/i_Conso,999)
+	
 	
 	// *****************************************************************************
 	// Affichage -------------------------------------------------------------------

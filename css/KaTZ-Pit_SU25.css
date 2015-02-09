@@ -20,20 +20,10 @@ body {
 	/*background-color: #7BA09E; */
 	background-image: url(texture_fond_25T.png);
 	/*margin: 5px 5px 5px 5px; */
-	
-	font-family: arial, sans-serif;
-	font-size: 100%;
-	color: #FFFF33;
-	text-align: left;
 }
 
 p {
-	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
 	background-color:transparent;
-	text-align: left;
-
 }
 
 /* Jauge Moteur                                              */
@@ -42,9 +32,111 @@ p {
 
 #Panel_Connection_Emergency {
 	position: absolute;
-	top: 0px;
+	top: 70px;
 	left: 0px;
 	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
+
+#Panel_Light {
+	position: absolute;
+	top: 30px;
+	left: 110px;
+}
+
+#Panel_Attitude {
+	position: absolute;
+	top: 95px;
+	left: 110px;
+	
+	font-family:arial, sans-serif;
+	text-align: center; 
+}
+
+#Cadran_IAS {
+	position: absolute;
+	top: 310px;
+	left: 250px;
+	/* Dimension 200 x 200			              */
+}
+
+#Cadran_Alti {
+	position: absolute;
+	top: 530px;
+	left: 250px;
+	/* Dimension 200 x 200			              */
+	font-family:arial, sans-serif;
+}
+
+#Panel_Gear {
+	position: absolute;
+	top: 750px;
+	left: 110px;
+
+}
+
+#Panel_Gear_2 {
+	position: absolute;
+	top: 400px;
+	left: 110px;
+}
+
+
+#Panel_Pilototo {
+	position: absolute;
+	top: 0px;
+	left: 500px;
+}
+
+#Panel_Navigation {
+	position: absolute;
+	top: 95px;
+	left: 500px;
+	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
+#Panel_Weapon {
+	position: absolute;
+	top: 605px;
+	left: 500px;
+	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
+#Panel_Motor {
+	position: absolute;
+	top: 75px;
+	left: 1010px;
+		
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+}
+
+#Panel_Fuel {
+	position: absolute;
+	top: 420px;
+	left: 1010px;
+		
 	font-family:arial, sans-serif;
 	font-size:100%;
 	color:white;
@@ -59,130 +151,25 @@ p {
 	top: 00px;
 	left: 1400px;
 	/* Dimension 100 x 775			              */
+}
+
+
+#Panel_Radio {
+	position: absolute;
+	top: 0010px;
+	left: 1510px;
+	
 	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
-	background-color:transparent;
 	text-align: center; 
-
 }
 
-#Panel_Light {
+#Panel_Target {
 	position: absolute;
-	top: 0px;
-	left: 110px;
+	top: 250px;
+	left: 1510px;
 	
 	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
-	background-color:transparent;
-	text-align: right; 
-
-}
-
-#Panel_Attitude {
-	position: absolute;
-	top: 70px;
-	left: 110px;
-	
-	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
-	background-color:transparent;
-	text-align: right; 
-
-}
-
-#Cadran_IAS {
-	position: absolute;
-	top: 280px;
-	left: 250px;
-	/* Dimension 200 x 200			              */
-}
-
-#Cadran_Alti {
-	position: absolute;
-	top: 500px;
-	left: 250px;
-	/* Dimension 200 x 200			              */
-}
-
-#Panel_Motor {
-	position: absolute;
-	top: 00px;
-	left: 1010px;
-	
-	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
-	background-color:transparent;
-	text-align: right; 
-
-}
-
-#Panel_Fuel {
-	position: absolute;
-	top: 350px;
-	left: 1010px;
-	
-	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
-	background-color:transparent;
-	text-align: right; 
-
-}
-
-#Panel_Pilototo {
-	position: absolute;
-	top: 0px;
-	left: 500px;
-	
-	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
-	background-color:transparent;
-	text-align: right; 
-
-}
-
-#Panel_Navigation {
-	position: absolute;
-	top: 100px;
-	left: 500px;
-	
-	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
-	background-color:transparent;
-	text-align: right; 
-
-}
-
-#Panel_Weapon {
-	position: absolute;
-	top: 610px;
-	left: 500px;
-	
-	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
-	background-color:transparent;
-	text-align: right; 
-
-}
-
-#Panel_Gear {
-	position: absolute;
-	top: 720px;
-	left: 110px;
-
-}
-
-#Panel_Gear_2 {
-	position: absolute;
-	top: 400px;
-	left: 110px;
+	text-align: center; 
 }
 
 #Panel_ILS {
@@ -198,42 +185,8 @@ p {
 
 }
 
-
-#Panel_Target {
-	position: absolute;
-	top: 250px;
-	left: 1510px;
-	
-	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
-	background-color:transparent;
-	text-align: right; 
-
-}
-
-#Panel_Radio {
-	position: absolute;
-	top: 0010px;
-	left: 1510px;
-	
-	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
-	background-color:transparent;
-	text-align: right; 
-
-}
-
 #Frequency_List {
 	position: absolute;
 	top: 250px;
 	left: 1510px;
-	
-	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
-	background-color:transparent;
-	text-align: right; 
-
 }

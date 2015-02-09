@@ -44,7 +44,7 @@ function panel_fuel_update(KaTZPit_data){
 		document.getElementById('Fuel_t').innerHTML = i_Fuel_tot.toFixed(0)
 		document.getElementById('Conso').innerHTML = i_Conso.toFixed(0)
 		
-		document.getElementById('Range_tac').innerHTML = (i_Autono_mn * KaTZPit_data["TAS"] / 60 ).toFixed(0)	
+		document.getElementById('Range_tac').innerHTML = Math.min((i_Autono_mn * KaTZPit_data["TAS"] / 60 ).toFixed(0),9999)	
 		document.getElementById('Range_opttac').innerHTML = i_Range_eco.toFixed(0)
 		}
 	

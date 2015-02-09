@@ -22,15 +22,6 @@ function panel_instrument_flight_F15(KaTZPit_data){
 		// Flag pour les 10000
 		if ((KaTZPit_data["QNH"] * 3.281 / 1000) < 10) {$("#AFlag").fadeIn()} else {$("#AFlag").fadeOut()}
 		
-		
-		
-		// Altimetre Baro , 2 aiguilles  -------------------------------------------------------------
-		
-		
-		// Rotation HSI   dans Navigation Panel Update -------------------------------------------------------------------
-			
-		
-		
 }
 
 		
@@ -76,30 +67,39 @@ function panel_instrument_engine_F15(KaTZPit_data){
 
 function panel_instrument_flight_SU25(KaTZPit_data){
 	
-		// Animation des jauges instrument de vol du F15-------------------------------------------------------------
-		console.log("Mise à jour des instruements du panel")
+		// Animation des jauges instrument de vol du SU25-------------------------------------------------------------
 		
 		// Badin et Vario
-
-		var iTas = Math.max(KaTZPit_data["TAS"]/10,40)
+		var iTas = Math.max(KaTZPit_data["TAS"],400)
 		
-		instrument_IAS_SU25(KaTZPit_data["IAS"]/10,iTas)
+		instrument_IAS_SU25(KaTZPit_data["IAS"],iTas)
 		instrument_AltiBaro_SU25(KaTZPit_data["QNH"])
 		// IAS en 1000 , puis en dessous le chiffre total
 		document.getElementById('A1000').innerHTML = Math.floor(KaTZPit_data["QNH"] / 1000)
 		document.getElementById('A100').innerHTML = (KaTZPit_data["QNH"]).toFixed(0)
-		// Flag pour les 10000
-		//if ((KaTZPit_data["QNH"] * 3.281 / 1000) < 10) {$("#AFlag").fadeIn()} else {$("#AFlag").fadeOut()}
+	
+}
+
+function panel_instrument_flight_Mig29(KaTZPit_data){
+	
+		// Animation des jauges instrument de vol du Mig29-------------------------------------------------------------
 		
+		// Badin 
+		instrument_IAS_M29(KaTZPit_data["IAS"])
+		document.getElementById('IAS1000').innerHTML = Math.floor(KaTZPit_data["IAS"] / 1000)
+
 		
+		// Altimetre
+		instrument_AltiBaro_M29(KaTZPit_data["QNH"])
 		
-		// Altimetre Baro , 2 aiguilles  -------------------------------------------------------------
+		// Machmetre
+		instrument_Mach_M29(KaTZPit_data["Mach"])
 		
-		
-		// Rotation HSI   dans Navigation Panel Update -------------------------------------------------------------------
-			
-		
-		
+		// Bille/Yaw/Vario
+		instrument_Vario_M29(KaTZPit_data["Vario"],KaTZPit_data["Yaw"]/100, KaTZPit_data["Bille"])
+
+
+	
 }
 
 

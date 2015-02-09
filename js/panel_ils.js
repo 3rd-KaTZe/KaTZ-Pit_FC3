@@ -51,7 +51,7 @@ function panel_ils_update(KaTZPit_data){
 	
 	// Gestion des voyants ----------------------------------------------------------------------
 	// Voyants de l'ILS
-	if (KaTZPit_data["AoA"] < 10) {$("#VI_AoA").fadeIn()} else {$("#VI_AoA").fadeOut()}
+	if (KaTZPit_data["AoA"] < 100) {$("#VI_AoA").fadeIn()} else {$("#VI_AoA").fadeOut()}
 	if (KaTZPit_data["IAS"] < 350 && KaTZPit_data["IAS"] > 250) {$("#VI_IAS").fadeIn()} else {$("#VI_IAS").fadeOut()}
 	if (KaTZPit_data["Vario"] < 0 && KaTZPit_data["Vario"] > -10) {$("#VI_Vario").fadeIn()} else {$("#VI_Vario").fadeOut()}
 	if (KaTZPit_data["QFE"] < 200) {$("#VI_QFE").fadeIn()} else {$("#VI_QFE").fadeOut()}
