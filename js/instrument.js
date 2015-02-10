@@ -269,5 +269,188 @@ function instrument_Vario_M29(vari,yaw,bille){
 
 }
 
+function instrument_GAoA_SU33(val,min,max,AoA){
+	var a_origine = 127
+	var a_gain = -10
+	
+	$("#AA_G").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*val)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*val)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*val)+'deg)',
+	})
+
+	$("#AA_Gmin").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*min)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*min)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*min)+'deg)',
+	})
+
+	$("#AA_Gmax").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*max)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*max)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*max)+'deg)',
+	})
+	
+	var ao_origine = 218
+	var ao_gain = 3.4
+	
+	$("#AA_AoA").css({
+		'-moz-transform':'rotate('+(ao_origine+ao_gain*AoA)+'deg)',
+		'-webkit-transform':'rotate('+(ao_origine+ao_gain*AoA)+'deg)',
+		'-ms-transform':'rotate('+(ao_origine+ao_gain*AoA)+'deg)',
+	})
+}
+
+function instrument_IAS_SU33(ias,alti){
+	var i_origine = 0
+	var i_gain = 0.1
+	var i_ias = ias 
+
+	if (ias>100) {i_gain = 0.33 ; i_origine = 10 ; i_ias = ias - 100}
+	if (ias>500) {i_gain = 0.27 ; i_origine = 143 ; i_ias = ias - 500}
+	if (ias>600) {i_gain = 0.2 ; i_origine = 170 ; i_ias = ias - 600}
+	if (ias>1000) {i_gain = 0.15 ; i_origine = 250 ; i_ias = ias - 1000}
+	if (ias>1400) {i_gain = 0.12 ; i_origine = 295 ; i_ias = ias - 1400}
+	
+
+	$("#AIG_IAS33").css({
+		'-moz-transform':'rotate('+(i_origine+i_gain*i_ias)+'deg)',
+		'-webkit-transform':'rotate('+(i_origine+i_gain*i_ias)+'deg)',
+		'-ms-transform':'rotate('+(i_origine+i_gain*i_ias)+'deg)',
+	})
+
+	// Pour compenser la correction Mach vs Altitude
+	// On fait tourner la couronne des mach de -20° pour 10000m
+	// Soit un Mach qui passe de 1222km/hr à 1092km/hr
+	
+	var a_origine = 0
+	var a_gain = -0.0022
+	
+	$("#AIG_Mach33").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+	})
+
+}
+
+
+
+function instrument_AltiRad_SU33(altirad){
+	var i_origine = 0
+	var i_gain = 1.1
+	
+	var i_alti = altirad 
+
+	if (altirad>150) {i_gain = 0.54 ; i_origine = 165 ; i_alti = altirad - 150}
+	if (altirad>200) {i_gain = 0.4 ; i_origine = 192 ; i_alti = altirad - 200}
+	if (altirad>250) {i_gain = 0.32 ; i_origine = 212 ; i_alti = altirad - 250}
+	if (altirad>300) {i_gain = 0.22 ; i_origine = 228 ; i_alti = altirad - 300}
+	if (altirad>400) {i_gain = 0.15 ; i_origine = 250 ; i_alti = altirad - 400}
+	if (altirad>500) {i_gain = 0.1 ; i_origine = 265 ; i_alti = altirad - 500}
+	if (altirad>600) {i_gain = 0.07 ; i_origine = 275 ; i_alti = altirad - 600}
+	if (altirad>900) {i_gain = 0.04 ; i_origine = 296 ; i_alti = altirad - 900}
+	if (altirad>1000) {i_gain = 0.03 ; i_origine = 300 ; i_alti = altirad - 1000}
+	
+
+	$("#AIG_AR33").css({
+		'-moz-transform':'rotate('+(i_origine+i_gain*i_alti)+'deg)',
+		'-webkit-transform':'rotate('+(i_origine+i_gain*i_alti)+'deg)',
+		'-ms-transform':'rotate('+(i_origine+i_gain*i_alti)+'deg)',
+	})
+
+}
+
+function instrument_AltiBaro_SU33(alti){
+	var a_origine = 0
+	var a_gain = 0.36
+	
+	var b_gain = 36
+
+
+	$("#AIG_AB_33").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+	})
+	
+	$("#AIG_AB1000_33").css({
+		'-moz-transform':'rotate('+(a_origine+b_gain*alti/1000)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+b_gain*alti/1000)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+b_gain*alti/1000)+'deg)',
+	})
+
+}
+
+
+function instrument_Vario_SU33(vari){
+	var v_origine = -90
+	var v_gain = 4.5
+	
+	var vario = vari 
+	var valabs = Math.abs(vari)
+	var signe = vari / valabs
+	
+	if (valabs > 10) {v_gain = 3.4 ;
+	v_origine = -90 + 44 * signe ;
+	vario = (valabs - 10) * signe
+	}
+	
+	if (valabs > 20) {v_gain = 2.3 ;
+	v_origine = -90 + 78 * signe ;
+	vario = (valabs - 20) * signe
+	}
+	
+	if (valabs > 60) {v_gain = 0 ;
+	v_origine = -90 + 170 * signe
+	}
+	
+	
+	
+	$("#AIG_Vario_33").css({
+		'-moz-transform':'rotate('+(v_origine+v_gain*vario)+'deg)',
+		'-webkit-transform':'rotate('+(v_origine+v_gain*vario)+'deg)',
+		'-ms-transform':'rotate('+(v_origine+v_gain*vario)+'deg)',
+	})
+
+}
+
+
+function instrument_EngTemp_SU33(left,right){
+	var t_origine = -135
+	var t_gain = 0.225
+	
+	var m_origine = 180
+	var m_gain = 3.6
+	var leftm = left % 100
+	var rightm = right % 100
+	
+	$("#AM_TEM_L").css({
+		'-moz-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
+		'-webkit-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
+		'-ms-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
+	})
+	
+	$("#AM_TEM_R").css({
+		'-moz-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
+		'-webkit-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
+		'-ms-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
+	})
+	
+	$("#AM_TEM_mL").css({
+		'-moz-transform':'rotate('+(m_origine+m_gain*leftm)+'deg)',
+		'-webkit-transform':'rotate('+(m_origine+m_gain*leftm)+'deg)',
+		'-ms-transform':'rotate('+(m_origine+m_gain*leftm)+'deg)',
+	})
+	
+	$("#AM_TEM_mR").css({
+		'-moz-transform':'rotate('+(m_origine+m_gain*rightm)+'deg)',
+		'-webkit-transform':'rotate('+(m_origine+m_gain*rightm)+'deg)',
+		'-ms-transform':'rotate('+(m_origine+m_gain*rightm)+'deg)',
+	})
+}
+
+
+
 
 	
