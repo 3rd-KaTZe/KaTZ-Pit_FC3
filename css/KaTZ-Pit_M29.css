@@ -82,6 +82,19 @@ p {
 	/* Dimension 200 x 200			              */
 }
 
+#Panel_Gear {
+	position: absolute;
+	top: 750px;
+	left: 110px;
+
+}
+
+#Panel_Gear_2 {
+	position: absolute;
+	top: 400px;
+	left: 110px;
+}
+
 
 
 #Panel_Pilototo {
@@ -113,46 +126,33 @@ p {
 	color:white;
 	background-color:transparent;
 	text-align: right; 
-
-}
-
-#Panel_Gear {
-	position: absolute;
-	top: 750px;
-	left: 110px;
-
-}
-
-#Panel_Gear_2 {
-	position: absolute;
-	top: 400px;
-	left: 110px;
-}
-
-#Panel_ILS {
-	position: absolute;
-	top: 55px;
-	left: 995px;
-	
-	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
-	background-color:transparent;
-	text-align: right; 
-
 }
 
 #Cadran_Vario {
 	position: absolute;
-	top: 310px;
-	left: 1050px;
+	top: 100px;
+	left: 1000px;
 	/* Dimension 400 x 400			              */
 }
 
 #Cadran_Mach {
 	position: absolute;
-	top: 530px;
-	left: 1050px;
+	top: 350px;
+	left: 1000px;
+	/* Dimension 400 x 400			              */
+}
+
+#Cadran_Altirad {
+	position: absolute;
+	top: 100px;
+	left: 1250px;
+	/* Dimension 400 x 400			              */
+}
+
+#Cadran_RPM {
+	position: absolute;
+	top: 120px;
+	left: 1500px;
 	/* Dimension 400 x 400			              */
 }
 
@@ -160,7 +160,7 @@ p {
 
 #Panel_Motor {
 	position: absolute;
-	top: 100px;
+	top: 340px;
 	left: 1320px;
 
 
@@ -173,7 +173,7 @@ p {
 
 #Panel_Fuel {
 	position: absolute;
-	top: 450px;
+	top: 685px;
 	left: 1320px;
 
 	font-family:arial, sans-serif;
@@ -183,24 +183,39 @@ p {
 	text-align: right; 
 }
 
-
-#Panel_Target {
+#Panel_Radio {
 	position: absolute;
-	top: 050px;
+	top: 0020px;
 	left: 1810px;
 
 	font-family:arial, sans-serif;
 	text-align: center; 
 }
 
-#Panel_Radio {
+
+#Panel_Target {
 	position: absolute;
-	top: 0640px;
-	left: 1360px;
+	top: 270px;
+	left: 1810px;
 
 	font-family:arial, sans-serif;
 	text-align: center; 
 }
+
+#Panel_ILS {
+	position: absolute;
+	top: 610px;
+	left: 995px;
+	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
+
 
 #Frequency_List {
 	position: absolute;

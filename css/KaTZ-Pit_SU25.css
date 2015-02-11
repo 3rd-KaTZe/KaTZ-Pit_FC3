@@ -69,15 +69,30 @@ p {
 
 #Cadran_Alti {
 	position: absolute;
-	top: 530px;
-	left: 250px;
+	top: 550px;
+	left: 255px;
 	/* Dimension 200 x 200			              */
 	font-family:arial, sans-serif;
 }
 
+#Cadran_Vario {
+	position: absolute;
+	top: 95px;
+	left: 1020px;
+	/* Dimension 200 x 200			              */
+	font-family:arial, sans-serif;
+}
+
+#Cadran_RPM {
+	position: absolute;
+	top: 120px;
+	left: 1260px;
+	/* Dimension 400 x 400			              */
+}
+
 #Panel_Gear {
 	position: absolute;
-	top: 750px;
+	top: 800px;
 	left: 110px;
 
 }
@@ -108,7 +123,7 @@ p {
 
 }
 
-#Panel_Weapon {
+#Panel_Weapon_1 {
 	position: absolute;
 	top: 605px;
 	left: 500px;
@@ -121,10 +136,23 @@ p {
 
 }
 
+#Panel_Weapon_2 {
+	position: absolute;
+	top: 785px;
+	left: 500px;
+	
+	font-family:arial, sans-serif;
+	font-size:100%;
+	color:white;
+	background-color:transparent;
+	text-align: right; 
+
+}
+
 #Panel_Motor {
 	position: absolute;
-	top: 75px;
-	left: 1010px;
+	top: 350px;
+	left: 1110px;
 		
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -135,8 +163,8 @@ p {
 
 #Panel_Fuel {
 	position: absolute;
-	top: 420px;
-	left: 1010px;
+	top: 695px;
+	left: 1110px;
 		
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -150,7 +178,7 @@ p {
 
 	position: absolute;
 	top: 00px;
-	left: 1400px;
+	left: 1500px;
 	/* Dimension 100 x 775			              */
 }
 
@@ -158,7 +186,7 @@ p {
 #Panel_Radio {
 	position: absolute;
 	top: 0010px;
-	left: 1510px;
+	left: 1610px;
 	
 	font-family:arial, sans-serif;
 	text-align: center; 
@@ -167,7 +195,7 @@ p {
 #Panel_Target {
 	position: absolute;
 	top: 250px;
-	left: 1510px;
+	left: 1610px;
 	
 	font-family:arial, sans-serif;
 	text-align: center; 
@@ -176,7 +204,7 @@ p {
 #Panel_ILS {
 	position: absolute;
 	top: 650px;
-	left: 1510px;
+	left: 1610px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -189,5 +217,5 @@ p {
 #Frequency_List {
 	position: absolute;
 	top: 250px;
-	left: 1510px;
+	left: 1610px;
 }

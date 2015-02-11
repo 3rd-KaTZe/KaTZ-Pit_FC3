@@ -144,7 +144,24 @@
 
 <div id="Panel_Attitude"> 
 
-<img src="images/attitude/Attitude-Panel_25.png" width="380" height="200" border="0" > 
+
+<img src="images/attitude/ADI-Bottom.gif" width="380" height="200"> 
+
+	<!-- Pitch Top -->
+	<SPAN style="position: absolute; left: 195px; top: 33px; width: 180px; height: 140px">
+	<img src="images/attitude/ADI-Top.gif" width="180" height="140" id="ADI_Pitch_T">
+	</SPAN>
+	
+	<!-- Pitch Center -->
+	<SPAN style="position: absolute; left: 195px; top: 90px; width: 180px; height: 4px">
+	<img src="images/attitude/ADI-Center.gif" width="180" height="4" id="ADI_Pitch_C">
+	</SPAN>
+
+	<!-- Masque sur l'ADI -->
+	<SPAN style="position: absolute; left: 0px; top: 0px; width: 380px; height: 200px">
+	<img src="images/attitude/Attitude-Panel_25.png" width="380" height="200" id="ADI_Pitch_C">
+	</SPAN>
+
 
 <!-- Aiguille G-Metre , AoA, Bank, Turn -->
 	<SPAN style="position: absolute; left: 15px; top: 20px; width: 160px; height: 160px">
@@ -159,167 +176,176 @@
 	<SPAN style="position: absolute; left: 15px; top: 20px; width: 160px; height: 160px">
 	<img src="images/attitude/A_G.gif" width="160" height="160" border="0" id="AA_AoA">
 	</SPAN>
-	<SPAN style="position: absolute; left: 215px; top: 90px; width: 150px; height: 33px">
+	<SPAN style="position: absolute; left: 210px; top: 90px; width: 150px; height: 33px">
 	<img src="images/attitude/Bank_25.png" width="150" height="33" id="AA_Bank">
 	</SPAN>
 	<SPAN style="position: absolute; left: 285px; top: 16px; width: 3px; height: 19px">
 	<img src="images/attitude/A_Yaw.gif" width="3" height="19" border="0" id="AA_Yaw">
 	</SPAN>
 
+
+
+	<!-- Indication Valeur Data Pitch -->
+	<SPAN style="position: absolute; left: 270px; top: 55px; width: 30px; height: 22px ; color:#FFFF7F ; text-align:center; font-size:1.4em" id="Pitch_val"> </SPAN>
+
 	<!-- Indication Valeur Data Roulis -->
-	<SPAN style="position: absolute; left: 275px; top: 160px; width: 30px; height: 22px ; color:white ; text-align:center; font-size:1.2em" id="Bank_val"> </SPAN>
+	<SPAN style="position: absolute; left: 270px; top: 172px; width: 30px; height: 18px ; background-color:black; color:white ; text-align:center; font-size:1.0em" id="Bank_val"> </SPAN>
 	
 
 </div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<!-- CADRANS ANALOGIQUES   xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+<!-- Badin + TAS    -->
 <div id="Cadran_IAS">
-	<img src="images/analog/Cadre_Jauge-25.png" width="210" height="210"  > 
+	<img src="images/analog/Cadre_Jauge-25.png" width="230" height="230"  > 
 	
 	<!-- Couronne des Mach -->
-	<SPAN style="position: absolute; left: 57px; top: 50px; width: 100px; height: 100px">
-	<img src="images/analog/Alti-Mach-25.png" width="100" height="100" id="AIG_Mach25"> </SPAN>	
+	<SPAN style="position: absolute; left: 55px; top: 55px; width: 120px; height: 120px">
+	<img src="images/analog/Alti-Mach-25.png" width="120" height="120" id="AIG_Mach25"> </SPAN>	
 	
 	<!-- Graduation intérieur -->
-	<SPAN style="position: absolute; left: 5px; top: 5px; width: 200px; height: 200px">
-	<img src="images/analog/IAS_25.png" width="200" height="200" > </SPAN>	
 	
+	<SPAN style="position: absolute; left: 5px; top: 5px; width: 220px; height: 220px">
+	<img src="images/analog/IAS_25.png" width="220" height="220" > </SPAN>
 	<!-- Aiguille -->
-	<SPAN style="position: absolute; left: 5px; top: 5px; width: 200px; height: 200px">
-	<img src="images/M_Aiguille-RPM_15.gif" width="200" height="200" id="AIG_IAS25"> </SPAN>	
-
+	<SPAN style="position: absolute; left: 5px; top: 5px; width: 220px; height: 220px">
+	<img src="images/M_Aiguille-RPM_15.gif" width="220" height="220" id="AIG_IAS25"> </SPAN>	
 </div>
 
+
+<!-- AltiBaro  + Affichage Altitude Numérique  -->
 <div id="Cadran_Alti">
 
-	<img src="images/analog/Cadre_Jauge-25.png" width="210" height="210"  > 
+	<img src="images/analog/Alti-25.png" width="220" height="220"  > 
 	
-	<!-- Graduation intérieur -->
-	<SPAN style="position: absolute; left: 5px; top: 5px; width: 200px; height: 200px">
-	<img src="images/analog/Alti-25.png" width="200" height="200" > </SPAN>	
+	<!-- Zone Data flag + nombre 1000 + masque + reste -->
+	<SPAN style="position: absolute; left: 107px; top: 88px; width: 50px; height: 25px ; color:white ;text-align:right; font-size:1.4em" id="A100"> </SPAN>
 
-		
-	<!-- Zone Data flag + nombre 1000 + virgule + reste -->
-	
-	<SPAN style="position: absolute; left: 100px; top: 83px; width: 50px; height: 25px ; color:white ;text-align:right; font-size:1.4em" id="A100"> </SPAN>
-		
-	<!--<SPAN style="position: absolute; left: 115px; top: 100px; width: 30px; height: 40px">
-	<img src="images/analog/Alti-comma.png" width="40" height="38">	</SPAN>  --> 
+	<!-- masque pour cacher les 10000  -->
+	<SPAN style="position: absolute; left: 100px; top: 86px; width: 20px; height: 30px">
+	<img src="images/analog/Number-Flag.png" width="20" height="25">	</SPAN> 
 
-	<SPAN style="position: absolute; left: 78px; top: 82px; width: 35px; height: 25px ;  background-color:black; color:white ; text-align:left; font-size:1.6em" id="A1000"> </SPAN>
-
-	<!-- flag des 10000  
-	<SPAN style="position: absolute; left: 90px; top: 103px; width: 30px; height: 40px">
-	<img src="images/analog/Altiflag.png" width="25" height="30" border="0" id="AFlag">	</SPAN>   -->
+	<SPAN style="position: absolute; left: 83px; top: 85px; width: 20px; height: 25px ;  color:white ; text-align:center; font-size:1.6em" id="A1000"> </SPAN>
 
 	<!-- Aiguille -->
-	<SPAN style="position: absolute; left: 5px; top: 5px; width: 200px; height: 200px">
-	<img src="images/M_Aiguille-RPM_15.gif" width="200" height="200" id="AIG_AltiBaro"> </SPAN>	
+	<SPAN style="position: absolute; left: 0px; top: 0px; width: 220px; height: 220px">
+	<img src="images/M_Aiguille-RPM_15.gif" width="220" height="220" id="AIG_AltiBaro"> </SPAN>	
 
-
-
-
+	<!-- Cadre -->
+	<SPAN style="position: absolute; left: -5px; top: -5px; width: 230px; height: 230px">
+	<img src="images/analog/Cadre_Jauge-25.png" width="230" height="230" >	</SPAN>
 </div>
 
 
-<div id="Panel_Motor"> 
+<!-- Vario Bille, même instrument que sur le Mig29  -->
+<div id="Cadran_Vario">
+	<img src="images/analog/Vario-29.png" width="220" height="220"  > 
 	
+	<!-- Bille -->
+	<SPAN style="position: absolute; left: 100px; top: 148px; width: 20px; height: 20px">
+	<img src="images/analog/Bille-Small.png" width="20" height="20" id="AIG_Bille_29"> </SPAN>	
+		
+	<!-- Aiguille Yaw -->
+	<SPAN style="position: absolute; left: 100px; top: 55px; width: 24px; height: 280px">
+	<img src="images/analog/Aiguille-Yaw.png" width="24" height="280" id="AIG_Yaw_29"> </SPAN>	
 	
-	<img src="images/engine/Motor_Panel_25.png" width="380" height="340" border="0" usemap="#Panel_Motor"> 
+	<!-- Aiguille vario -->
+	<SPAN style="position: absolute; left: 100px; top: 10px; width: 22px; height: 200px">
+	<img src="images/analog/Aiguille-Vario-2.png" width="22" height="200" id="AIG_Vario_29"> </SPAN>	
 
-	<!-- Mapping des boutons de demarrage left (311), right (312)-->
-	<map name="Panel_Motor">
-		<area shape="rect" coords="110,290,160,320" href="javascript:Start_Eng_L()">
-		<area shape="rect" coords="220,290,270,320" href="javascript:Start_Eng_R()">
-	</map>
+	<!-- Cadre -->
+	<SPAN style="position: absolute; left: -5px; top: -5px; width: 210px; height: 210px">
+	<img src="images/analog/Cadre_Jauge-25.png" width="230" height="230" >	</SPAN>
+</div>
 
 
-	<!-- Voyants de demarrage moteur Left -->
-	<SPAN style="position: absolute; left: 40px; top: 290px; width: 50px; height: 30px">
-	<img src="images/engine/M_StartEngineOn.gif" width="50" height="30" border="0" id="VM_Start_L">
-	</SPAN> 
+<!-- RPM Moteur 2 aiguilles  -->
+<div id="Cadran_RPM">
+	<img src="images/engine/EngRpm29.png" width="220" height="220"  > 
 	
-	<SPAN style="position: absolute; left: 40px; top: 240px; width: 50px; height: 30px">	
-	<img src="images/engine/M_EngineFireOn.gif" width="50" height="30" border="0" id="VM_Fire_L">
-	</SPAN>
-
-	<SPAN style="position: absolute; left: 110px; top: 240px; width: 50px; height: 30px">	
-	<img src="images/engine/M_FuelOn.gif" width="50" height="30" border="0" id="VM_Fuel_L">
-	</SPAN>
+	<!-- Cadre -->
+	<SPAN style="position: absolute; left: -5px; top: -5px; width: 230px; height: 230px">
+	<img src="images/analog/Cadre_Jauge-25.png" width="230" height="230" >	</SPAN>
 	
-	<!-- Voyants de demarrage moteur Right -->
-	<SPAN style="position: absolute; left: 290px; top: 290px; width: 50px; height: 30px">
-	<img src="images/engine/M_StartEngineOn.gif" width="50" height="30" border="0" id="VM_Start_R">
-	</SPAN> 
+	<!-- Aiguille RPM -->
+	<SPAN style="position: absolute; left: -25px; top: -25px; width: 200px; height: 200px">
+	<img src="images/engine/M_Aiguille_L.gif" width="270" height="270" id="AM_RPM_L"> </SPAN>	
 	
-	<SPAN style="position: absolute; left: 290px; top: 240px; width: 50px; height: 30px">	
-	<img src="images/engine/M_EngineFireOn.gif" width="50" height="30" border="0" id="VM_Fire_R">
-	</SPAN>
-
-	<SPAN style="position: absolute; left: 220px; top: 240px; width: 50px; height: 30px">	
-	<img src="images/engine/M_FuelOn.gif" width="50" height="30" border="0" id="VM_Fuel_R">
-	</SPAN>
+	<!-- Aiguille RPM -->
+	<SPAN style="position: absolute; left: -25px; top: -25px; width: 200px; height: 200px">
+	<img src="images/engine/M_Aiguille_R.gif" width="270" height="270" id="AM_RPM_R"> </SPAN>	
 	
-	<SPAN style="position: absolute; left: 165px; top: 38px; width: 50px; height: 30px">	
-	<img src="images/engine/M_PCOn.gif" width="0" height="0" border="0" id="VM_PC_L">
-	</SPAN>
-	<SPAN style="position: absolute; left: 165px; top: 38px; width: 50px; height: 30px">	
-	<img src="images/engine/M_PCOn.gif" width="0" height="0" border="0" id="VM_PC_R">
-	</SPAN>
 
-
-	<!-- Zone Data compte Tour -->
-	<SPAN style="position: absolute; left: 65px; top: 25px; width: 50px; height: 30px ; color:white ; font-size:1.2em" id="RPM_L"> </SPAN>
-	<SPAN style="position: absolute; left: 245px; top: 25px; width: 50px; height: 30px ; color:white ; font-size:1.2em" id="RPM_R"> </SPAN>
-
-	<!-- Aiguilles compte Tour -->
-	<SPAN style="position: absolute; left: 20px; top: 70px; width: 160px; height: 160px">
-	<img src="images/M_Aiguille-RPM29_01trans.gif" width="160" height="160" border="0" id="AM_RPM_L">
-	</SPAN>
-
-	<SPAN style="position: absolute; left: 200px; top: 70px; width: 160px; height: 160px">
-	<img src="images/M_Aiguille-RPM29_01trans.gif" width="160" height="160" border="0" id="AM_RPM_R">
-	</SPAN>
-	
 </div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<div id="Panel_Fuel">
+<div id="Panel_Gear">
 
-	<img src="images/fuel/Fuel_Panel_25.png" width="380" height="175" border="0" usemap="#Panel_Fuel">
+	<img src="images/gear/Gear-Panel_25.png" width="320" height="150" border="0"> 
+
+	<!-- Voyants Flaps -->
+	<SPAN style="position: absolute; left: 15px; top: 75px; width: 70px; height: 20px">
+	<img src="images/gear/G_FlapsOn.gif" width="70" height="20" border="0" id="VG_Flaps_L">
+	</SPAN> 
 	
-	<!-- Mapping du jettison de Bidon (178)-->
-	<map name="Panel_Fuel">
-		<area shape="rect" coords="20,130,100,160" href="javascript:CmdSioc(178)">		
-	</map> 
-
-	<!-- Voyants d'Overspeed 
-	<SPAN style="position: absolute; left: 30px; top: 105px; width: 60px; height: 20px">
-	<img src="images/F_OverspeedOn.gif" width="60" height="20" border="0" id="VF_Overspeed">
-	</SPAN> -->
-
-	<!-- Zone Data Fuel -->
-	<SPAN style="position: absolute; left: 30px; top: 34px; width: 60px; height: 25px ; color:#FF9933; text-align:center" id="Fuel_i"> </SPAN>
-	<SPAN style="position: absolute; left: 30px; top: 105px; width: 60px; height: 25px ; color:#FF9933; text-align:center" id="Fuel_e"> </SPAN>
-	<SPAN style="position: absolute; left: 215px; top: 35px; width: 50px; height: 25px ; color:#FF9933" id="Fuel_t"> </SPAN>
-	<SPAN style="position: absolute; left: 300px; top: 35px; width: 50px; height: 25px ; color:#FF9933" id="Conso"> </SPAN>
-	<SPAN style="position: absolute; left: 210px; top: 88px; width: 50px; height: 25px ; color:#99FF99" id="Range_tac"> </SPAN>
-	<SPAN style="position: absolute; left: 300px; top: 88px; width: 50px; height: 25px ; color:white" id="Range_mn"> </SPAN>
-	<SPAN style="position: absolute; left: 210px; top: 138px; width: 50px; height: 25px ; color:#99FF99" id="Range_opttac">	</SPAN>
-	<SPAN style="position: absolute; left: 300px; top: 138px; width: 50px; height: 25px ; color:white" id="Range_optmn"> </SPAN>
-
-	<!-- Gauge de Fuel -->
-	<SPAN style="position: absolute; left: 120px; top: 16px; width: 20px; height: 70px">
-	<img src="images/fuel/F_Gauge.gif" width="20" height="70" border="0" id="FA_Gauge_Main">
+	<SPAN style="position: absolute; left: 235px; top: 75px; width: 70px; height: 20px">	
+	<img src="images/gear/G_FlapsOn.gif" width="70" height="20" border="0" id="VG_Flaps_R">
 	</SPAN>
 
-	<SPAN style="position: absolute; left: 120px; top: 100px; width: 20px; height: 62px">
-	<img src="images/fuel/F_Gauge.gif" width="20" height="62" border="0" id="FA_Gauge_Tank">
+	<!-- Voyants AF -->
+	<SPAN style="position: absolute; left: 22px; top: 25px; width: 11px; height: 20px">
+	<img src="images/gear/G_AFOn.gif" width="12" height="40" border="0" id="VG_AF">
+	</SPAN> 
+
+	<SPAN style="position: absolute; left: 286px; top: 25px; width: 11px; height: 20px">
+	<img src="images/gear/G_AFOn.gif" width="12" height="40" border="0" id="VG_AF2">
+	</SPAN> 
+	
+	<!-- Voyants Train -->
+	<SPAN style="position: absolute; left: 100px; top: 95px; width: 20px; height: 30px">
+	<img src="images/gear/G_WheelOn.png" width="20" height="30" border="0" id="VG_Train_L">
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 150px; top: 84px; width: 20px; height: 30px">	
+	<img src="images/gear/G_WheelOn.png" width="20" height="30" border="0" id="VG_Train_C">
 	</SPAN>
+
+	<SPAN style="position: absolute; left: 201px; top: 95px; width: 20px; height: 30px">	
+	<img src="images/gear/G_WheelOn.png" width="20" height="30" border="0" id="VG_Train_R">
+	</SPAN>
+
 
 </div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<div id="Panel_Gear_2">
+
+	<img src="images/gear/Gear-Panel_25_2.png" width="150" height="225"> 
+
+	<!-- Levier Train -->
+	<SPAN style="position: absolute; left: 0px; top: 0px; width: 100px; height: 225px">
+	<img src="images/gear/gear-lever-25_dn.png" width="150" height="225" id="G_Lever" usemap="#Gear_Cmd"> 
+
+	<!-- Mapping des boutons d'Alarme (144), Verrière (71), Parachute(76), Demmarage KaTZ-Pit-->
+	<map name="Gear_Cmd">
+		<area shape="rect" coords="0,0,150,225" href="javascript:CmdSioc(68)">
+	</map>
+	
+	</SPAN> 
+	
+</div>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
@@ -387,8 +413,8 @@
 	<SPAN style="position: absolute; left: 400px; top: 55px; width: 50px; height: 20px">	
 	<img src="images/autopilot/P_LowAltiOn.gif" width="80" height="20" border="0" id="VP_LowAlti">
 	</SPAN>
-
 </div>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
@@ -473,72 +499,54 @@
 	<SPAN style="position: absolute; left: 415px; top: 280px; width: 70px; height: 20px">
 	<img src="images/navigation/N_SW_mmn.gif" width="70" height="20" border="0" id="N_SW_mmn" 
 	</SPAN> 
-	
 </div>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<div id="Panel_Weapon">
+<div id="Panel_Weapon_1">
 
-	<img src="images/weapon/Weapon_Panel_25.png" width="500" height="175" usemap="#Panel_Weapon">
+	<img src="images/weapon/Weapon_Panel_25.png" width="500" height="175" usemap="#Panel_Weapon_1">
 
-	<!-- Mapping du bouton Override (349), Jettison (82), GunRate (280), TVScope (387), Laser (392), Interval(282), Quantity(281)-->
-	<map name="Panel_Weapon">
-			<area shape="rect" coords="20,15,100,35" href="javascript:CmdSioc(349)">
-			<area shape="rect" coords="400,15,480,35" href="javascript:CmdSioc(82)">
-			<!--<area shape="rect" coords="20,15,100,35" href="javascript:CmdSioc(349)"> -->
-			<area shape="rect" coords="520,15,600,45" href="javascript:CmdSioc(280)">
-			<area shape="rect" coords="780,15,860,45" href="javascript:CmdSioc(387)">
-			<area shape="rect" coords="780,65,860,100" href="javascript:CmdSioc(392)">
-			<area shape="rect" coords="520,130,600,160" href="javascript:CmdSioc(282)">
-			<area shape="rect" coords="620,130,700,160" href="javascript:CmdSioc(281)">
-			
+	<!-- Mapping du bouton Override (349), Jettison (82) -->
+	<map name="Panel_Weapon_1">
+			<area shape="rect" coords="30,15,110,50" href="javascript:CmdSioc(82)">
+			<area shape="rect" coords="390,15,470,50" href="javascript:CmdSioc(349)">
 	</map> 
 	
-	<!-- Voyants Armement -->
-	<SPAN style="position: absolute; left: 510px; top: 0px; width: 380px; height: 175px">
-	<img src="images/weapon/Weapon_Panel_25-2.png" width="380" height="175" usemap="#Panel_Weapon_2">	</SPAN>  
-
-	<map name="Panel_Weapon_2">
-			<area shape="rect" coords="020,15,100,45" href="javascript:CmdSioc(280)">
-			<area shape="rect" coords="280,15,360,45" href="javascript:CmdSioc(387)">
-			<area shape="rect" coords="280,65,360,100" href="javascript:CmdSioc(392)">
-			<area shape="rect" coords="020,130,100,160" href="javascript:CmdSioc(282)">
-			<area shape="rect" coords="120,130,200,160" href="javascript:CmdSioc(281)">
-	</map> 	
 
 	<!-- Voyants Armement -->
-	<SPAN style="position: absolute; left: 20px; top: 65px; width: 20px; height: 20px">
+	<SPAN style="position: absolute; left: 20px; top: 85px; width: 20px; height: 20px">
 	<img src="images/weapon/z_Led-Verte.gif" width="20" height="20" border="0" id="VW_Pos1">	</SPAN>   
 
-	<SPAN style="position: absolute; left: 50px; top: 60px; width: 30px; height: 30px">
+	<SPAN style="position: absolute; left: 50px; top: 80px; width: 30px; height: 30px">
 	<img src="images/weapon/z_Led-Verte.gif" width="30" height="30" border="0" id="VW_Pos3">	</SPAN>  
 
-	<SPAN style="position: absolute; left: 90px; top: 60px; width: 30px; height: 30px">
+	<SPAN style="position: absolute; left: 90px; top: 80px; width: 30px; height: 30px">
 	<img src="images/weapon/z_Led-Verte.gif" width="30" height="30" border="0" id="VW_Pos5">	</SPAN>  
 
-	<SPAN style="position: absolute; left: 130px; top: 60px; width: 30px; height: 30px">
+	<SPAN style="position: absolute; left: 130px; top: 80px; width: 30px; height: 30px">
 	<img src="images/weapon/z_Led-Verte.gif" width="30" height="30" border="0" id="VW_Pos7">	</SPAN>  
 
-	<SPAN style="position: absolute; left: 170px; top: 60px; width: 30px; height: 30px">
+	<SPAN style="position: absolute; left: 170px; top: 80px; width: 30px; height: 30px">
 	<img src="images/weapon/z_Led-Verte.gif" width="30" height="30" border="0" id="VW_Pos9">	</SPAN>  
 
-	<SPAN style="position: absolute; left: 235px; top: 90px; width: 30px; height: 30px">
+	<SPAN style="position: absolute; left: 235px; top: 110px; width: 30px; height: 30px">
 	<img src="images/weapon/z_Led-Verte.gif" width="30" height="30" border="0" id="VW_Pos11">	</SPAN>   
 
-	<SPAN style="position: absolute; left: 300px; top: 60px; width: 30px; height: 30px">
+	<SPAN style="position: absolute; left: 300px; top: 80px; width: 30px; height: 30px">
 	<img src="images/weapon/z_Led-Verte.gif" width="30" height="30" border="0" id="VW_Pos10">	</SPAN>  
 
-	<SPAN style="position: absolute; left: 340px; top: 60px; width: 30px; height: 30px">
+	<SPAN style="position: absolute; left: 340px; top: 80px; width: 30px; height: 30px">
 	<img src="images/weapon/z_Led-Verte.gif" width="30" height="30" border="0" id="VW_Pos8">	</SPAN>  
 
-	<SPAN style="position: absolute; left: 380px; top: 60px; width: 30px; height: 30px">
+	<SPAN style="position: absolute; left: 380px; top: 80px; width: 30px; height: 30px">
 	<img src="images/weapon/z_Led-Verte.gif" width="30" height="30" border="0" id="VW_Pos6">	</SPAN>  
 
-	<SPAN style="position: absolute; left: 420px; top: 60px; width: 30px; height: 30px">
+	<SPAN style="position: absolute; left: 420px; top: 80px; width: 30px; height: 30px">
 	<img src="images/weapon/z_Led-Verte.gif" width="30" height="30" border="0" id="VW_Pos4">	</SPAN>  
 
-	<SPAN style="position: absolute; left: 460px; top: 65px; width: 20px; height: 20px">
+	<SPAN style="position: absolute; left: 460px; top: 85px; width: 20px; height: 20px">
 	<img src="images/weapon/z_Led-Verte.gif" width="20" height="20" border="0" id="VW_Pos2">	</SPAN>  
 
 	<!-- Inutilisé sur SU25T valeur zero = voyants éteints -->
@@ -550,31 +558,30 @@
 	<img src="images/weapon/z_Led-Verte.gif" width="0" height="0" border="0" id="VW_Pos13">	</SPAN> 
 
 	<!-- Zone Data Weapon -->
-	<SPAN style="position: absolute; left: 430px; top: 135px; width: 30px; height: 30px ; color:white; text-align:center " id="Shoot_time"> </SPAN> 
-	
-	<SPAN style="position: absolute; left: 20px; top: 135px; width: 75px; height: 30px ; color:white; text-align:right; font-size: 1.2em" id="Canon_Ammo"> </SPAN> 
+	<SPAN style="position: absolute; left: 40px; top: 135px; width: 70px; height: 30px ; color:white; text-align:right; font-size: 1.2em" id="Canon_Ammo"> </SPAN> 
+	<SPAN style="position: absolute; left: 380px; top: 137px; width: 30px; height: 30px ; color:white; text-align:right " id="Shoot_time"> </SPAN> 
 
 	<!-- Chiffre type et quantité , à compléter -->
-	<SPAN style="position: absolute; left: 20px; top: 100px; width: 20px; height: 20px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos1"> </SPAN>
-	<SPAN style="position: absolute; left: 460px; top: 100px; width: 20px; height: 20px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos2"> </SPAN>
-	<SPAN style="position: absolute; left: 50px; top: 65px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos3"> </SPAN>
-	<SPAN style="position: absolute; left: 50px; top: 100px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos3"> </SPAN>
-	<SPAN style="position: absolute; left: 420px; top: 65px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos4"> </SPAN>
-	<SPAN style="position: absolute; left: 420px; top: 100px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos4"> </SPAN>
-	<SPAN style="position: absolute; left: 90px; top: 65px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos5"> </SPAN>
-	<SPAN style="position: absolute; left: 90px; top: 100px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos5"> </SPAN>
-	<SPAN style="position: absolute; left: 380px; top: 65px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos6"> </SPAN>
-	<SPAN style="position: absolute; left: 380px; top: 100px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos6"> </SPAN>
-	<SPAN style="position: absolute; left: 130px; top: 65px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos7"> </SPAN>
-	<SPAN style="position: absolute; left: 130px; top: 100px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos7"> </SPAN>
-	<SPAN style="position: absolute; left: 340px; top: 65px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos8"> </SPAN>
-	<SPAN style="position: absolute; left: 340px; top: 100px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos8"> </SPAN>
-	<SPAN style="position: absolute; left: 170px; top: 65px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos9"> </SPAN>
-	<SPAN style="position: absolute; left: 170px; top: 100px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos9"> </SPAN>
-	<SPAN style="position: absolute; left: 300px; top: 65px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos10"> </SPAN>
-	<SPAN style="position: absolute; left: 300px; top: 100px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos10"> </SPAN>
-	<SPAN style="position: absolute; left: 235px; top: 95px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos11"> </SPAN>
-	<SPAN style="position: absolute; left: 235px; top: 130px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos11"> </SPAN>
+	<SPAN style="position: absolute; left: 20px; top: 120px; width: 20px; height: 20px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos1"> </SPAN>
+	<SPAN style="position: absolute; left: 460px; top: 120px; width: 20px; height: 20px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos2"> </SPAN>
+	<SPAN style="position: absolute; left: 50px; top: 85px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos3"> </SPAN>
+	<SPAN style="position: absolute; left: 50px; top: 120px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos3"> </SPAN>
+	<SPAN style="position: absolute; left: 420px; top: 85px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos4"> </SPAN>
+	<SPAN style="position: absolute; left: 420px; top: 120px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos4"> </SPAN>
+	<SPAN style="position: absolute; left: 90px; top: 85px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos5"> </SPAN>
+	<SPAN style="position: absolute; left: 90px; top: 120px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos5"> </SPAN>
+	<SPAN style="position: absolute; left: 380px; top: 85px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos6"> </SPAN>
+	<SPAN style="position: absolute; left: 380px; top: 120px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos6"> </SPAN>
+	<SPAN style="position: absolute; left: 130px; top: 85px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos7"> </SPAN>
+	<SPAN style="position: absolute; left: 130px; top: 120px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos7"> </SPAN>
+	<SPAN style="position: absolute; left: 340px; top: 85px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos8"> </SPAN>
+	<SPAN style="position: absolute; left: 340px; top: 120px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos8"> </SPAN>
+	<SPAN style="position: absolute; left: 170px; top: 85px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos9"> </SPAN>
+	<SPAN style="position: absolute; left: 170px; top: 120px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos9"> </SPAN>
+	<SPAN style="position: absolute; left: 300px; top: 85px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos10"> </SPAN>
+	<SPAN style="position: absolute; left: 300px; top: 120px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos10"> </SPAN>
+	<SPAN style="position: absolute; left: 235px; top: 115px; width: 30px; height: 30px ; color:black; text-align:center" id="Qty_Pos11"> </SPAN>
+	<SPAN style="position: absolute; left: 235px; top: 150px; width: 30px; height: 30px ; color:white; text-align:center; font-size: 60%" id="Typ_Pos11"> </SPAN>
 	
 	<!-- Inutilisé sur SU25T couleur = fond  -->
 	<SPAN style="position: absolute; left: 130px; top: 140px; width: 30px; height: 30px ; color:#272525; text-align:center; font-size: 10%" id="Qty_Pos12"> </SPAN>
@@ -582,67 +589,124 @@
 	<SPAN style="position: absolute; left: 160px; top: 140px; width: 30px; height: 30px ; color:#272525; text-align:center; font-size: 10%" id="Qty_Pos13"> </SPAN>
 	<SPAN style="position: absolute; left: 160px; top: 160px; width: 30px; height: 30px ; color:#272525; text-align:center; font-size: 10%" id="Typ_Pos13"> </SPAN>
 
-
-
 </div>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<div id="Panel_Gear">
+<div id="Panel_Weapon_2">
 
-	<img src="images/gear/Gear-Panel_25.png" width="320" height="150" border="0"> 
+	<img src="images/weapon/Weapon_Panel_25-2.png" width="500" height="60" usemap="#Panel_Weapon_2">
 
-	<!-- Voyants Flaps -->
-	<SPAN style="position: absolute; left: 15px; top: 75px; width: 70px; height: 20px">
-	<img src="images/gear/G_FlapsOn.gif" width="70" height="20" border="0" id="VG_Flaps_L">
-	</SPAN> 
-	
-	<SPAN style="position: absolute; left: 235px; top: 75px; width: 70px; height: 20px">	
-	<img src="images/gear/G_FlapsOn.gif" width="70" height="20" border="0" id="VG_Flaps_R">
-	</SPAN>
-
-	<!-- Voyants AF -->
-	<SPAN style="position: absolute; left: 22px; top: 25px; width: 11px; height: 20px">
-	<img src="images/gear/G_AFOn.gif" width="12" height="40" border="0" id="VG_AF">
-	</SPAN> 
-
-	<SPAN style="position: absolute; left: 286px; top: 25px; width: 11px; height: 20px">
-	<img src="images/gear/G_AFOn.gif" width="12" height="40" border="0" id="VG_AF2">
-	</SPAN> 
-	
-	<!-- Voyants Train -->
-	<SPAN style="position: absolute; left: 100px; top: 95px; width: 20px; height: 30px">
-	<img src="images/gear/G_WheelOn.png" width="20" height="30" border="0" id="VG_Train_L">
-	</SPAN> 
-	
-	<SPAN style="position: absolute; left: 150px; top: 84px; width: 20px; height: 30px">	
-	<img src="images/gear/G_WheelOn.png" width="20" height="30" border="0" id="VG_Train_C">
-	</SPAN>
-
-	<SPAN style="position: absolute; left: 201px; top: 95px; width: 20px; height: 30px">	
-	<img src="images/gear/G_WheelOn.png" width="20" height="30" border="0" id="VG_Train_R">
-	</SPAN>
-
-
+	<!-- Mapping des boutons  GunRate (280), TVScope (387), Laser (392), Interval(282), Quantity(281)-->
+	<map name="Panel_Weapon_2">
+			<area shape="rect" coords="25,15,105,45" href="javascript:CmdSioc(280)">
+			<area shape="rect" coords="115,15,195,45" href="javascript:CmdSioc(282)">
+			<area shape="rect" coords="205,15,285,45" href="javascript:CmdSioc(281)">
+			<area shape="rect" coords="305,15,385,45" href="javascript:CmdSioc(392)">
+			<area shape="rect" coords="395,15,475,45" href="javascript:CmdSioc(387)">
+	</map> 
 </div>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<div id="Panel_Gear_2">
+<div id="Panel_Motor"> 
+	
+	
+	<img src="images/engine/Motor_Panel_25.png" width="380" height="340" border="0" usemap="#Panel_Motor"> 
 
-	<img src="images/gear/Gear-Panel_25_2.png" width="150" height="225"> 
-
-	<!-- Levier Train -->
-	<SPAN style="position: absolute; left: 0px; top: 0px; width: 100px; height: 225px">
-	<img src="images/gear/gear-lever-25_dn.png" width="150" height="225" id="G_Lever" usemap="#Gear_Cmd"> 
-
-	<!-- Mapping des boutons d'Alarme (144), Verrière (71), Parachute(76), Demmarage KaTZ-Pit-->
-	<map name="Gear_Cmd">
-		<area shape="rect" coords="0,0,150,225" href="javascript:CmdSioc(68)">
+	<!-- Mapping des boutons de demarrage left (311), right (312)-->
+	<map name="Panel_Motor">
+		<area shape="rect" coords="110,290,160,320" href="javascript:Start_Eng_L()">
+		<area shape="rect" coords="220,290,270,320" href="javascript:Start_Eng_R()">
 	</map>
-	
+
+
+	<!-- Voyants de demarrage moteur Left -->
+	<SPAN style="position: absolute; left: 40px; top: 290px; width: 50px; height: 30px">
+	<img src="images/engine/M_StartEngineOn.gif" width="50" height="30" border="0" id="VM_Start_L">
 	</SPAN> 
 	
+	<SPAN style="position: absolute; left: 40px; top: 240px; width: 50px; height: 30px">	
+	<img src="images/engine/M_EngineFireOn.gif" width="50" height="30" border="0" id="VM_Fire_L">
+	</SPAN>
+
+	<SPAN style="position: absolute; left: 110px; top: 240px; width: 50px; height: 30px">	
+	<img src="images/engine/M_FuelOn.gif" width="50" height="30" border="0" id="VM_Fuel_L">
+	</SPAN>
+	
+	<!-- Voyants de demarrage moteur Right -->
+	<SPAN style="position: absolute; left: 290px; top: 290px; width: 50px; height: 30px">
+	<img src="images/engine/M_StartEngineOn.gif" width="50" height="30" border="0" id="VM_Start_R">
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 290px; top: 240px; width: 50px; height: 30px">	
+	<img src="images/engine/M_EngineFireOn.gif" width="50" height="30" border="0" id="VM_Fire_R">
+	</SPAN>
+
+	<SPAN style="position: absolute; left: 220px; top: 240px; width: 50px; height: 30px">	
+	<img src="images/engine/M_FuelOn.gif" width="50" height="30" border="0" id="VM_Fuel_R">
+	</SPAN>
+	
+	<SPAN style="position: absolute; left: 165px; top: 38px; width: 50px; height: 30px">	
+	<img src="images/engine/M_PCOn.gif" width="0" height="0" border="0" id="VM_PC_L">
+	</SPAN>
+	<SPAN style="position: absolute; left: 165px; top: 38px; width: 50px; height: 30px">	
+	<img src="images/engine/M_PCOn.gif" width="0" height="0" border="0" id="VM_PC_R">
+	</SPAN>
+
+
+	<!-- Zone Data compte Tour -->
+	<SPAN style="position: absolute; left: 65px; top: 25px; width: 50px; height: 30px ; color:white ; font-size:1.2em" id="RPM_L"> </SPAN>
+	<SPAN style="position: absolute; left: 245px; top: 25px; width: 50px; height: 30px ; color:white ; font-size:1.2em" id="RPM_R"> </SPAN>
+
+	<!-- Aiguilles compte Tour -->
+	<SPAN style="position: absolute; left: 20px; top: 70px; width: 160px; height: 160px">
+	<img src="images/M_Aiguille-RPM29_01trans.gif" width="160" height="160" border="0" id="AM_TEM_L">
+	</SPAN>
+
+	<SPAN style="position: absolute; left: 200px; top: 70px; width: 160px; height: 160px">
+	<img src="images/M_Aiguille-RPM29_01trans.gif" width="160" height="160" border="0" id="AM_TEM_R">
+	</SPAN>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<div id="Panel_Fuel">
+
+	<img src="images/fuel/Fuel_Panel_25b.png" width="380" height="175" border="0" usemap="#Panel_Fuel">
+	
+	<!-- Mapping du jettison de Bidon (178)-->
+	<map name="Panel_Fuel">
+		<area shape="rect" coords="20,130,100,160" href="javascript:CmdSioc(178)">		
+	</map> 
+
+	<!-- Voyants d'Overspeed 
+	<SPAN style="position: absolute; left: 30px; top: 105px; width: 60px; height: 20px">
+	<img src="images/F_OverspeedOn.gif" width="60" height="20" border="0" id="VF_Overspeed">
+	</SPAN> -->
+
+	<!-- Zone Data Fuel -->
+	<SPAN style="position: absolute; left: 30px; top: 34px; width: 60px; height: 25px ; color:#FF9933; text-align:center" id="Fuel_i"> </SPAN>
+	<SPAN style="position: absolute; left: 30px; top: 105px; width: 60px; height: 25px ; color:#FF9933; text-align:center" id="Fuel_e"> </SPAN>
+	<SPAN style="position: absolute; left: 215px; top: 35px; width: 50px; height: 25px ; color:#FF9933" id="Fuel_t"> </SPAN>
+	<SPAN style="position: absolute; left: 300px; top: 35px; width: 50px; height: 25px ; color:#FF9933" id="Conso"> </SPAN>
+	<SPAN style="position: absolute; left: 210px; top: 88px; width: 50px; height: 25px ; color:#99FF99" id="Range_tac"> </SPAN>
+	<SPAN style="position: absolute; left: 300px; top: 88px; width: 50px; height: 25px ; color:white" id="Range_mn"> </SPAN>
+	<SPAN style="position: absolute; left: 210px; top: 138px; width: 50px; height: 25px ; color:#99FF99" id="Range_opttac">	</SPAN>
+	<SPAN style="position: absolute; left: 300px; top: 138px; width: 50px; height: 25px ; color:white" id="Range_optmn"> </SPAN>
+
+	<!-- Gauge de Fuel -->
+	<SPAN style="position: absolute; left: 120px; top: 16px; width: 20px; height: 70px">
+	<img src="images/fuel/F_Gauge.gif" width="20" height="70" border="0" id="FA_Gauge_Main">
+	</SPAN>
+
+	<SPAN style="position: absolute; left: 120px; top: 100px; width: 20px; height: 62px">
+	<img src="images/fuel/F_Gauge.gif" width="20" height="62" border="0" id="FA_Gauge_Tank">
+	</SPAN>
+
 </div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -706,8 +770,6 @@
 
 
 </div>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -913,6 +975,8 @@
 
 </div>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="Frequency_List">
 	<img src="doc/ToF.png" width="744" height="687"> 
 </div>	

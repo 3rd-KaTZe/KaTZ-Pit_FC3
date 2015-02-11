@@ -43,8 +43,8 @@ function menu_Toggle(panel){
 	}	
 	
 	// Panel Weapon en toggle avec ILS
-	if (Panel_On["Weapon"] == 0) { document.getElementById("Panel_Weapon").style.display = "none"}
-	else { document.getElementById("Panel_Weapon").style.display = "block"}
+	//if (Panel_On["Weapon"] == 0) { document.getElementById("Panel_Weapon").style.display = "none"}
+	//else { document.getElementById("Panel_Weapon").style.display = "block"}
 	
 	// Panel Radio-TS
 	if (Panel_On["Radio_360"] == 0) {document.getElementById("Panel_Radio").style.display = "none"}
