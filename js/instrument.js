@@ -2,9 +2,7 @@
 // Fonction d'Animation des instruments
 // --------------------------------------------------------------------
 
-// F15 ---------------------------------------
-
-	
+// AoA du F15 ---------------------------------------
 function instrument_AoA_F15(angle){
 
 	var a_origine = -100
@@ -37,6 +35,115 @@ function instrument_Mach_F15(speed){
 		'-moz-transform':'rotate('+(s_origine+s_gain*speedi)+'deg)',
 		'-webkit-transform':'rotate('+(s_origine+s_gain*speedi)+'deg)',
 		'-ms-transform':'rotate('+(s_origine+s_gain*speedi)+'deg)',
+	})
+}
+
+// Aiguilles du G-mètre avec (valeur,min,max) appareils russes --------------------------
+function instrument_G(val,min,max){
+	var a_origine = 127
+	var a_gain = -10
+	
+	$("#AA_G").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*val)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*val)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*val)+'deg)',
+	})
+
+	$("#AA_Gmin").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*min)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*min)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*min)+'deg)',
+	})
+
+	$("#AA_Gmax").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*max)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*max)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*max)+'deg)',
+	})
+}
+
+
+
+// ADI appareils russes  ---------------------------
+function instrument_ADI(bank,yaw,pitchin){
+	var b_origine = 0
+	var b_gain = 1
+
+	// Taux de roulis sur l'ADI
+	$("#AA_Bank").css({
+		'-moz-transform':'rotate('+(b_origine+b_gain*bank)+'deg)',
+		'-webkit-transform':'rotate('+(b_origine+b_gain*bank)+'deg)',
+		'-ms-transform':'rotate('+(b_origine+b_gain*bank)+'deg)',
+	})
+
+	// Taux de roulis sur l'ILS
+	$("#IA_Bank").css({
+		'-moz-transform':'rotate('+(b_origine+b_gain*bank)+'deg)',
+		'-webkit-transform':'rotate('+(b_origine+b_gain*bank)+'deg)',
+		'-ms-transform':'rotate('+(b_origine+b_gain*bank)+'deg)',
+	})
+	
+	// Translation Yaw indicateur
+	// 34px pour 10 °/mn
+	var y_origine = 0
+	var y_gain = 3.4
+	
+	$("#AA_Yaw").css({
+	// fonction de base >> '-moz-transform':'translate(100px,0px)',
+	'-moz-transform':'translate('+(y_origine + y_gain * yaw)+'px,0px)',
+	'-webkit-transform':'translate('+(y_origine + y_gain * yaw)+'px,0px)',
+	'-ms-transform':'translate('+(y_origine + y_gain * yaw)+'px,0px)',
+	})
+	
+	
+	// Boule de l'ADI
+	var pitch = pitchin 
+	var valabs = Math.abs(pitchin)
+	var signe = pitchin / valabs
+	if (valabs > 50) { pitch = 50 * signe }
+	
+	var pitch_strech = (45 + pitch) / 90
+	var pitch_origin = 0
+	var pitch_gain = 1.5
+	
+	
+		
+	
+
+	// expansion compression de la zone Top
+	// Top Bleu Clair, on fixe l'origine du "scale down" en haut
+	$("#ADI_Pitch_T").css({
+	'-moz-transform-origin':'top left',
+	'-webkit-transform-origin':'top left',
+	'-ms-transform-origin':'top left',
+	})
+
+	// Scale vertical
+	$("#ADI_Pitch_T").css({
+	'-moz-transform':'scaleY('+pitch_strech+')',
+	'-webkit-transform':'scaleY('+pitch_strech+')',
+	'-ms-transform':'scaleY('+pitch_strech+')',
+	})
+	
+	// Translation vers le bas , de la barre d'horizon
+	
+	$("#ADI_Pitch_C").css({
+	'-moz-transform':'translate(0px,'+(pitch_origin + pitch_gain * pitch)+'px)',
+	'-webkit-transform':'translate(0px,'+(pitch_origin + pitch_gain * pitch)+'px)',
+	'-ms-transform':'translate(0px,'+(pitch_origin + pitch_gain * pitch)+'px)',
+	})
+	
+}
+
+// Aiguille de l'indicateur d'AoA  appareils russes  ---------------------------------
+function instrument_AoA(aoa){
+	var a_origine = 218
+	var a_gain = 3.4
+	
+	$("#AA_AoA").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*aoa)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*aoa)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*aoa)+'deg)',
 	})
 }
 
@@ -269,6 +376,26 @@ function instrument_Vario_M29(vari,yaw,bille){
 
 }
 
+function instrument_AltiRad_Mig29(altirad){
+	var i_origine = 0
+	var i_gain = 1.5
+	
+	var i_alti = altirad 
+
+	if (altirad>60) {i_gain = 1.7 ; i_origine = 90 ; i_alti = altirad - 60}
+	if (altirad>100) {i_gain = 0.18 ; i_origine = 158 ; i_alti = altirad - 100}
+	if (altirad>900) {i_gain = 0.14 ; i_origine = 298 ; i_alti = altirad - 900}
+	
+
+	$("#AIG_AR29").css({
+		'-moz-transform':'rotate('+(i_origine+i_gain*i_alti)+'deg)',
+		'-webkit-transform':'rotate('+(i_origine+i_gain*i_alti)+'deg)',
+		'-ms-transform':'rotate('+(i_origine+i_gain*i_alti)+'deg)',
+	})
+
+}
+
+
 function instrument_GAoA_SU33(val,min,max,AoA){
 	var a_origine = 127
 	var a_gain = -10
@@ -450,7 +577,27 @@ function instrument_EngTemp_SU33(left,right){
 	})
 }
 
+function instrument_EngTemp_SU25(left,right){
+	var t_origine = -162
+	var t_gain = 0.25
+	
+	var i_left = Math.max (left,200)
+	var i_right = Math.max (right,200)
+	
+	
+	$("#AM_TEM_L").css({
+		'-moz-transform':'rotate('+(t_origine+t_gain*i_left)+'deg)',
+		'-webkit-transform':'rotate('+(t_origine+t_gain*i_left)+'deg)',
+		'-ms-transform':'rotate('+(t_origine+t_gain*i_left)+'deg)',
+	})
+	
+	$("#AM_TEM_R").css({
+		'-moz-transform':'rotate('+(t_origine+t_gain*i_right)+'deg)',
+		'-webkit-transform':'rotate('+(t_origine+t_gain*i_right)+'deg)',
+		'-ms-transform':'rotate('+(t_origine+t_gain*i_right)+'deg)',
+	})
 
+}
 
 
 	

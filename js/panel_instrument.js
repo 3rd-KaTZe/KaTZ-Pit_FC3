@@ -69,15 +69,26 @@ function panel_instrument_flight_SU25(KaTZPit_data){
 	
 		// Animation des jauges instrument de vol du SU25-------------------------------------------------------------
 		
-		// Badin et Vario
+		// Badin avec affichage IAS/TAS
 		var iTas = Math.max(KaTZPit_data["TAS"],400)
-		
 		instrument_IAS_SU25(KaTZPit_data["IAS"],iTas)
+
+		// AltiBaro
 		instrument_AltiBaro_SU25(KaTZPit_data["QNH"])
-		// IAS en 1000 , puis en dessous le chiffre total
+		// Affichage des 1000m et des m<1000m
 		document.getElementById('A1000').innerHTML = Math.floor(KaTZPit_data["QNH"] / 1000)
 		document.getElementById('A100').innerHTML = (KaTZPit_data["QNH"]).toFixed(0)
-	
+		
+		// Variometre + Bille, même instrument que sur le Mig29
+		instrument_Vario_M29(KaTZPit_data["Vario"],KaTZPit_data["Yaw"]/100, KaTZPit_data["Bille"])
+}
+
+function panel_instrument_engine_SU25(KaTZPit_data){
+
+		// Temp Moteur  -----------------------------------------------------------------------
+		var Temp_Eng = dataread_split_2(KaTZPit_data["Eng_temp"])
+		instrument_EngTemp_SU25(Temp_Eng[1],Temp_Eng[0])
+		
 }
 
 function panel_instrument_flight_Mig29(KaTZPit_data){
@@ -97,8 +108,22 @@ function panel_instrument_flight_Mig29(KaTZPit_data){
 		
 		// Bille/Yaw/Vario
 		instrument_Vario_M29(KaTZPit_data["Vario"],KaTZPit_data["Yaw"]/100, KaTZPit_data["Bille"])
+
+		// Altiradar
+		var i_altirad = KaTZPit_data["QFE"]
+		
+		if (i_altirad > 1000){i_altirad = 1000}
+		instrument_AltiRad_Mig29(i_altirad)
 	
 }
+
+function panel_instrument_engine_Mig29(KaTZPit_data){
+
+		// Temp Moteur,  même jauge que SU25  -----------------------------------------------------------------------
+		var Temp_Eng = dataread_split_2(KaTZPit_data["Eng_temp"])
+		instrument_EngTemp_SU25(Temp_Eng[1],Temp_Eng[0])
+}
+
 
 function panel_instrument_flight_SU33(KaTZPit_data){
 	

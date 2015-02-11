@@ -47,11 +47,13 @@ function pit_main(){
 	
 	} else if (Plane_data["ID"] == 25) {
 	panel_instrument_flight_SU25(KaTZPit_data) ;
+	panel_instrument_engine_SU25(KaTZPit_data) ;
 	panel_pilototo_update(KaTZPit_data) ;
 	panel_attitude_update(KaTZPit_data) ;
 	
 	} else if (Plane_data["ID"] == 29) {
 	panel_instrument_flight_Mig29(KaTZPit_data) ;
+	panel_instrument_engine_Mig29(KaTZPit_data) ;
 	panel_pilototo_update(KaTZPit_data) ;
 	panel_attitude_update(KaTZPit_data) ;
 		
