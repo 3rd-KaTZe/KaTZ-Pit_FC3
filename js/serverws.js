@@ -1,6 +1,8 @@
 var serverws = {
 	// IP + Port de la machine qui fait tourner le KaTZ-Link
+	
 	ip : "192.168.0.10",
+	//ip : "127.0.0.1",
 	port : 9000,
 	auto_connect : false,   //true,
 	delay : 15000,
