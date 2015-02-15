@@ -11,7 +11,7 @@ function CmdSend(){
 	//console.log(KaTZPit_data["Ordre2"])
 	//console.log(KaTZPit_data["PingBack"])
 	// Les ordres en cours sont stocké dans l'array Order_List
-	if (KaTZPit_data["Ordre1"]==0 && KaTZPit_data["Ordre2"]==0 && KaTZPit_data["PingBack"]==0) {
+	//if (KaTZPit_data["Ordre1"]==0 && KaTZPit_data["Ordre2"]==0 && KaTZPit_data["PingBack"]==0) {
 		
 		// Si la list des ordres en cours est non vide, on envoi l'ordre zero, et on décale la list vers le bas
 		if (Order_List.length > 0) {
@@ -22,15 +22,16 @@ function CmdSend(){
 			// Envoi de l'ordre -------------------------------------------------->>>			
 			serverws_send(nextorder)
 			
+			// Fonction flag desactivée avec KaTZ-Link_V3
 			// Blockage des flags d'emission pour éviter l'overflow
-			if (typeordre==1){KaTZPit_data["Ordre1"]=1}
-			if (typeordre==2){KaTZPit_data["Ordre2"]=1}
-			if (typeordre>2){KaTZPit_data["PingBack"]=1}
+			//if (typeordre==1){KaTZPit_data["Ordre1"]=1}
+			//if (typeordre==2){KaTZPit_data["Ordre2"]=1}
+			//if (typeordre>2){KaTZPit_data["PingBack"]=1}
 			
 			//console.log("CmdSend, Position des Flags de Sortie",KaTZPit_data["Ordre1"],KaTZPit_data["Ordre2"],KaTZPit_data["PingBack"])
 						
 		}			
-	}
+	
 }
 
 
