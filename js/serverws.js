@@ -16,16 +16,20 @@ function serverws_connect(){
 
 	console.log("Essai Connection " + serverws.ip + ":" + serverws.port);
 	
-	// Passage du voyant de connection de rouge >> orange
-	$("#Led_Connect").attr("src","images/z_Led-Orange.gif")
-
+	try {
+        serverws.socket.close()
+     } catch(exception) {}
+    
+	
+	menu_connection_led(1) // voyant de connection orange
+	
 	var url = "ws://" + serverws.ip + ":" + serverws.port + "/";
 	serverws.socket = new WebSocket(url);
 	
 	try {
 		serverws.socket.onopen = function() {
 			console.log("connection serveur démarrée")
-			// fonction dans panel.js
+			menu_connection_led(2) // voyant de connection vert
 			serverws_Open();
 		} 
 		
@@ -36,20 +40,18 @@ function serverws_connect(){
 		} 
 
 		serverws.socket.onclose = function(){
-			console.log("connection serveur stoppée")
 			// fonction dans panel.js
+			console.log("Deconnection du Serveur")
+			menu_connection_led(0) // voyant de connection rouge
 			serverws_Close();
-
 			// Fonction de reconnection automatique
-			if(serverws.auto_connect){timer = setTimeout(serverws_connect,serverws.delay);}
+			//if(serverws.auto_connect){timer = setTimeout(serverws_connect,serverws.delay);}
 		}
 
 		serverws.socket.onerror = function(error){
 			console.log("ERREUR connection serveur")
-			// fonction dans panel.js
-			serverws_Error(error);
+			menu_connection_led(0) // voyant de connection rouge
 		}
-
 	} 
 
 	catch(exception) {
