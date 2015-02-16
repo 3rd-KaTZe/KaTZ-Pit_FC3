@@ -22,7 +22,7 @@ function paneldata_init(){
 
 	var KaTZPit_data = {Error:0, Ping:0, Ping_old:0, Ordre1:0, Ordre2:0, PingBack:0, Plane_Id:50, Test_val:0,
 		Clock:0, TimeMis:0, TimeFly:0, Shoot_time:99, Chrono:0,
-		IAS:0, TAS:8888, QNH:0, QFE:0, AltiRad_DX:50005000, AltiRad_FI:555, Mach:0, Vario:0, Vari_unit:1,
+		IAS:0, TAS:8888, QNH:0, QFE:0, AltiRad_DX:50005000, AltiRad_FI:555, Mach:0, Vario:0, Vari_unit:1, QNH_Base:7600,
 		AoA:0, Acc_G:0, Acc_Gmax:0, Acc_Gmin:0, Bille:0,
 		Pitch:0, Bank:00, Yaw:0, ADI_FI:50005000, 
 		Way:90, Route:360, Cap:0, WP_dist:0, WP_num:88, Bullseye:0, EUP:50005000,
@@ -43,7 +43,7 @@ function paneldata_init(){
 		LowAlt:0,
 		FL_mode:0, FL_main:0, FL_main_old:0,
 		TAS_Opt:"---", Playtime:"---", 
-		Flaps_Pos:0, AF_Pos:0, Gear_Pos:1,
+		Flaps_Pos:55, AF_Pos:55, Gear_Pos:66,
 		ILS_lat:0, ILS_up:0, Rwy_x:0, 
 		WPS_select:0, WPS_S_old:0, Tank:0, Canon_Ammo:888, WP_check:1,	
 		WPS1_Q:0,WPS2_Q:0,WPS3_Q:0,WPS4_Q:0,WPS5_Q:0,WPS6_Q:0,WPS7_Q:0,WPS8_Q:0,WPS9_Q:0,WPS10_Q:0,WPS11_Q:0,WPS12_Q:0,WPS13_Q:0, 

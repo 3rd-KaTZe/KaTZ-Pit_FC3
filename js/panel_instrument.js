@@ -28,6 +28,13 @@ function panel_instrument_flight_F15(KaTZPit_data){
 		
 function panel_instrument_engine_F15(KaTZPit_data){
 
+		// Affichage des RPM sur les tachometres
+		EngRpm = dataread_split_2(KaTZPit_data["Eng_rpm"])
+		
+		// Rotation Aiguilles Moteur (origine et gain dans les fonctions)
+		instrument_EngRPM_F15((EngRpm[1]/10), (EngRpm[0]/10))
+
+
 		// Temp Moteur et Conso -----------------------------------------------------------------------
 		var Temp_Eng = dataread_split_2(KaTZPit_data["Eng_temp"])
 		
@@ -85,6 +92,12 @@ function panel_instrument_flight_SU25(KaTZPit_data){
 
 function panel_instrument_engine_SU25(KaTZPit_data){
 
+		// Affichage des RPM sur les tachometres
+		EngRpm = dataread_split_2(KaTZPit_data["Eng_rpm"])
+		
+		// Rotation Aiguilles Moteur (origine et gain dans les fonctions)
+		instrument_EngRPM_RU(EngRpm[1], EngRpm[0])
+
 		// Temp Moteur  -----------------------------------------------------------------------
 		var Temp_Eng = dataread_split_2(KaTZPit_data["Eng_temp"])
 		instrument_EngTemp_SU25(Temp_Eng[1],Temp_Eng[0])
@@ -119,6 +132,12 @@ function panel_instrument_flight_Mig29(KaTZPit_data){
 
 function panel_instrument_engine_Mig29(KaTZPit_data){
 
+		// Affichage des RPM sur les tachometres
+		EngRpm = dataread_split_2(KaTZPit_data["Eng_rpm"])
+		
+		// Rotation Aiguilles Moteur (origine et gain dans les fonctions)
+		instrument_EngRPM_RU(EngRpm[1], EngRpm[0])
+
 		// Temp Moteur,  même jauge que SU25  -----------------------------------------------------------------------
 		var Temp_Eng = dataread_split_2(KaTZPit_data["Eng_temp"])
 		instrument_EngTemp_SU25(Temp_Eng[1],Temp_Eng[0])
@@ -126,6 +145,60 @@ function panel_instrument_engine_Mig29(KaTZPit_data){
 
 
 function panel_instrument_flight_SU33(KaTZPit_data){
+	
+		// Animation des jauges instrument de vol du Mig29-------------------------------------------------------------
+		
+		// Gmetre et AoA
+		
+		// G-Metre, calcul des G-Min et G-Max ---------------------------------
+		// Test de comparaison G-Actuel avec G-min et G-max	 
+		var i_Gmax = Math.max(KaTZPit_data["Acc_Gmax"],KaTZPit_data["Acc_G"])
+		var i_Gmin = Math.min(KaTZPit_data["Acc_Gmin"],KaTZPit_data["Acc_G"])
+
+		// Mise à jour des valeurs G-min et G-Max dans la base de données
+		KaTZPit_data["Acc_Gmax"] = i_Gmax
+		KaTZPit_data["Acc_Gmin"] = i_Gmin
+	
+		instrument_GAoA_SU33(KaTZPit_data["Acc_G"]/10,i_Gmin/10,i_Gmax/10,KaTZPit_data["AoA"]/10)
+	
+		
+		// Badin 
+		instrument_IAS_SU33(KaTZPit_data["IAS"],KaTZPit_data["Mach"])
+		//document.getElementById('IAS1000').innerHTML = Math.floor(KaTZPit_data["IAS"] / 1000)
+	
+		
+		// Altiradar
+		var i_altirad = KaTZPit_data["QFE"]
+		
+		if (i_altirad > 1500){i_altirad = 1500}
+		instrument_AltiRad_SU33(i_altirad)
+		
+		// Altimetre
+		instrument_AltiBaro_SU33(KaTZPit_data["QNH"])
+		document.getElementById('Alti1000').innerHTML = Math.floor(KaTZPit_data["QNH"] / 1000)
+		
+		document.getElementById('QNH_Base').innerHTML = (KaTZPit_data["QNH_Base"] / 7600 * 1013).toFixed(0)
+		
+		// Vario
+		instrument_Vario_SU33(KaTZPit_data["Vario"])
+
+}
+
+function panel_instrument_engine_SU33(KaTZPit_data){
+
+		// Affichage des RPM sur les tachometres
+		EngRpm = dataread_split_2(KaTZPit_data["Eng_rpm"])
+		
+		// Rotation Aiguilles Moteur (origine et gain dans les fonctions)
+		instrument_EngRPM_RU(EngRpm[1], EngRpm[0])
+
+		// Temp Moteur  -----------------------------------------------------------------------
+		var Temp_Eng = dataread_split_2(KaTZPit_data["Eng_temp"])
+		instrument_EngTemp_SU33(Temp_Eng[1],Temp_Eng[0])
+		
+}
+
+function panel_instrument_flight_SU27(KaTZPit_data){
 	
 		// Animation des jauges instrument de vol du Mig29-------------------------------------------------------------
 		
@@ -155,21 +228,28 @@ function panel_instrument_flight_SU33(KaTZPit_data){
 		instrument_AltiRad_SU33(i_altirad)
 		
 		// Altimetre
-		instrument_AltiBaro_SU33(KaTZPit_data["QNH"])
-		document.getElementById('Alti1000').innerHTML = Math.floor(KaTZPit_data["QNH"] / 1000)
-						
-		// Vario
-		instrument_Vario_SU33(KaTZPit_data["Vario"])
+		document.getElementById('QNH_Base').innerHTML = (KaTZPit_data["QNH_Base"] / 10).toFixed(0)
+		instrument_AltiBaro_SU27(KaTZPit_data["QNH"])
+								
+		// Bille/Yaw/Vario
+		instrument_Vario_M29(KaTZPit_data["Vario"],KaTZPit_data["Yaw"]/100, KaTZPit_data["Bille"])
 
 }
 
-function panel_instrument_engine_SU33(KaTZPit_data){
+function panel_instrument_engine_SU27(KaTZPit_data){
+
+		// Affichage des RPM sur les tachometres
+		EngRpm = dataread_split_2(KaTZPit_data["Eng_rpm"])
+		
+		// Rotation Aiguilles Moteur (origine et gain dans les fonctions)
+		instrument_EngRPM_RU(EngRpm[1], EngRpm[0])
 
 		// Temp Moteur  -----------------------------------------------------------------------
 		var Temp_Eng = dataread_split_2(KaTZPit_data["Eng_temp"])
 		instrument_EngTemp_SU33(Temp_Eng[1],Temp_Eng[0])
 		
 }
+
 
 
 

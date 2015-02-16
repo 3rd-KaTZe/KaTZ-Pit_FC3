@@ -2,6 +2,7 @@
 // Fonction d'Animation des instruments
 // --------------------------------------------------------------------
 
+// Instrument de vol du F-15 ********************************************************************
 // AoA du F15 ---------------------------------------
 function instrument_AoA_F15(angle){
 
@@ -38,6 +39,31 @@ function instrument_Mach_F15(speed){
 	})
 }
 
+function instrument_GMetre_F15(ge){
+
+	var a_origine = -120
+	var a_gain = 25
+	
+	$("#AIG_GM").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*ge)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*ge)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*ge)+'deg)',
+	})
+}
+
+function instrument_AltiBaro_F15(alti){
+
+	var a_origine = 0
+	var a_gain = 0.36
+	
+	$("#AIG_AltiBaro").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+	})
+}
+
+// Instrument de vol du SU-25 ********************************************************************
 // Aiguilles du G-mètre avec (valeur,min,max) appareils russes --------------------------
 function instrument_G(val,min,max){
 	var a_origine = 127
@@ -176,65 +202,6 @@ function instrument_Vario_F15(vario){
 	})
 }
 
-function instrument_GMetre_F15(ge){
-
-	var a_origine = -120
-	var a_gain = 25
-	
-	$("#AIG_GM").css({
-		'-moz-transform':'rotate('+(a_origine+a_gain*ge)+'deg)',
-		'-webkit-transform':'rotate('+(a_origine+a_gain*ge)+'deg)',
-		'-ms-transform':'rotate('+(a_origine+a_gain*ge)+'deg)',
-	})
-}
-
-function instrument_AltiBaro_F15(alti){
-
-	var a_origine = 0
-	var a_gain = 0.36
-	
-	$("#AIG_AltiBaro").css({
-		'-moz-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
-		'-webkit-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
-		'-ms-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
-	})
-}
-
-
-
-function instrument_EngTemp_F15(left,right){
-	var t_origine = 20
-	var t_gain = 0.2
-	
-	$("#AM_TEMP_L").css({
-		'-moz-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
-		'-webkit-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
-		'-ms-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
-	})
-	
-	$("#AM_TEMP_R").css({
-		'-moz-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
-		'-webkit-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
-		'-ms-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
-	})
-}
-
-function instrument_EngFF_F15(left,right){
-	var t_origine = 60
-	var t_gain = 0.24
-	
-	$("#AM_FF_L").css({
-		'-moz-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
-		'-webkit-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
-		'-ms-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
-	})
-	
-	$("#AM_FF_R").css({
-		'-moz-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
-		'-webkit-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
-		'-ms-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
-	})
-}
 
 function instrument_AltiBaro_SU25(alti){
 
@@ -275,6 +242,8 @@ function instrument_IAS_SU25(ias,tas){
 		'-ms-transform':'rotate('+(t_origine+t_gain*tas)+'deg)',
 	})
 }
+
+// Instrument de vol du Mig-29 ********************************************************************
 
 function instrument_IAS_M29(ias){
 	var i_origine = 0
@@ -395,6 +364,7 @@ function instrument_AltiRad_Mig29(altirad){
 
 }
 
+// Instrument de vol du SU-33 ********************************************************************
 
 function instrument_GAoA_SU33(val,min,max,AoA){
 	var a_origine = 127
@@ -428,7 +398,7 @@ function instrument_GAoA_SU33(val,min,max,AoA){
 	})
 }
 
-function instrument_IAS_SU33(ias,alti){
+function instrument_IAS_SU33(ias,mach){
 	var i_origine = 0
 	var i_gain = 0.1
 	var i_ias = ias 
@@ -437,7 +407,9 @@ function instrument_IAS_SU33(ias,alti){
 	if (ias>500) {i_gain = 0.27 ; i_origine = 143 ; i_ias = ias - 500}
 	if (ias>600) {i_gain = 0.2 ; i_origine = 170 ; i_ias = ias - 600}
 	if (ias>1000) {i_gain = 0.15 ; i_origine = 250 ; i_ias = ias - 1000}
-	if (ias>1400) {i_gain = 0.12 ; i_origine = 295 ; i_ias = ias - 1400}
+	if (ias>1300) {i_gain = 0.12 ; i_origine = 295 ; i_ias = ias - 1300}
+		
+	var rot_ias = i_origine + i_gain * i_ias
 	
 
 	$("#AIG_IAS33").css({
@@ -450,13 +422,33 @@ function instrument_IAS_SU33(ias,alti){
 	// On fait tourner la couronne des mach de -20° pour 10000m
 	// Soit un Mach qui passe de 1222km/hr à 1092km/hr
 	
-	var a_origine = 0
-	var a_gain = -0.0022
 	
+	var m_origine = 0
+	var m_gain = 0
+	var m_mach = mach
+	
+	if (mach > 50) {m_gain = 2.4 ; m_origine = 0 ; m_mach = mach - 50}
+	if (mach > 70) {m_gain = 2.2 ; m_origine = 48 ; m_mach = mach - 70}
+	if (mach > 100) {m_gain = 1.7 ; m_origine = 113 ; m_mach = mach - 100}
+	if (mach > 130) {m_gain = 1.5 ; m_origine = 163 ; m_mach = mach - 130}
+	if (mach > 140) {m_gain = 1.2 ; m_origine = 178 ; m_mach = mach - 140}
+	if (mach > 150) {m_gain = .74 ; m_origine = 190 ; m_mach = mach - 150}
+	if (mach > 200) {m_gain = .54 ; m_origine = 127 ; m_mach = mach - 200}
+	if (mach > 250) {m_gain = .52 ; m_origine = 154 ; m_mach = mach - 250}
+	
+	var rot_mach = m_origine + m_gain * m_mach
+	var rot_mach_disk = rot_ias - rot_mach - 140
+
 	$("#AIG_Mach33").css({
-		'-moz-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
-		'-webkit-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
-		'-ms-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+		'-moz-transform':'rotate('+(rot_mach_disk)+'deg)',
+		'-webkit-transform':'rotate('+(rot_mach_disk)+'deg)',
+		'-ms-transform':'rotate('+(rot_mach_disk)+'deg)',
+	})
+	
+	$("#Acache_Mach33").css({
+		'-moz-transform':'rotate('+(rot_ias/6)+'deg)',
+		'-webkit-transform':'rotate('+(rot_ias/6)+'deg)',
+		'-ms-transform':'rotate('+(rot_ias/6)+'deg)',
 	})
 
 }
@@ -542,6 +534,115 @@ function instrument_Vario_SU33(vari){
 
 }
 
+// Instrument de vol du SU-27 ********************************************************************
+
+function instrument_AltiBaro_SU27(alti){
+	var a_origine = 0
+	var a_gain = 0.36
+	
+	var b_gain = 18
+
+
+	$("#AIG_AB_29").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*alti)+'deg)',
+	})
+	
+	$("#AIG_AB1000_29").css({
+		'-moz-transform':'rotate('+(a_origine+b_gain*alti/1000)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+b_gain*alti/1000)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+b_gain*alti/1000)+'deg)',
+	})
+
+}
+
+
+// Instrument Moteur du F-15 ********************************************************************
+function instrument_EngRPM_F15(l,r){
+	var a_origine = 60
+	var l_gain = .22
+	var r_gain = .22
+	
+
+	$("#AM_RPM_L").css({
+		'-moz-transform':'rotate('+(a_origine+l_gain*l)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+l_gain*l)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+l_gain*l)+'deg)',
+	})
+
+	$("#AM_RPM_R").css({
+		'-moz-transform':'rotate('+(a_origine+r_gain*r)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+r_gain*r)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+r_gain*r)+'deg)',
+	})
+}
+
+function instrument_EngTemp_F15(left,right){
+	var t_origine = 20
+	var t_gain = 0.2
+	
+	$("#AM_TEMP_L").css({
+		'-moz-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
+		'-webkit-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
+		'-ms-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
+	})
+	
+	$("#AM_TEMP_R").css({
+		'-moz-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
+		'-webkit-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
+		'-ms-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
+	})
+}
+
+function instrument_EngFF_F15(left,right){
+	var t_origine = 60
+	var t_gain = 0.24
+	
+	$("#AM_FF_L").css({
+		'-moz-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
+		'-webkit-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
+		'-ms-transform':'rotate('+(t_origine+t_gain*left)+'deg)',
+	})
+	
+	$("#AM_FF_R").css({
+		'-moz-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
+		'-webkit-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
+		'-ms-transform':'rotate('+(t_origine+t_gain*right)+'deg)',
+	})
+}
+
+// Instrument Moteur du SU-33 ********************************************************************
+
+function instrument_EngRPM_RU(left,right){
+	var l_origine = 50
+	var r_origine = 50
+	var l_gain = 0.32
+	var r_gain = 0.32
+
+	
+	var l = left 
+	if (left>500) {l_gain = 0.305 ; l_origine = 210 ; l = left - 500}
+	if (left>700) {l_gain = 0.3 ; l_origine = 270 ; l = left - 700}
+
+	var r = right 
+	if (right>500) {r_gain = 0.305 ; r_origine = 210 ; r = right - 500}
+	if (right>700) {r_gain = 0.3 ; r_origine = 270 ; r = right - 700}
+
+
+	$("#AM_RPM_L").css({
+		'-moz-transform':'rotate('+(l_origine+l_gain*l)+'deg)',
+		'-webkit-transform':'rotate('+(l_origine+l_gain*l)+'deg)',
+		'-ms-transform':'rotate('+(l_origine+l_gain*l)+'deg)',
+	})
+
+	$("#AM_RPM_R").css({
+		'-moz-transform':'rotate('+(r_origine+r_gain*r)+'deg)',
+		'-webkit-transform':'rotate('+(r_origine+r_gain*r)+'deg)',
+		'-ms-transform':'rotate('+(r_origine+r_gain*r)+'deg)',
+	})
+}
+
 
 function instrument_EngTemp_SU33(left,right){
 	var t_origine = -135
@@ -577,6 +678,7 @@ function instrument_EngTemp_SU33(left,right){
 	})
 }
 
+// Instrument Moteur du SU-25 ********************************************************************
 function instrument_EngTemp_SU25(left,right){
 	var t_origine = -162
 	var t_gain = 0.25
