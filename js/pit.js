@@ -62,7 +62,14 @@ function pit_main(){
 	panel_instrument_engine_SU33(KaTZPit_data) ;
 	panel_pilototo_update(KaTZPit_data) ;
 			
-	} else {
+	} else if (Plane_data["ID"] == 27) {
+	panel_instrument_flight_SU27(KaTZPit_data) ;
+	panel_instrument_engine_SU27(KaTZPit_data) ;
+	panel_pilototo_update(KaTZPit_data) ;
+			
+	} 
+		
+	else {
 	panel_pilototo_update(KaTZPit_data) ;
 	panel_attitude_update(KaTZPit_data) ;
 	}
@@ -121,28 +128,6 @@ function Pit_Start(plane){
 }
 
 
-// Envoi de Commande vers Sioc>DCS, Argument Num voir Liste des Commandes DCS 
-// Commande type FC2-FC3
-
-function CmdSioc(Val) {
-	
-	// Commande de Controle de DCS (channel 1 + Valeur)
-	var commande_DCS = "1="+Val ;
-	//var ordre = JSON.stringify(commande_DCS)
-	//var ordre = commande_DCS
-	serverws_send(commande_DCS) ;
-	console.log("Envoi de la commande ..", commande_DCS);
-}
-
-function CmdSiocSpe(Num, Val) {
-
-	// Commande de Controle de Sioc (chennel Num + Valeur)
-	var commande_DCS = Num +"="+ Val ;
-	serverws_send(commande_DCS) ;
-	console.log("Envoi de la commande ..", commande_DCS);
-
-}
-//timer_capot = setTimeout(function(){mafonction(argument)},duree_survol)
 
 
 
