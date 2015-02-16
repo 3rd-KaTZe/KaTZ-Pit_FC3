@@ -163,7 +163,7 @@ function panel_instrument_flight_SU33(KaTZPit_data){
 	
 		
 		// Badin 
-		instrument_IAS_SU33(KaTZPit_data["IAS"],KaTZPit_data["Mach"])
+		instrument_IAS_SU33(KaTZPit_data["IAS"],KaTZPit_data["Mach"]/10)
 		//document.getElementById('IAS1000').innerHTML = Math.floor(KaTZPit_data["IAS"] / 1000)
 	
 		
@@ -217,9 +217,9 @@ function panel_instrument_flight_SU27(KaTZPit_data){
 	
 		
 		// Badin 
-		instrument_IAS_SU33(KaTZPit_data["IAS"],KaTZPit_data["QNH"])
+		instrument_IAS_SU33(KaTZPit_data["IAS"],KaTZPit_data["Mach"]/10)
 		//document.getElementById('IAS1000').innerHTML = Math.floor(KaTZPit_data["IAS"] / 1000)
-		// On utilise le QNH pour corriger la rotation Mach vs Km/h
+
 		
 		// Altiradar
 		var i_altirad = KaTZPit_data["QFE"]

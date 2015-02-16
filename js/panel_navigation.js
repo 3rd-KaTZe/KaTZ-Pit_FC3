@@ -53,7 +53,7 @@ function panel_navigation_update(KaTZPit_data){
 	// IAS en "km/h" et en "kts"
 	document.getElementById('IAS_km').innerHTML = (KaTZPit_data["IAS"]) .toFixed(0)
 	document.getElementById('IAS_kt').innerHTML = (KaTZPit_data["IAS"] / 1.852).toFixed(0)
-	document.getElementById('Mach').innerHTML = (KaTZPit_data["Mach"]/100).toFixed(2)
+	document.getElementById('Mach').innerHTML = (KaTZPit_data["Mach"]/1000).toFixed(2)
 
 	//QNH en "m" et en "feet"
 	document.getElementById('QNH_m').innerHTML = KaTZPit_data["QNH"].toFixed(0)

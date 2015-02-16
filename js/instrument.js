@@ -281,7 +281,7 @@ function instrument_AltiBaro_M29(alti){
 
 function instrument_Mach_M29(mach){
 	var m_origine = 0
-	var m_gain = 1.2
+	var m_gain = 0.12
 
 
 	$("#AIG_Mach_29").css({
@@ -421,7 +421,6 @@ function instrument_IAS_SU33(ias,mach){
 	// Pour compenser la correction Mach vs Altitude
 	// On fait tourner la couronne des mach de -20° pour 10000m
 	// Soit un Mach qui passe de 1222km/hr à 1092km/hr
-	
 	
 	var m_origine = 0
 	var m_gain = 0
