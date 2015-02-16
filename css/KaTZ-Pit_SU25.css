@@ -54,7 +54,7 @@ p {
 #Panel_Attitude {
 	position: absolute;
 	top: 95px;
-	left: 110px;
+	left: 160px;
 	
 	font-family:arial, sans-serif;
 	text-align: center; 
@@ -62,58 +62,65 @@ p {
 
 #Cadran_IAS {
 	position: absolute;
-	top: 310px;
+	top: 300px;
 	left: 250px;
+	/* Dimension 200 x 200			              */
+}
+
+#Cadran_Altirad {
+	position: absolute;
+	top: 540px;
+	left: 120px;
 	/* Dimension 200 x 200			              */
 }
 
 #Cadran_Alti {
 	position: absolute;
-	top: 550px;
-	left: 255px;
+	top: 540px;
+	left: 370px;
 	/* Dimension 200 x 200			              */
 	font-family:arial, sans-serif;
 }
 
 #Cadran_Vario {
 	position: absolute;
-	top: 95px;
-	left: 1020px;
+	top: 60px;
+	left: 1140px;
 	/* Dimension 200 x 200			              */
 	font-family:arial, sans-serif;
 }
 
 #Cadran_RPM {
 	position: absolute;
-	top: 120px;
-	left: 1260px;
+	top: 60px;
+	left: 1380px;
 	/* Dimension 400 x 400			              */
 }
 
 #Panel_Gear {
 	position: absolute;
-	top: 800px;
-	left: 110px;
+	top: 790px;
+	left: 270px;
 
 }
 
 #Panel_Gear_2 {
 	position: absolute;
-	top: 400px;
-	left: 110px;
+	top: 750px;
+	left: 120px;
 }
 
 
 #Panel_Pilototo {
 	position: absolute;
 	top: 0px;
-	left: 500px;
+	left: 620px;
 }
 
 #Panel_Navigation {
 	position: absolute;
 	top: 95px;
-	left: 500px;
+	left: 620px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -126,7 +133,7 @@ p {
 #Panel_Weapon_1 {
 	position: absolute;
 	top: 605px;
-	left: 500px;
+	left: 620px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -139,7 +146,7 @@ p {
 #Panel_Weapon_2 {
 	position: absolute;
 	top: 785px;
-	left: 500px;
+	left: 620px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -151,8 +158,8 @@ p {
 
 #Panel_Motor {
 	position: absolute;
-	top: 350px;
-	left: 1110px;
+	top: 300px;
+	left: 1180px;
 		
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -163,8 +170,8 @@ p {
 
 #Panel_Fuel {
 	position: absolute;
-	top: 695px;
-	left: 1110px;
+	top: 650px;
+	left: 1180px;
 		
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -178,33 +185,34 @@ p {
 
 	position: absolute;
 	top: 00px;
-	left: 1500px;
+	left: 1620px;
 	/* Dimension 100 x 775			              */
 }
 
 
-#Panel_Radio {
-	position: absolute;
-	top: 0010px;
-	left: 1610px;
-	
-	font-family:arial, sans-serif;
-	text-align: center; 
-}
-
 #Panel_Target {
 	position: absolute;
 	top: 250px;
-	left: 1610px;
-	
+	left: 1740px;
+
 	font-family:arial, sans-serif;
 	text-align: center; 
 }
 
+#Panel_Radio {
+	position: absolute;
+	top: 040px;
+	left: 1740px;
+
+	font-family:arial, sans-serif;
+	text-align: center; 
+}
+
+
 #Panel_ILS {
 	position: absolute;
-	top: 650px;
-	left: 1610px;
+	top: 580px;
+	left: 1740px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;

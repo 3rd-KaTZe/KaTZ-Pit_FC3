@@ -65,9 +65,32 @@ function instrument_AltiBaro_F15(alti){
 
 // Instrument de vol du SU-25 ********************************************************************
 // Aiguilles du G-mètre avec (valeur,min,max) appareils russes --------------------------
-function instrument_G(val,min,max){
-	var a_origine = 127
-	var a_gain = -10
+function instrument_G_25(val,min,max){
+	var a_origine = 150
+	var a_gain = -13
+	
+	$("#AA_G").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*val)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*val)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*val)+'deg)',
+	})
+
+	$("#AA_Gmin").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*min)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*min)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*min)+'deg)',
+	})
+
+	$("#AA_Gmax").css({
+		'-moz-transform':'rotate('+(a_origine+a_gain*max)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+a_gain*max)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+a_gain*max)+'deg)',
+	})
+}
+
+function instrument_G_29(val,min,max){
+	var a_origine = 145
+	var a_gain = -12
 	
 	$("#AA_G").css({
 		'-moz-transform':'rotate('+(a_origine+a_gain*val)+'deg)',
