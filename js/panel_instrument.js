@@ -76,10 +76,31 @@ function panel_instrument_flight_SU25(KaTZPit_data){
 	
 		// Animation des jauges instrument de vol du SU25-------------------------------------------------------------
 		
+		// Animation des jauges---------------------------------------------------------------------
+		// G-Metre, calcul des G-Min et G-Max ---------------------------------
+		// Test de comparaison G-Actuel avec G-min et G-max	 
+		var i_Gmax = Math.max(KaTZPit_data["Acc_Gmax"],KaTZPit_data["Acc_G"])
+		var i_Gmin = Math.min(KaTZPit_data["Acc_Gmin"],KaTZPit_data["Acc_G"])
+
+		// Mise à jour des valeurs G-min et G-Max dans la base de données
+		KaTZPit_data["Acc_Gmax"] = i_Gmax
+		KaTZPit_data["Acc_Gmin"] = i_Gmin
+	
+		instrument_G_25(KaTZPit_data["Acc_G"]/10,i_Gmin/10,i_Gmax/10)
+		
+		// AoA -----------------------------------------------------------------
+		instrument_AoA(KaTZPit_data["AoA"]/10)
+		
 		// Badin avec affichage IAS/TAS
 		var iTas = Math.max(KaTZPit_data["TAS"],400)
 		instrument_IAS_SU25(KaTZPit_data["IAS"],iTas)
 
+		// Altiradar
+		var i_altirad = KaTZPit_data["QFE"]
+		
+		if (i_altirad > 1500){i_altirad = 1500}
+		instrument_AltiRad_SU33(i_altirad)
+		
 		// AltiBaro
 		instrument_AltiBaro_SU25(KaTZPit_data["QNH"])
 		// Affichage des 1000m et des m<1000m
@@ -88,6 +109,11 @@ function panel_instrument_flight_SU25(KaTZPit_data){
 		
 		// Variometre + Bille, même instrument que sur le Mig29
 		instrument_Vario_M29(KaTZPit_data["Vario"],KaTZPit_data["Yaw"]/100, KaTZPit_data["Bille"])
+		
+		
+		
+		
+		
 }
 
 function panel_instrument_engine_SU25(KaTZPit_data){
@@ -107,6 +133,21 @@ function panel_instrument_engine_SU25(KaTZPit_data){
 function panel_instrument_flight_Mig29(KaTZPit_data){
 	
 		// Animation des jauges instrument de vol du Mig29-------------------------------------------------------------
+		
+		// Animation des jauges---------------------------------------------------------------------
+		// G-Metre, calcul des G-Min et G-Max ---------------------------------
+		// Test de comparaison G-Actuel avec G-min et G-max	 
+		var i_Gmax = Math.max(KaTZPit_data["Acc_Gmax"],KaTZPit_data["Acc_G"])
+		var i_Gmin = Math.min(KaTZPit_data["Acc_Gmin"],KaTZPit_data["Acc_G"])
+
+		// Mise à jour des valeurs G-min et G-Max dans la base de données
+		KaTZPit_data["Acc_Gmax"] = i_Gmax
+		KaTZPit_data["Acc_Gmin"] = i_Gmin
+	
+		instrument_G_29(KaTZPit_data["Acc_G"]/10,i_Gmin/10,i_Gmax/10)
+		
+		// AoA -----------------------------------------------------------------
+		instrument_AoA(KaTZPit_data["AoA"]/10)
 		
 		// Badin 
 		instrument_IAS_M29(KaTZPit_data["IAS"])

@@ -4,21 +4,7 @@
 
 function panel_attitude_update(KaTZPit_data){
 
-	// Animation des jauges---------------------------------------------------------------------
-	// G-Metre, calcul des G-Min et G-Max ---------------------------------
-	// Test de comparaison G-Actuel avec G-min et G-max	 
-	var i_Gmax = Math.max(KaTZPit_data["Acc_Gmax"],KaTZPit_data["Acc_G"])
-	var i_Gmin = Math.min(KaTZPit_data["Acc_Gmin"],KaTZPit_data["Acc_G"])
-
-	// Mise à jour des valeurs G-min et G-Max dans la base de données
-	KaTZPit_data["Acc_Gmax"] = i_Gmax
-	KaTZPit_data["Acc_Gmin"] = i_Gmin
-	
-	instrument_G(KaTZPit_data["Acc_G"]/10,i_Gmin/10,i_Gmax/10)
-	
-	// AoA -----------------------------------------------------------------
-	instrument_AoA(KaTZPit_data["AoA"]/10)
-
+		
 	// ADI ----------------------------------------------------------------
 	// Affichage taux de roulis et inclinometre-----------------------------
 	document.getElementById('Bank_val').innerHTML = Math.abs(KaTZPit_data["Bank"]/10).toFixed(0)
