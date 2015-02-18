@@ -66,33 +66,35 @@
 
 <div id="Panel_Connection_Emergency">
 
-	<img src="images/emergency/Emergency_Panel.png" width="100" height="775" border="0" usemap="#Panel_Emergency"> 
+	<img src="images/emergency/Emergency_Panel.png" width="100" height="1000"  usemap="#Panel_Emergency"> 
 
-	<!-- Mapping des boutons d'Alarme (144), Verrière (71), Eject (83), Demarrage KaTZ-Pit-->
+	<!-- Mapping des boutons d'Alarme (144), Verrière (71), Eject(83), Demmarage KaTZ-Pit-->
 	<map name="Panel_Emergency">
-		<area shape="rect" coords="30,100,70,300" href="javascript:CmdSioc(71)">
-		<area shape="rect" coords="20,525,80,750" href="javascript:CmdSioc(83)">
-		<area shape="rect" coords="30,320,80,410" href="javascript:Pit_Start(15)">
-				
+		<area shape="rect" coords="20,760,80,980" href="javascript:CmdSioc(71)">
+		<area shape="rect" coords="20,130,80,350" href="javascript:CmdSioc(83)">
+		<area shape="circle" coords="50,480,45" href="javascript:Pit_Start(15)">
+		<area shape="rect" coords="10,640,90,670" href="javascript:DCS_Focus()">
 	</map>
 
 	<!-- Voyants d'Alarme -->
-	<SPAN style="position: absolute; left: 6px; top: 10px; width: 90px; height: 80px">
-	<img src="images/emergency/E_AlarmOn.gif" width="90" height="80" border="0" id="VE_Alarm" usemap="#alarm">
-	<map name="alarm">	<area shape="rect" coords="0,0,90,80" href="javascript:CmdSioc(144)"> </map>
+	<SPAN style="position: absolute; left: 4px; top: 25px; width: 90px; height: 80px">
+	<img src="images/emergency/E_AlarmOn.gif" width="90" height="80"  id="VE_Alarm" usemap="#alarm">
+	<map name="alarm">	<area shape="rect" coords="0,0,100,120" href="javascript:CmdSioc(144)"> </map>
 	</SPAN> 
 
 		<!-- Voyants de connection KaTZ-Link -->
-
-	<SPAN style="position: absolute; left: 20px; top: 420px">
-	<img src="images/emergency/z_Led-Rouge.gif" width="60" height="20" id="Led_Connect">
-	</SPAN>
+	<SPAN style="position: absolute; left: 10px; top: 380px">
+	<img src="images/emergency/z_Led-Rouge.gif" width="80" height="40" id="Led_Connect"> </SPAN>
+	
+		<!-- Voyants de connection DCS Focus -->
+	<SPAN style="position: absolute; left: 10px; top: 690px">
+	<img src="images/emergency/z_Led-Verte.gif" width="80" height="40"  id="Led_DCS"> 	</SPAN>
 
 	<!-- Zone d'affichage de l'adresse IP -->
-	<SPAN style="position: absolute; left: 05px; top: 470px; width: 90px; height: 25px ; color:green ; text-align:center; font-size:80%" id="IP_Host"> </SPAN>
-	<SPAN style="position: absolute; left: 05px; top: 495px; width: 90px; height: 25px ; color:green ; text-align:center; font-size:80%" id="IP_Port"> </SPAN>
+	<SPAN style="position: absolute; left: 05px; top: 555px; width: 90px; height: 25px ; color:green ; text-align:center; font-size:80%" id="IP_Host"> </SPAN>
+	<SPAN style="position: absolute; left: 05px; top: 575px; width: 90px; height: 25px ; color:green ; text-align:center; font-size:80%" id="IP_Port"> </SPAN>
 
-</div>
+	</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <!-- Panneau de selection des sub panels affichés -->

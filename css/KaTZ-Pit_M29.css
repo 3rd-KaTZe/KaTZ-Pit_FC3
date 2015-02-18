@@ -33,7 +33,7 @@ p {
 
 #Panel_Connection_Emergency {
 	position: absolute;
-	top: 100px;
+	top: 0px;
 	left: 0px;
 	
 	font-family:arial, sans-serif;
