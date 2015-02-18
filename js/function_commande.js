@@ -34,8 +34,14 @@ function CmdSend(){
 	
 }
 
-
-
+function DCS_Focus() {
+	
+	// Commande de Controle de DCS (channel 1 + Valeur)
+	var commande_DCS = "7=1"
+	
+	CmdStack(commande_DCS)
+	console.log("Envoi au buffer de la commande ..", commande_DCS);
+}
 
 
 function CmdSioc(Val) {

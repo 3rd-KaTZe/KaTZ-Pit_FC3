@@ -17,6 +17,10 @@ function menu_connection_led(flag){
 	
 }
 
+function DCS_Focus_check(KaTZPit_data){
+	if (KaTZPit_data["DCS_Focus"] ==2) {$("#Led_DCS").fadeIn()} else {$("#Led_DCS").fadeOut()}
+}
+
 
 function menu_Toggle(panel){
 	

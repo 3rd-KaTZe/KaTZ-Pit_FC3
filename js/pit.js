@@ -32,6 +32,9 @@ window.onload = function(){
 function pit_main(){
 
 	// Iteration Principale, fréquence fixée dans mytimer
+	
+	// Verification de DCS_Focus
+	DCS_Focus_check(KaTZPit_data)
 		
 	panel_emergency_update(KaTZPit_data) ;
 	panel_moteur_update(KaTZPit_data) ;
