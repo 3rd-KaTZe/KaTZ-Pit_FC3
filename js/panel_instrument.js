@@ -29,13 +29,17 @@ function panel_instrument_flight_F15(KaTZPit_data){
 		instrument_Vario_F15(KaTZPit_data["Vario"] * 60 * 3.28084)
 		instrument_AoA_F15(KaTZPit_data["AoA"])
 		instrument_GMetre_F15(KaTZPit_data["Acc_G"]/10)
-		
-		instrument_AltiBaro_F15(KaTZPit_data["QNH"]* 3.281 % 1000 )
-		// IAS en 1000 , puis en dessous le chiffre total
-		document.getElementById('A1000').innerHTML = Math.floor(KaTZPit_data["QNH"]* 3.281 / 1000)
-		document.getElementById('A100').innerHTML = (KaTZPit_data["QNH"]* 3.281).toFixed(0)
+
+		// Error in Altimeter from FC3 (+1.8%)
+		// Introduce in KaTZ-Pit to match FC3 pit indication
+		// FL level (and altimeter) on Nav panel is correct (based on 1013mb)
+
+		var i_altibaro = KaTZPit_data["QNH"] * 0.982
+		instrument_AltiBaro_F15(i_altibaro * 3.281 % 1000 )
+		document.getElementById('A1000').innerHTML = Math.floor(i_altibaro * 3.281 / 1000)
+		document.getElementById('A100').innerHTML = Math.round(i_altibaro * 3.281 /10) * 10
 		// Flag pour les 10000
-		if ((KaTZPit_data["QNH"] * 3.281 / 1000) < 10) {$("#AFlag").fadeIn()} else {$("#AFlag").fadeOut()}
+		if ((i_altibaro * 3.281 / 1000) < 10) {$("#AFlag").fadeIn()} else {$("#AFlag").fadeOut()}
 		
 }
 

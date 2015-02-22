@@ -56,8 +56,10 @@ function panel_navigation_update(KaTZPit_data){
 	document.getElementById('Mach').innerHTML = (KaTZPit_data["Mach"]/1000).toFixed(2)
 
 	//QNH en "m" et en "feet"
-	document.getElementById('QNH_m').innerHTML = KaTZPit_data["QNH"].toFixed(0)
-	document.getElementById('QNH_f').innerHTML = (KaTZPit_data["QNH"]* 3.281).toFixed(0)
+	document.getElementById('QNH_m').innerHTML = Math.round(KaTZPit_data["QNH"]/10) * 10
+
+	// Affichage FL
+	document.getElementById('QNH_f').innerHTML = (KaTZPit_data["QNH"] * 3.281 / 100 ).toFixed(0)
 	
 	
 	// Données TAS, Variomètre, Distance
@@ -69,13 +71,14 @@ function panel_navigation_update(KaTZPit_data){
 		document.getElementById('TAS').innerHTML = (KaTZPit_data["TAS"] / 1.852) .toFixed(0)
 				
 		// vario en pied/mn
-		document.getElementById('Vario').innerHTML = (KaTZPit_data["Vario"] * 60 * 3.28084).toFixed(0)
-		document.getElementById('QNH_WP').innerHTML = (i_qnhwp* 3.281).toFixed(0)
+		document.getElementById('Vario').innerHTML = Math.round(KaTZPit_data["Vario"] * 60 * 3.28084 / 100 ) * 100
+
+		document.getElementById('QNH_WP').innerHTML = Math.round(i_qnhwp * 3.281 / 10) * 10
 		
-		document.getElementById('QFE').innerHTML = (KaTZPit_data["QFE"] * 3.281).toFixed(0)
+		document.getElementById('QFE').innerHTML = Math.round(KaTZPit_data["QFE"] * 3.281 / 10 ) * 10
 		document.getElementById('WP_dist').innerHTML = (KaTZPit_data["WP_dist"] / 1.852).toFixed(0)
-		document.getElementById('TAS_Opt').innerHTML = (KaTZPit_data["TAS_Opt"] / 1.852).toFixed(0)
-		document.getElementById('Fuel_2_WP').innerHTML = (i_fuel2wp * 2.205).toFixed(0)
+		document.getElementById('TAS_Opt').innerHTML = Math.round(KaTZPit_data["TAS_Opt"] / 1.852 / 10 ) * 10
+		document.getElementById('Fuel_2_WP').innerHTML = Math.round(i_fuel2wp * 2.205 / 10 ) * 10
 				
 		} 
 	
@@ -87,12 +90,12 @@ function panel_navigation_update(KaTZPit_data){
 		// Cette fonction  toggle des unités" est déclanchée, par le bouton sous l'affichage Vario
 		var i_Vario = KaTZPit_data["Vario"] * KaTZPit_data["Vari_unit"]
 		document.getElementById('Vario').innerHTML = i_Vario.toFixed(0)	
-		document.getElementById('QNH_WP').innerHTML = i_qnhwp.toFixed(0)
+		document.getElementById('QNH_WP').innerHTML = Math.round(i_qnhwp / 10 ) * 10
 		
 		document.getElementById('QFE').innerHTML = KaTZPit_data["QFE"].toFixed(0)
 		document.getElementById('WP_dist').innerHTML = KaTZPit_data["WP_dist"].toFixed(0)
-		document.getElementById('TAS_Opt').innerHTML = KaTZPit_data["TAS_Opt"].toFixed(0)
-		document.getElementById('Fuel_2_WP').innerHTML = i_fuel2wp.toFixed(0)
+		document.getElementById('TAS_Opt').innerHTML = Math.round(KaTZPit_data["TAS_Opt"] / 10 ) * 10
+		document.getElementById('Fuel_2_WP').innerHTML = Math.round(i_fuel2wp  / 10 ) * 10
 			
 		}
 
