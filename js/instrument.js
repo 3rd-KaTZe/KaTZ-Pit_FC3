@@ -58,6 +58,43 @@ function instrument_Clock(hr,mn,sec,hrflt,mnflt,mnchrono,secchrono){
 	
 }
 
+function instrument_Clock_US(hr,mn,mnchrono,secchrono){
+	var a_origine = 0
+	var h_gain = 30
+	var m_gain = 6
+	var s_gain = 6
+	var chm_gain = 6
+	var chs_gain = 6
+	
+	
+	$("#AIG_Clock_hr").css({
+		'-moz-transform':'rotate('+(a_origine+h_gain*hr)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+h_gain*hr)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+h_gain*hr)+'deg)',
+	})
+
+	$("#AIG_Clock_mn").css({
+		'-moz-transform':'rotate('+(a_origine+m_gain*mn)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+m_gain*mn)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+m_gain*mn)+'deg)',
+	})
+
+			
+	$("#AIG_Chrono_mn").css({
+		'-moz-transform':'rotate('+(a_origine+chm_gain*mnchrono)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+chm_gain*mnchrono)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+chm_gain*mnchrono)+'deg)',
+	})
+	
+	$("#AIG_Chrono_sec").css({
+		'-moz-transform':'rotate('+(a_origine+chs_gain*secchrono)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+chs_gain*secchrono)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+chs_gain*secchrono)+'deg)',
+	})
+
+		
+}
+
 
 // Instrument de vol du F-15 ********************************************************************
 // AoA du F15 ---------------------------------------

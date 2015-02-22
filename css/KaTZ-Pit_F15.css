@@ -86,11 +86,16 @@ p {
 	text-align: right; 
 }
 
-
-
 #Cadran_Vario {
 	position: absolute;
 	top: 350px;
+	left: 1000px;
+	/* Dimension 400 x 400			              */
+}
+
+#Cadran_Clock {
+	position: absolute;
+	top: 620px;
 	left: 1000px;
 	/* Dimension 400 x 400			              */
 }
@@ -190,7 +195,7 @@ p {
 #Panel_ILS_15 {
 	position: absolute;
 	top: 660px;
-	left: 970px;
+	left: 1810px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
