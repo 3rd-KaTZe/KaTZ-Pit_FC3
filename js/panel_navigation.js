@@ -98,12 +98,18 @@ function panel_navigation_update(KaTZPit_data){
 
 	
 	// Heure, Temps de Vol, Chrono ----------------------------------------------------
+	KaTZPit_data["Chrono"] = KaTZPit_data["TimeMis"] - KaTZPit_data["Chrono_Start"]
+	console.log (KaTZPit_data["Clock"])
+	console.log (KaTZPit_data["Chrono_Start"])
+	console.log (KaTZPit_data["Chrono"])
+	
+	
+	
 	// Pour les heures, Formatage fonction 0 >> hh:mm:ss 
 	document.getElementById('Clock').innerHTML = time_format_0(KaTZPit_data["Clock"])
 	document.getElementById('Time_Fly').innerHTML = time_format_0(KaTZPit_data["TimeFly"])
 	// Pour les durées, Formatage fonction 1 >> h:m's" 
-	var i_chrono = KaTZPit_data["TimeMis"] - KaTZPit_data["Chrono"]
-	document.getElementById('Chrono').innerHTML = time_format_1(i_chrono)
+	document.getElementById('Chrono').innerHTML = time_format_1(KaTZPit_data["Chrono"])
 		
 	// Calculateur de Vol durées : Time2WP, ETA
 	// Time2WP, Formatage en mn's"
@@ -176,10 +182,7 @@ function NavMns(){
 	
 }
 
-function Chrono(){
-	// Mise à zero du Chrono :  time départ = time mission actuel
-	KaTZPit_data["Chrono"] = KaTZPit_data["TimeMis"]
-}
+
 
 
 

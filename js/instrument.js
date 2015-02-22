@@ -2,6 +2,63 @@
 // Fonction d'Animation des instruments
 // --------------------------------------------------------------------
 
+
+// Instrument Commun , Horloge de Vol ********************************************************************
+function instrument_Clock(hr,mn,sec,hrflt,mnflt,mnchrono,secchrono){
+	var a_origine = 0
+	var h_gain = 30
+	var m_gain = 6
+	var s_gain = 6
+	var chm_gain = 6
+	var chs_gain = 6
+	
+	
+	$("#AIG_Clock_hr").css({
+		'-moz-transform':'rotate('+(a_origine+h_gain*hr)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+h_gain*hr)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+h_gain*hr)+'deg)',
+	})
+
+	$("#AIG_Clock_mn").css({
+		'-moz-transform':'rotate('+(a_origine+m_gain*mn)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+m_gain*mn)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+m_gain*mn)+'deg)',
+	})
+
+	$("#AIG_Clock_sec").css({
+		'-moz-transform':'rotate('+(a_origine+s_gain*sec)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+s_gain*sec)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+s_gain*sec)+'deg)',
+	})
+	
+	$("#AIG_FLT_hr").css({
+		'-moz-transform':'rotate('+(a_origine+h_gain*hrflt)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+h_gain*hrflt)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+h_gain*hrflt)+'deg)',
+	})
+
+	$("#AIG_FLT_mn").css({
+		'-moz-transform':'rotate('+(a_origine+m_gain*mnflt)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+m_gain*mnflt)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+m_gain*mnflt)+'deg)',
+	})
+	
+	$("#AIG_Chrono_mn").css({
+		'-moz-transform':'rotate('+(a_origine+chm_gain*mnchrono)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+chm_gain*mnchrono)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+chm_gain*mnchrono)+'deg)',
+	})
+
+	$("#AIG_Chrono_sec").css({
+		'-moz-transform':'rotate('+(a_origine+chs_gain*secchrono)+'deg)',
+		'-webkit-transform':'rotate('+(a_origine+chs_gain*secchrono)+'deg)',
+		'-ms-transform':'rotate('+(a_origine+chs_gain*secchrono)+'deg)',
+	})
+
+	
+}
+
+
 // Instrument de vol du F-15 ********************************************************************
 // AoA du F15 ---------------------------------------
 function instrument_AoA_F15(angle){

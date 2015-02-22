@@ -21,7 +21,7 @@ function paneldata_init(){
 	console.log("Initialisation des données du KaTZ-Pit")
 
 	var KaTZPit_data = {Error:0, Ping:0, Ping_old:0, Ordre1:0, Ordre2:0, DCS_Focus:0, Plane_Id:50, Test_val:0,
-		Clock:0, TimeMis:0, TimeFly:0, Shoot_time:99, Chrono:0,
+		Clock:0, TimeMis:0, TimeFly:0, TimeFly_Start:0, Shoot_time:99, Chrono:0, Chrono_Start:0,
 		IAS:0, TAS:8888, QNH:0, QFE:0, AltiRad_DX:50005000, AltiRad_FI:555, Mach:0, Vario:0, Vari_unit:1, QNH_Base:7600,
 		AoA:0, Acc_G:0, Acc_Gmax:0, Acc_Gmin:0, Bille:0,
 		Pitch:0, Bank:00, Yaw:0, ADI_FI:50005000, 
