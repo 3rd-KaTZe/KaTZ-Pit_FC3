@@ -112,6 +112,7 @@ function instrument_AoA_F15(angle){
 
 function instrument_Mach_F15(speed){
 
+	
 	var s_origine = 0
 	var s_gain = 0.49
 	var speedi = speed 
