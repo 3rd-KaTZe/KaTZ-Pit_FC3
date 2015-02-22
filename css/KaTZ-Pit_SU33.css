@@ -54,22 +54,13 @@ p {
 
 #Panel_Light {
 	position: absolute;
-	top: 10px;
+	top: 05px;
 	left: 110px;
-}
-
-#Panel_Attitude {
-	position: absolute;
-	top: 150px;
-	left: 2105px;
-
-	font-family:arial, sans-serif;
-	text-align: center; 
 }
 
 #Cadran_AoA {
 	position: absolute;
-	top: 120px;
+	top: 115px;
 	left: 130px;
 	font-family:arial, sans-serif;
 	/* Dimension 200 x 200			              */
@@ -77,15 +68,22 @@ p {
 
 #Cadran_IAS {
 	position: absolute;
-	top: 120px;
+	top: 115px;
 	left: 370px;
 	font-family:arial, sans-serif;
 	/* Dimension 200 x 200			              */
 }
 
+#Cadran_Altirad {
+	position: absolute;
+	top: 350px;
+	left: 130px;
+	/* Dimension 200 x 200			              */
+}
+
 #Cadran_Alti {
 	position: absolute;
-	top: 370px;
+	top: 350px;
 	left: 370px;
 	/* Dimension 200 x 200			              */
 	font-family:arial, sans-serif;
@@ -95,12 +93,26 @@ p {
 	text-align: right; 
 }
 
-#Cadran_Altirad {
+#Cadran_Clock {
 	position: absolute;
-	top: 370px;
-	left: 130px;
-	/* Dimension 200 x 200			              */
+	top: 580px;
+	left: 355px;
+	/* Dimension 400 x 400			              */
 }
+
+#Panel_Gear_2 {
+	position: absolute;
+	top: 580px;
+	left: 160px;
+}
+
+#Panel_Gear {
+	position: absolute;
+	top: 835px;
+	left: 120px;
+
+}
+
 
 #Panel_Weapon {
 	position: absolute;
@@ -138,18 +150,6 @@ p {
 
 
 
-#Panel_Gear {
-	position: absolute;
-	top: 620px;
-	left: 250px;
-
-}
-
-#Panel_Gear_2 {
-	position: absolute;
-	top: 580px;
-	left: 120px;
-}
 
 #Panel_ILS {
 	position: absolute;
@@ -203,6 +203,15 @@ p {
 	color:white;
 	background-color:transparent;
 	text-align: right; 
+}
+
+#Panel_Attitude {
+	position: absolute;
+	top: 150px;
+	left: 2105px;
+
+	font-family:arial, sans-serif;
+	text-align: center; 
 }
 
 

@@ -4,6 +4,21 @@
 
 // fonctions de gestion des instruments dans "instrument.js"
 
+
+// Commun FC3, Reset Chrono de vol et Flight Time
+function Chrono(){
+	// Mise à zero du Chrono :  time départ = time mission actuel
+	KaTZPit_data["Chrono_Start"] = KaTZPit_data["TimeMis"]
+}
+
+//
+function FltTime(){
+	// Mise à zero du Flight Time dans SIOC
+	CmdSiocSpe(48,0)
+}
+
+
+
 function panel_instrument_flight_F15(KaTZPit_data){
 	
 		// Animation des jauges instrument de vol du F15-------------------------------------------------------------
@@ -75,6 +90,18 @@ function panel_instrument_engine_F15(KaTZPit_data){
 function panel_instrument_flight_SU25(KaTZPit_data){
 	
 		// Animation des jauges instrument de vol du SU25-------------------------------------------------------------
+		// Montre de Bord
+		var hr = KaTZPit_data["Clock"] / 3600
+		var mn = Math.floor(KaTZPit_data["Clock"] % 3600 / 60)
+		var sec = KaTZPit_data["Clock"] % 60
+			
+		var hrflt = KaTZPit_data["TimeFly"] / 3600
+		var mnflt = Math.floor(KaTZPit_data["TimeFly"] % 3600 / 60)
+			
+		var mnchrono = Math.floor(KaTZPit_data["Chrono"] / 60)
+		var secchrono = KaTZPit_data["Chrono"] % 60
+			
+		instrument_Clock(hr,mn,sec,hrflt,mnflt,mnchrono,secchrono)
 		
 		// Animation des jauges---------------------------------------------------------------------
 		// G-Metre, calcul des G-Min et G-Max ---------------------------------
@@ -134,6 +161,19 @@ function panel_instrument_flight_Mig29(KaTZPit_data){
 	
 		// Animation des jauges instrument de vol du Mig29-------------------------------------------------------------
 		
+		// Montre de Bord
+		var hr = KaTZPit_data["Clock"] / 3600
+		var mn = Math.floor(KaTZPit_data["Clock"] % 3600 / 60)
+		var sec = KaTZPit_data["Clock"] % 60
+			
+		var hrflt = KaTZPit_data["TimeFly"] / 3600
+		var mnflt = Math.floor(KaTZPit_data["TimeFly"] % 3600 / 60)
+			
+		var mnchrono = Math.floor(KaTZPit_data["Chrono"] / 60)
+		var secchrono = KaTZPit_data["Chrono"] % 60
+			
+		instrument_Clock(hr,mn,sec,hrflt,mnflt,mnchrono,secchrono)
+				
 		// Animation des jauges---------------------------------------------------------------------
 		// G-Metre, calcul des G-Min et G-Max ---------------------------------
 		// Test de comparaison G-Actuel avec G-min et G-max	 
@@ -188,6 +228,18 @@ function panel_instrument_engine_Mig29(KaTZPit_data){
 function panel_instrument_flight_SU33(KaTZPit_data){
 	
 		// Animation des jauges instrument de vol du Mig29-------------------------------------------------------------
+		// Montre de Bord
+		var hr = KaTZPit_data["Clock"] / 3600
+		var mn = Math.floor(KaTZPit_data["Clock"] % 3600 / 60)
+		var sec = KaTZPit_data["Clock"] % 60
+			
+		var hrflt = KaTZPit_data["TimeFly"] / 3600
+		var mnflt = Math.floor(KaTZPit_data["TimeFly"] % 3600 / 60)
+			
+		var mnchrono = Math.floor(KaTZPit_data["Chrono"] / 60)
+		var secchrono = KaTZPit_data["Chrono"] % 60
+			
+		instrument_Clock(hr,mn,sec,hrflt,mnflt,mnchrono,secchrono)
 		
 		// Gmetre et AoA
 		
@@ -242,6 +294,18 @@ function panel_instrument_engine_SU33(KaTZPit_data){
 function panel_instrument_flight_SU27(KaTZPit_data){
 	
 		// Animation des jauges instrument de vol du Mig29-------------------------------------------------------------
+		// Montre de Bord
+		var hr = KaTZPit_data["Clock"] / 3600
+		var mn = Math.floor(KaTZPit_data["Clock"] % 3600 / 60)
+		var sec = KaTZPit_data["Clock"] % 60
+			
+		var hrflt = KaTZPit_data["TimeFly"] / 3600
+		var mnflt = Math.floor(KaTZPit_data["TimeFly"] % 3600 / 60)
+			
+		var mnchrono = Math.floor(KaTZPit_data["Chrono"] / 60)
+		var secchrono = KaTZPit_data["Chrono"] % 60
+			
+		instrument_Clock(hr,mn,sec,hrflt,mnflt,mnchrono,secchrono)
 		
 		// Gmetre et AoA
 		

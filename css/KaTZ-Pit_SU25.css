@@ -63,24 +63,33 @@ p {
 #Cadran_IAS {
 	position: absolute;
 	top: 300px;
-	left: 250px;
-	/* Dimension 200 x 200			              */
-}
-
-#Cadran_Altirad {
-	position: absolute;
-	top: 540px;
-	left: 120px;
+	left: 115px;
 	/* Dimension 200 x 200			              */
 }
 
 #Cadran_Alti {
 	position: absolute;
-	top: 540px;
+	top: 305px;
 	left: 370px;
 	/* Dimension 200 x 200			              */
 	font-family:arial, sans-serif;
 }
+
+#Cadran_Altirad {
+	position: absolute;
+	top: 545px;
+	left: 120px;
+	/* Dimension 200 x 200			              */
+}
+
+#Cadran_Clock {
+	position: absolute;
+	top: 540px;
+	left: 355px;
+	/* Dimension 400 x 400			              */
+}
+
+
 
 #Cadran_Vario {
 	position: absolute;
@@ -97,18 +106,19 @@ p {
 	/* Dimension 400 x 400			              */
 }
 
-#Panel_Gear {
-	position: absolute;
-	top: 790px;
-	left: 270px;
-
-}
-
 #Panel_Gear_2 {
 	position: absolute;
 	top: 750px;
 	left: 120px;
 }
+
+#Panel_Gear {
+	position: absolute;
+	top: 805px;
+	left: 285px;
+}
+
+
 
 
 #Panel_Pilototo {

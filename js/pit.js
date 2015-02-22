@@ -123,8 +123,8 @@ function Pit_Start(plane){
 
 	// Affichage Initial
 	pit_main()
-	//paneldata_update(KaTZPit_data)
-
+	
+	
 	// Lancement de la procédure de connection
 	serverws_connect()
 
