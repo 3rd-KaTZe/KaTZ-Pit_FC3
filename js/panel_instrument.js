@@ -43,6 +43,15 @@ function panel_instrument_flight_F15(KaTZPit_data){
 		
 function panel_instrument_engine_F15(KaTZPit_data){
 
+		// Montre de Bord
+		var hr = KaTZPit_data["Clock"] / 3600
+		var mn = Math.floor(KaTZPit_data["Clock"] % 3600 / 60)
+			
+		var mnchrono = Math.floor(KaTZPit_data["Chrono"] / 60)
+		var secchrono = KaTZPit_data["Chrono"] % 60
+					
+		instrument_Clock_US(hr,mn,mnchrono,secchrono)
+
 		// Affichage des RPM sur les tachometres
 		EngRpm = dataread_split_2(KaTZPit_data["Eng_rpm"])
 		
