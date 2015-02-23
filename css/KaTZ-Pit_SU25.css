@@ -235,5 +235,13 @@ p {
 #Frequency_List {
 	position: absolute;
 	top: 250px;
-	left: 1610px;
+	left: 1740px;
+}
+
+#Panel_Doc {
+	position: absolute;
+	top: 100px;
+	left: 1740px;
+	/* Dimension 500 x 200			              */
+	
 }

@@ -242,3 +242,11 @@ p {
 	top: 250px;
 	left: 1810px;
 }
+
+#Panel_Doc {
+	position: absolute;
+	top: 100px;
+	left: 1810px;
+	/* Dimension 500 x 200			              */
+	
+}

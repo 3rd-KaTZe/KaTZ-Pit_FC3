@@ -58,7 +58,33 @@ function menu_Toggle(panel){
 	if (Panel_On["FreqList"] == 0) {document.getElementById("Frequency_List").style.display = "none"}
 	else {document.getElementById("Frequency_List").style.display = "block"}
 
-	
+	if (Panel_On["Doc"] == 0) {document.getElementById("Panel_Doc").style.display = "none"}
+	else {document.getElementById("Panel_Doc").style.display = "block"}
 
-	
+		
 }	
+
+function menu_Affiche(num){
+
+	document.getElementById("Panel_Doc").style.display = "block"
+	if (num == 1){$("#Doc_Affiche").attr("src","doc/Check_1.png")}
+	if (num == 2){$("#Doc_Affiche").attr("src","doc/Check_2.png")}
+	if (num == 3){$("#Doc_Affiche").attr("src","doc/Check_3.png")}
+	if (num == 4){$("#Doc_Affiche").attr("src","doc/Check_4.png")}
+	if (num == 5){$("#Doc_Affiche").attr("src","doc/Check_5.png")}
+	
+	if (num == 6){$("#Doc_Affiche").attr("src","doc/MisBrief_1.png")}
+	if (num == 7){$("#Doc_Affiche").attr("src","doc/MisBrief_2.png")}
+	
+	if (num == 8){$("#Doc_Affiche").attr("src","doc/MisPhoto_1.png")}
+	if (num == 9){$("#Doc_Affiche").attr("src","doc/MisPhoto_2.png")}
+	
+	if (num == 11){$("#Doc_Affiche").attr("src","doc/Nav_1.png")}
+	if (num == 12){$("#Doc_Affiche").attr("src","doc/Nav_2.png")}
+	if (num == 13){$("#Doc_Affiche").attr("src","doc/Nav_3.png")}
+	if (num == 14){$("#Doc_Affiche").attr("src","doc/Nav_4.png")}
+	if (num == 15){$("#Doc_Affiche").attr("src","doc/Nav_5.png")}
+	
+	if (num == 99) {document.getElementById("Panel_Doc").style.display = "none"}
+	
+}
