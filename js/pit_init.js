@@ -9,7 +9,7 @@ function panel_On_init(){
 
 var Panel_On = { Init:0, Breakers:0, Electric_DC:0, Electric_AC:0, APU:0, Oil:1, Start:0, Rotor:1, Analog_1:0, Analog_2:0, 
 	ARK_9:0, ARK_UD:0, Doppler:0, Radio_360:1, Fuel:1, Vierge:0, Navigation:1, Target:1, Weapon:1, UV26:0, ILS:1, ILS_15:0,
-	CheckList:0, FreqList:0,
+	CheckList:0, FreqList:0, Doc:0,
 	Pilototo:1,Datalink:0, Abris:0}
 
 return (Panel_On);
