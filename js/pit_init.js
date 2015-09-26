@@ -8,7 +8,7 @@ function panel_On_init(){
 	console.log("Initialisation des panels affichés")
 
 var Panel_On = { Init:0, Breakers:0, Electric_DC:0, Electric_AC:0, APU:0, Oil:1, Start:0, Rotor:1, Analog_1:0, Analog_2:0, 
-	ARK_9:0, ARK_UD:0, Doppler:0, Radio_360:1, Fuel:1, Vierge:0, Navigation:1, Target:1, Weapon:1, UV26:0, ILS:1, ILS_15:0,
+	ARK_9:0, ARK_UD:0, Doppler:0, Radio_360:1, Radio_UR:1 , Fuel:1, Vierge:0, Navigation:1, Target:1, Weapon:1, UV26:0, ILS:1, ILS_15:0,
 	CheckList:0, FreqList:0, Doc:0,
 	Pilototo:1,Datalink:0, Abris:0}
 
@@ -54,6 +54,7 @@ function paneldata_init(){
 		Freq_main:310, Freq_sub:100, Radiotype:1,
 		Chan_1_main:310, Chan_2_main:320, Chan_3_main:330, Chan_4_main:340, Chan_1_dec:100, Chan_2_dec:200, Chan_3_dec:300, Chan_4_dec:400, TS_Chan:000,
 		Active_main:310, Active_sub:100, Active_chan:1,	VT_M1:0, VT_M2:0, VT_M3:0,
+		URadio_SW:5550101, URadio1 : 500500500, URadio2 : 500500500,
 		}
 	
 	console.log("KaTZPit_data Initialisé")

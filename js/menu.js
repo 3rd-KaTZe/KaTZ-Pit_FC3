@@ -51,8 +51,8 @@ function menu_Toggle(panel){
 	//else { document.getElementById("Panel_Weapon").style.display = "block"}
 	
 	// Panel Radio-TS
-	if (Panel_On["Radio_360"] == 0) {document.getElementById("Panel_Radio").style.display = "none"}
-	else {document.getElementById("Panel_Radio").style.display = "block"}
+	if (Panel_On["Radio_UR"] == 0) {document.getElementById("Panel_Radio_UR").style.display = "none"}
+	else {document.getElementById("Panel_Radio_UR").style.display = "block"}
 	
 	// FrequencyList
 	if (Panel_On["FreqList"] == 0) {document.getElementById("Frequency_List").style.display = "none"}
