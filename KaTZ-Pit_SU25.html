@@ -40,7 +40,7 @@
 	<script type="text/javascript" src="js/panel_weapon.js"></script>
 	<script type="text/javascript" src="js/panel_gear.js"></script>
 	<script type="text/javascript" src="js/panel_ils.js"></script>
-	<script type="text/javascript" src="js/panel_radio.js"></script>
+	<script type="text/javascript" src="js/panel_radio_ur.js"></script>
 	<script type="text/javascript" src="js/panel_detection.js"></script>
 	<script type="text/javascript" src="js/panel_target.js"></script>
 	
@@ -897,127 +897,106 @@
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<div id="Panel_Radio">
+<div id="Panel_Radio_UR">
 
-	<img src="images/radio/Radio_Panel_3001.png" width="320" height="200" border="0" usemap="#Panel_Radio">
+	<img src="images/raiur_33/Raiur_33_eng.png" width="500" height="370" border="0" usemap="#Panel_Radio">
 
 	<map name="Panel_Radio">
 
-			<!-- Mapping des boutons de memorisation, M1, M2, M3, M4 -->
-			<area shape="rect" coords="75,65,125,85" href="javascript:radio_freq_mem(1)">
-			<area shape="rect" coords="135,65,185,85" href="javascript:radio_freq_mem(2)">
-			<area shape="rect" coords="195,65,245,85" href="javascript:radio_freq_mem(3)">
-			<area shape="rect" coords="255,65,305,85" href="javascript:radio_freq_mem(4)">
+			<!-- Commande Volume UHF et VHF -->
+			<area shape="circle" coords="165,130,20" href="javascript:Radio_Volume(0,1)">
+			<area shape="circle" coords="165,170,20" href="javascript:Radio_Volume(0,-1)">
+			
+			<area shape="circle" coords="410,130,20" href="javascript:Radio_Volume(1,1)">
+			<area shape="circle" coords="410,170,20" href="javascript:Radio_Volume(1,-1)">
+			
 	</map>  
 
-	<!-- Voyants Selection de Chan -->
-	<!-- La subroutine est mappé sur le voyant éteint, le fond est allumé -->
-	<!-- Quand le Chan est selectionné, le voyant éteint est fadeout, la zone ne peut plus être selectionnée  -->
-
-	<SPAN style="position: absolute; left: 15px; top: 15px; width: 50px; height: 40px">
-	<img src="images/radio/R_Man.gif" width="50" height="40" border="0" id="VR_sel0" usemap="#radio0">
-	<map name="radio0">	<area shape="rect" coords="0,0,50,40" href="javascript:radio_canal(0)"> </map>
+	<!-- Voyants Selection de UHF VHF -->
+	<SPAN style="position: absolute; left: 190px; top: 45px; width: 125px; height: 30px">
+	<img src="images/raiur_33/Switch_H_L.png" width="125" height="30" border="0" id="R_uhfvhf" usemap="#radio0">
+	<map name="radio0">	
+	<area shape="rect" coords="0,0,60,30"  href="javascript:Radio_Switch(6,5)"> 
+	<area shape="rect" coords="65,0,125,30"  href="javascript:Radio_Switch(6,6)"> 
+	</map>
 	</SPAN> 
 
-	<SPAN style="position: absolute; left: 75px; top: 15px; width: 50px; height: 20px">
-	<img src="images/radio/R_Off.gif" width="50" height="20" border="0" id="VR_sel1" usemap="#radio1">
-	<map name="radio1">	<area shape="rect" coords="0,0,50,20" href="javascript:radio_canal(1)"> </map>
+	<!-- Voyants Selection AM FM -->
+	<SPAN style="position: absolute; left: 191px; top: 220px; width: 30px; height: 125px">
+	<img src="images/raiur_33/Switch_V_U.png" width="30" height="125" border="0" id="R_AMFM" usemap="#radio1">
+	<map name="radio1">
+	<area shape="rect" coords="0,0,30,60"  href="javascript:Radio_Switch(5,6)"> 
+	<area shape="rect" coords="0,65,30,125"  href="javascript:Radio_Switch(5,5)"> 
+	</map>
 	</SPAN>
 
-	<SPAN style="position: absolute; left: 135px; top: 15px; width: 50px; height: 20px">
-	<img src="images/radio/R_Off.gif" width="50" height="20" border="0" id="VR_sel2" usemap="#radio2">
-	<map name="radio2">	<area shape="rect" coords="0,0,50,20" href="javascript:radio_canal(2)"> </map>
+	<!-- Voyants Selection ON OFF -->
+	<SPAN style="position: absolute; left: 448px; top: 217px; width: 30px; height: 125px">
+	<img src="images/raiur_33/Switch_Vj_D.png" width="30" height="125" border="0" id="R_onoff" usemap="#radio2">
+	<map name="radio2">
+	<area shape="rect" coords="0,0,30,60"  href="javascript:Radio_Switch(7,6)"> 
+	<area shape="rect" coords="0,65,30,125"  href="javascript:Radio_Switch(7,5)"> 
+	</map>
+	</SPAN> 
+	
+	<!-- Rotacteur Selection Chan UHF -->
+	<SPAN style="position: absolute; left: 35px; top: 230px; width: 100px; height: 100px">
+	<img src="images/raiur_33/Rotary_Channel.png" width="100" height="100" border="0" id="R_ChanUhf">
 	</SPAN> 
 
-	<SPAN style="position: absolute; left: 195px; top: 15px; width: 50px; height: 20px">
-	<img src="images/radio/R_Off.gif" width="50" height="20" border="0" id="VR_sel3" usemap="#radio3">
-	<map name="radio3">	<area shape="rect" coords="0,0,50,20" href="javascript:radio_canal(3)"> </map>
+	<!-- Rotacteur Volume UHF -->
+	<SPAN style="position: absolute; left: 173px; top: 120px; width: 70px; height: 70px">
+	<img src="images/raiur_33/Rotary_Volume.png" width="70" height="70" border="0" id="R_VolUhf">
+	</SPAN> 
+	
+	<!-- Rotacteur Selection Chan VHF -->	
+	<SPAN style="position: absolute; left: 280px; top: 230px; width: 100px; height: 100px">
+	<img src="images/raiur_33/Rotary_Channel.png" width="100" height="100" border="0" id="R_ChanVhf">
 	</SPAN> 
 
-	<SPAN style="position: absolute; left: 255px; top: 15px; width: 50px; height: 20px">
-	<img src="images/radio/R_Off.gif" width="50" height="20" border="0" id="VR_sel4" usemap="#radio4">
-	<map name="radio4">	<area shape="rect" coords="0,0,50,20" href="javascript:radio_canal(4)"> </map>
+	<!-- Rotacteur Volume VHF -->
+	<SPAN style="position: absolute; left: 417px; top: 120px; width: 70px; height: 70px">
+	<img src="images/raiur_33/Rotary_Volume.png" width="70" height="70" border="0" id="R_VolVhf">
+	</SPAN> 
+	
+	<!-- Affichage 7Seg UHF -->
+	<SPAN style="position: absolute; left: 40px; top: 105px; width: 45px; height: 60px">
+	<img src="images/raiur_33/7-Seg_off.png" width="45" height="60" border="0" id="R_ChanUDigit10" usemap="#radio3">
+	<map name="radio3">
+	<area shape="rect" coords="0,0,45,60" href="javascript:Radio_Channel(0,-1)"></map>
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 80px; top: 105px; width: 45px; height: 60px">
+	<img src="images/raiur_33/7-Seg_off.png" width="45" height="60" border="0" id="R_ChanUDigit1" usemap="#radio4">
+	<map name="radio4">
+	<area shape="rect" coords="0,0,45,60" href="javascript:Radio_Channel(0,1)"></map>
+	</SPAN> 
+	
+	<!-- Affichage 7Seg VHF -->
+	<SPAN style="position: absolute; left: 285px; top: 105px; width: 45px; height: 60px">
+	<img src="images/raiur_33/7-Seg_off.png" width="45" height="60" border="0" id="R_ChanVDigit10" usemap="#radio5">
+	<map name="radio5">
+	<area shape="rect" coords="0,0,45,60" href="javascript:Radio_Channel(1,-1)"> </map>
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 325px; top: 105px; width: 45px; height: 60px">
+	<img src="images/raiur_33/7-Seg_off.png" width="45" height="60" border="0" id="R_ChanVDigit1" usemap="#radio6">
+	<map name="radio6">
+	<area shape="rect" coords="0,0,45,60" href="javascript:Radio_Channel(1,1)">	</map>
+	</SPAN> 
+	
+	
+	
+	<!-- Voyants marche de UHF, VHF -->
+	<SPAN style="position: absolute; left: 51px; top: 27px; width: 35px; height: 35px">
+	<img src="images/raiur_33/Led-Jaune_Off.png" width="35" height="35" border="0" id="R_U_Led">	
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 433px; top: 27px; width: 35px; height: 35px">
+	<img src="images/raiur_33/Led-Jaune_Off.png" width="35" height="35" border="0" id="R_V_Led">	
 	</SPAN> 
 
-	<!-- Voyants de fréquence, subFreq -->
-	<SPAN style="position: absolute; left: 15px; top: 110px; width: 40px; height: 30px">
-	<img src="images/radio/R_310.gif" width="40" height="30" border="0" id="VR_310" usemap="#frq310">
-	<map name="frq310">	<area shape="rect" coords="0,0,40,30" href="javascript:radio_freq_unit(310)"> </map>
-	</SPAN> 
-
-	<SPAN style="position: absolute; left: 65px; top: 110px; width: 40px; height: 30px">
-	<img src="images/radio/R_320.gif" width="40" height="30" border="0" id="VR_320" usemap="#frq320">
-	<map name="frq320">	<area shape="rect" coords="0,0,40,30" href="javascript:radio_freq_unit(320)"> </map>
-	</SPAN> 
-
-	<SPAN style="position: absolute; left: 115px; top: 110px; width: 40px; height: 30px">
-	<img src="images/radio/R_330.gif" width="40" height="30" border="0" id="VR_330" usemap="#frq330">
-	<map name="frq330">	<area shape="rect" coords="0,0,40,30" href="javascript:radio_freq_unit(330)"> </map>
-	</SPAN> 
-
-	<SPAN style="position: absolute; left: 165px; top: 110px; width: 40px; height: 30px">
-	<img src="images/radio/R_340.gif" width="40" height="30" border="0" id="VR_340" usemap="#frq340">
-	<map name="frq340">	<area shape="rect" coords="0,0,40,30" href="javascript:radio_freq_unit(340)"> </map>
-	</SPAN> 
-
-	<SPAN style="position: absolute; left: 215px; top: 110px; width: 40px; height: 30px">
-	<img src="images/radio/R_350.gif" width="40" height="30" border="0" id="VR_350" usemap="#frq350">
-	<map name="frq350">	<area shape="rect" coords="0,0,40,30" href="javascript:radio_freq_unit(350)"> </map>
-	</SPAN> 
-
-	<SPAN style="position: absolute; left: 265px; top: 110px; width: 40px; height: 30px">
-	<img src="images/radio/R_360.gif" width="40" height="30" border="0" id="VR_360" usemap="#frq360">
-	<map name="frq360">	<area shape="rect" coords="0,0,40,30" href="javascript:radio_freq_unit(360)"> </map>
-	</SPAN> 
-
-	<!-- Voyants de subFreq -->
-
-	<SPAN style="position: absolute; left: 20px; top: 155px; width: 30px; height: 30px">
-	<img src="images/radio/R_d0.gif" width="30" height="30" border="0" id="VR_00" usemap="#frq00">
-	<map name="frq00">	<area shape="rect" coords="0,0,30,30" href="javascript:radio_freq_deci(0)"> </map>
-	</SPAN> 
-
-	<SPAN style="position: absolute; left: 70px; top: 155px; width: 30px; height: 30px">
-	<img src="images/radio/R_d1.gif" width="30" height="30" border="0" id="VR_01" usemap="#frq01">
-	<map name="frq01">	<area shape="rect" coords="0,0,30,30" href="javascript:radio_freq_deci(1)"> </map>
-	</SPAN> 
-
-	<SPAN style="position: absolute; left: 120px; top: 155px; width: 30px; height: 30px">
-	<img src="images/radio/R_d2.gif" width="30" height="30" border="0" id="VR_02" usemap="#frq02">
-	<map name="frq02">	<area shape="rect" coords="0,0,30,30" href="javascript:radio_freq_deci(2)"> </map>
-	</SPAN> 
-
-	<SPAN style="position: absolute; left: 170px; top: 155px; width: 30px; height: 30px">
-	<img src="images/radio/R_d3.gif" width="30" height="30" border="0" id="VR_03" usemap="#frq03">
-	<map name="frq03">	<area shape="rect" coords="0,0,30,30" href="javascript:radio_freq_deci(3)"> </map>
-	</SPAN> 
-
-	<SPAN style="position: absolute; left: 220px; top: 155px; width: 30px; height: 30px">
-	<img src="images/radio/R_d4.gif" width="30" height="30" border="0" id="VR_04" usemap="#frq04">
-	<map name="frq04">	<area shape="rect" coords="0,0,30,30" href="javascript:radio_freq_deci(4)"> </map>
-	</SPAN> 
-
-	<SPAN style="position: absolute; left: 270px; top: 155px; width: 30px; height: 30px">
-	<img src="images/radio/R_d5.gif" width="30" height="30" border="0" id="VR_05" usemap="#frq05">
-	<map name="frq05">	<area shape="rect" coords="0,0,30,30" href="javascript:radio_freq_deci(5)"> </map>
-	</SPAN> 
-
-
-
-	<!-- Affichage des fréquences Man, Chan1, Chan2, Chan3, Chan4 -->	
-	<SPAN style="position: absolute; left: 15px; top: 70px; width: 50px; height: 20px ; background-color:#990000; text-align:center; color:white" id="R_Chan0">	</SPAN>
-	<SPAN style="position: absolute; left: 75px; top: 35px; width: 50px; height: 20px ; background-color:#012040; text-align:center; color:white" id="R_Chan1">	</SPAN> 
-	<SPAN style="position: absolute; left: 135px; top: 35px; width: 50px; height: 20px ; background-color:#012040; text-align:center; color:white" id="R_Chan2">	</SPAN>
-	<SPAN style="position: absolute; left: 195px; top: 35px; width: 50px; height: 20px ; background-color:#012040; text-align:center; color:white" id="R_Chan3">	</SPAN>
-	<SPAN style="position: absolute; left: 255px; top: 35px; width: 50px; height: 20px ; background-color:#012040; text-align:center; color:white" id="R_Chan4">	</SPAN>
-	<!-- Affichage de la fréquence en cours de selection Non utilisé sur le Mig29 Radio Type 1-->	
-	<SPAN style="position: absolute; left: 1000px; top: 1000px; width: 0px; height: 0px ; text-align:center; font-size:10%" id="R_Hecto">	</SPAN>
-	<SPAN style="position: absolute; left: 1000px; top: 1000px; width: 0px; height: 0px ; text-align:center; font-size:10%" id="R_Deca">	</SPAN>
-	<SPAN style="position: absolute; left: 1000px; top: 1000px; width: 0px; height: 0px ; text-align:center; font-size:10%" id="R_Unit">	</SPAN>
-	<SPAN style="position: absolute; left: 1000px; top: 1000px; width: 0px; height: 0px ; text-align:center; font-size:10%" id="R_Deci">	</SPAN>
-	<SPAN style="position: absolute; left: 1000px; top: 1000px; width: 0px; height: 0px ; text-align:center; font-size:10%" id="R_Centi1">	</SPAN>
-	<SPAN style="position: absolute; left: 1000px; top: 1000px; width: 0px; height: 0px ; text-align:center; font-size:10%" id="R_Centi2">	</SPAN>
-
+	
 </div>
 
 

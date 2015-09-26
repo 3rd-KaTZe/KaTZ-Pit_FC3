@@ -162,8 +162,8 @@ p {
 
 #Panel_ILS {
 	position: absolute;
-	top: 580px;
-	left: 1740px;
+	top: 390px;
+	left: 2000px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -217,16 +217,16 @@ p {
 
 #Panel_Target {
 	position: absolute;
-	top: 250px;
+	top: 390px;
 	left: 1740px;
 
 	font-family:arial, sans-serif;
 	text-align: center; 
 }
 
-#Panel_Radio {
+#Panel_Radio_UR {
 	position: absolute;
-	top: 040px;
+	top: 005px;
 	left: 1740px;
 
 	font-family:arial, sans-serif;
