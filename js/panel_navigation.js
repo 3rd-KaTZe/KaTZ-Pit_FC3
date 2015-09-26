@@ -102,9 +102,9 @@ function panel_navigation_update(KaTZPit_data){
 	
 	// Heure, Temps de Vol, Chrono ----------------------------------------------------
 	KaTZPit_data["Chrono"] = KaTZPit_data["TimeMis"] - KaTZPit_data["Chrono_Start"]
-	console.log (KaTZPit_data["Clock"])
-	console.log (KaTZPit_data["Chrono_Start"])
-	console.log (KaTZPit_data["Chrono"])
+	//console.log (KaTZPit_data["Clock"])
+	//console.log (KaTZPit_data["Chrono_Start"])
+	//console.log (KaTZPit_data["Chrono"])
 	
 	
 	

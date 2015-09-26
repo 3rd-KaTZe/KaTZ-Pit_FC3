@@ -86,7 +86,7 @@ function pit_main(){
 	
 	if (Panel_On["Weapon"]==1){ panel_weapon_update(KaTZPit_data)}
 	
-	if (Panel_On["Radio_360"]==1){panel_radio_update(KaTZPit_data)}
+	if (Panel_On["Radio_UR"]==1){panel_radio_ur_update(KaTZPit_data)}
 		
 	CmdSend()
 	
@@ -117,7 +117,7 @@ function Pit_Start(plane){
 
 
 	// Initialisation de la Radio
-	panel_radio_init(KaTZPit_data)
+	//panel_radio_init(KaTZPit_data)
 
 	menu_Toggle("Init")
 
