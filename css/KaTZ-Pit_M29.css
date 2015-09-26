@@ -190,9 +190,9 @@ p {
 	text-align: right; 
 }
 
-#Panel_Radio {
+#Panel_Radio_UR {
 	position: absolute;
-	top: 0020px;
+	top: 005px;
 	left: 1810px;
 
 	font-family:arial, sans-serif;
@@ -202,7 +202,7 @@ p {
 
 #Panel_Target {
 	position: absolute;
-	top: 270px;
+	top: 390px;
 	left: 1810px;
 
 	font-family:arial, sans-serif;
@@ -211,8 +211,8 @@ p {
 
 #Panel_ILS {
 	position: absolute;
-	top: 610px;
-	left: 1810px;
+	top: 390px;
+	left: 2060px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
