@@ -7,10 +7,10 @@
 // 7- Selecteur On -Off  (0/1)
 // 6- Selecteur UHF-VHF  (0/1)
 // 5- Selecteur FM-AM   (0/1)
-// 4- n° du Chan 1 (dizaine)
-// 3- n° du Chan 1 (unit)
-// 2- n° du Chan 2 (dizaine)
-// 1- n° du Chan 2 (unit)
+// 4- n° du Chan U (dizaine)
+// 3- n° du Chan U (unit)
+// 2- n° du Chan V (dizaine)
+// 1- n° du Chan V (unit)
 
 // Les données de fréquence et volume sont stockées dans URadio1 : 500500500, URadio2 : 500500500
 // lecture avec dataread_slip_3
@@ -75,13 +75,13 @@ function panel_radio_ur_on(KaTZPit_data){
 	
 	// Affichage des 7Seg
 	// Ajout de +5 à la fonciton datareadswitch (codage 5=0)
-	var Chan1D = (dataread_posit(KaTZPit_data["URadio_SW"],4)+5)
-	var Chan1U = (dataread_posit(KaTZPit_data["URadio_SW"],3)+5)
-	var Chan2D = (dataread_posit(KaTZPit_data["URadio_SW"],2)+5)
-	var Chan2U = (dataread_posit(KaTZPit_data["URadio_SW"],1)+5)
+	var ChanUD = (dataread_posit(KaTZPit_data["URadio_SW"],4)+5)
+	var ChanUU = (dataread_posit(KaTZPit_data["URadio_SW"],3)+5)
+	var ChanVD = (dataread_posit(KaTZPit_data["URadio_SW"],2)+5)
+	var ChanVU = (dataread_posit(KaTZPit_data["URadio_SW"],1)+5)
 	
 	
-	switch (Chan1D){
+	switch (ChanUD){
 	case 0:$("#R_ChanUDigit10").attr('src','images/raiur_33/7-Seg_0.png'); break;
 	case 1:$("#R_ChanUDigit10").attr('src','images/raiur_33/7-Seg_1.png'); break;
 	case 2:$("#R_ChanUDigit10").attr('src','images/raiur_33/7-Seg_2.png'); break;
@@ -94,7 +94,7 @@ function panel_radio_ur_on(KaTZPit_data){
 	case 9:$("#R_ChanUDigit10").attr('src','images/raiur_33/7-Seg_9.png'); break;
 	}
 	
-	switch (Chan1U){
+	switch (ChanUU){
 	case 0:$("#R_ChanUDigit1").attr('src','images/raiur_33/7-Seg_0.png'); break;
 	case 1:$("#R_ChanUDigit1").attr('src','images/raiur_33/7-Seg_1.png'); break;
 	case 2:$("#R_ChanUDigit1").attr('src','images/raiur_33/7-Seg_2.png'); break;
@@ -107,7 +107,7 @@ function panel_radio_ur_on(KaTZPit_data){
 	case 9:$("#R_ChanUDigit1").attr('src','images/raiur_33/7-Seg_9.png'); break;
 	}
 	
-	switch (Chan2D){
+	switch (ChanVD){
 	case 0:$("#R_ChanVDigit10").attr('src','images/raiur_33/7-Seg_0.png'); break;
 	case 1:$("#R_ChanVDigit10").attr('src','images/raiur_33/7-Seg_1.png'); break;
 	case 2:$("#R_ChanVDigit10").attr('src','images/raiur_33/7-Seg_2.png'); break;
@@ -120,7 +120,7 @@ function panel_radio_ur_on(KaTZPit_data){
 	case 9:$("#R_ChanVDigit10").attr('src','images/raiur_33/7-Seg_9.png'); break;
 	}
 	
-	switch (Chan2U){
+	switch (ChanVU){
 	case 0:$("#R_ChanVDigit1").attr('src','images/raiur_33/7-Seg_0.png'); break;
 	case 1:$("#R_ChanVDigit1").attr('src','images/raiur_33/7-Seg_1.png'); break;
 	case 2:$("#R_ChanVDigit1").attr('src','images/raiur_33/7-Seg_2.png'); break;
@@ -134,51 +134,48 @@ function panel_radio_ur_on(KaTZPit_data){
 	}
 	
 	// Récupération des valeurs de chan
-	var vol1 = (dataread_split_3(KaTZPit_data["URadio1"])[0])
-	var vol2 = (dataread_split_3(KaTZPit_data["URadio2"])[0])
-	var chan1 = Chan1D * 10 + Chan1U
-	var chan2 = Chan2D * 10 + Chan2U
+	var volV = (dataread_split_3(KaTZPit_data["URadio1"])[0])
+	var volU = (dataread_split_3(KaTZPit_data["URadio2"])[0])
+	var chanV = ChanVD * 10 + ChanVU
+	var chanU = ChanUD * 10 + ChanUU
 	
 	
 	// Rotation des selecteurs
-	Radio_Selecteurs(chan1,chan2,vol1,vol2)
+	Radio_Selecteurs(chanV,chanU,volV,volU)
 		
 }
 
-function Radio_Selecteurs(chan1,chan2,vol1,vol2){
+function Radio_Selecteurs(chanV,chanU,volV,volU){
 
-		
-
-//console.log(chan1,chan2,vol1,vol2)
 
 	var v_origine = -135
 	var v_gain = 0.90
 	
 	$("#R_VolUhf").css({
-		'-moz-transform':'rotate('+(v_origine+v_gain*vol1)+'deg)',
-		'-webkit-transform':'rotate('+(v_origine+v_gain*vol1)+'deg)',
-		'-ms-transform':'rotate('+(v_origine+v_gain*vol1)+'deg)',
+		'-moz-transform':'rotate('+(v_origine+v_gain*volU)+'deg)',
+		'-webkit-transform':'rotate('+(v_origine+v_gain*volU)+'deg)',
+		'-ms-transform':'rotate('+(v_origine+v_gain*volU)+'deg)',
 	})
 	
 	$("#R_VolVhf").css({
-		'-moz-transform':'rotate('+(v_origine+v_gain*vol2)+'deg)',
-		'-webkit-transform':'rotate('+(v_origine+v_gain*vol2)+'deg)',
-		'-ms-transform':'rotate('+(v_origine+v_gain*vol2)+'deg)',
+		'-moz-transform':'rotate('+(v_origine+v_gain*volV)+'deg)',
+		'-webkit-transform':'rotate('+(v_origine+v_gain*volV)+'deg)',
+		'-ms-transform':'rotate('+(v_origine+v_gain*volV)+'deg)',
 	})
 	
 	var c_origine = 180
 	var c_gain = 18.0
 	
 	$("#R_ChanUhf").css({
-		'-moz-transform':'rotate('+(c_origine+c_gain*chan1)+'deg)',
-		'-webkit-transform':'rotate('+(c_origine+c_gain*chan1)+'deg)',
-		'-ms-transform':'rotate('+(c_origine+c_gain*chan1)+'deg)',
+		'-moz-transform':'rotate('+(c_origine+c_gain*chanU)+'deg)',
+		'-webkit-transform':'rotate('+(c_origine+c_gain*chanU)+'deg)',
+		'-ms-transform':'rotate('+(c_origine+c_gain*chanU)+'deg)',
 	})
 	
 	$("#R_ChanVhf").css({
-		'-moz-transform':'rotate('+(c_origine+c_gain*chan2)+'deg)',
-		'-webkit-transform':'rotate('+(c_origine+c_gain*chan2)+'deg)',
-		'-ms-transform':'rotate('+(c_origine+c_gain*chan2)+'deg)',
+		'-moz-transform':'rotate('+(c_origine+c_gain*chanV)+'deg)',
+		'-webkit-transform':'rotate('+(c_origine+c_gain*chanV)+'deg)',
+		'-ms-transform':'rotate('+(c_origine+c_gain*chanV)+'deg)',
 	})
 
 
@@ -210,64 +207,68 @@ function Radio_Channel(chan,sens){
 // sens = -1 , +1 incrément ou decrément
 
 
-	var Chan1D = (dataread_posit(KaTZPit_data["URadio_SW"],4)+5)
-	var Chan1U = (dataread_posit(KaTZPit_data["URadio_SW"],3)+5)
-	var Chan2D = (dataread_posit(KaTZPit_data["URadio_SW"],2)+5)
-	var Chan2U = (dataread_posit(KaTZPit_data["URadio_SW"],1)+5)
-	var chan1 = Chan1D * 10 + Chan1U
-	var chan2 = Chan2D * 10 + Chan2U
+	var ChanUD = (dataread_posit(KaTZPit_data["URadio_SW"],4)+5)
+	var ChanUU = (dataread_posit(KaTZPit_data["URadio_SW"],3)+5)
+	var ChanVD = (dataread_posit(KaTZPit_data["URadio_SW"],2)+5)
+	var ChanVU = (dataread_posit(KaTZPit_data["URadio_SW"],1)+5)
+	var chanV = ChanVD * 10 + ChanVU
+	var chanU = ChanUD * 10 + ChanUU
 
 if (chan == 0){
-	chan1 = chan1 + sens;
-	if (chan1 > 20) {chan1 = 20};
-	if (chan1 < 1) {chan1 = 1};
-	Chan1D = Math.floor(chan1/10);
-	Chan1U = chan1 % 10;
-	KaTZPit_data["URadio_SW"] = datachange_posit(KaTZPit_data["URadio_SW"],Chan1D,4);
-	KaTZPit_data["URadio_SW"] = datachange_posit(KaTZPit_data["URadio_SW"],Chan1U,3);
+	chanU = chanU + sens;
+	if (chanU > 20) {chanU = 1};
+	if (chanU < 1) {chanU = 20};
+	ChanUD = Math.floor(chanU/10);
+	ChanUU = chanU % 10;
+	KaTZPit_data["URadio_SW"] = datachange_posit(KaTZPit_data["URadio_SW"],ChanUD,4);
+	KaTZPit_data["URadio_SW"] = datachange_posit(KaTZPit_data["URadio_SW"],ChanUU,3);
 	}
 
 
 else{
-	chan2 = chan2 + sens;
-	if (chan2 > 20) {chan2 = 20};
-	if (chan2 < 1) {chan2 = 1};
-	Chan2D = Math.floor(chan2/10);
-	Chan2U = chan2 % 10;
-	KaTZPit_data["URadio_SW"] = datachange_posit(KaTZPit_data["URadio_SW"],Chan2D,2);
-	KaTZPit_data["URadio_SW"] = datachange_posit(KaTZPit_data["URadio_SW"],Chan2U,1);
+	chanV = chanV + sens;
+	if (chanV > 20) {chanV = 1};
+	if (chanV < 1) {chanV = 20};
+	ChanVD = Math.floor(chanV/10);
+	ChanVU = chanV % 10;
+	KaTZPit_data["URadio_SW"] = datachange_posit(KaTZPit_data["URadio_SW"],ChanVD,2);
+	KaTZPit_data["URadio_SW"] = datachange_posit(KaTZPit_data["URadio_SW"],ChanVU,1);
 	}
 
 // Constitution des Numéros de Canaux, suivant le format des deux tables canaux <> fréquences
-	var Channel1 = "CHANNEL" + Chan1D + Chan1U	
-	var Channel2 = "CHANNEL" + Chan2D + Chan2U	
+	var ChannelV = "CHANNEL" + ChanVD + ChanVU	
+	var ChannelU = "CHANNEL" + ChanUD + ChanUU	
 
 // Fréquence des Canaux (unitaire/décimale)
-	var Freq1 = freq_format(Radio1[Channel1])
-	var Freq2 = freq_format(Radio2[Channel2])
+	var FreqV = freq_format(Radio1[ChannelV])
+	var FreqU = freq_format(Radio2[ChannelU])
 
 	var Modulation1 = "F"
 	if (dataread_posit(KaTZPit_data["URadio_SW"],5) ==1) {Modulation1 = "A"} else {Modulation1 = "F"}
 
-	var message_2UR =  "SET_RADIO: "+Freq1+Modulation1+" "+Freq2+"F 000.000A 000.000 0"
-	console.log (message_2UR)
-	CmdSiocSpe(4,message_2UR)
-
-		// message test UR
-		//var message_2UR =  "SET_RADIO: 122.200F 134.400F 112.750A 000.000 0"
+// Message de changement de canaux	
+	var message_2UR =  "SET_RADIO: "+FreqV+"A "+FreqU+Modulation1+" 000.000A 000.000 0"
+	// message test UR
+	//var message_2UR =  "SET_RADIO: 122.200F 134.400F 112.750A 000.000 0"
 	
+// Message de changement d'active X		
+// Chan Active en fonction du bouton UHF/VHF
 	var Active = "___"
-	
-	// Selecteur ON OFF - sur OFF pas de Comm Active-------------------------------------
-	if (dataread_posit(KaTZPit_data["URadio_SW"],7) ==0) {Active = "___"}
-	// Sur ON , Chan Active en fonction du bouton UHF/VHF
-	else {
-		if (dataread_posit(KaTZPit_data["URadio_SW"],6) ==0){Active = "X__"}
+	if (dataread_posit(KaTZPit_data["URadio_SW"],6) ==1){Active = "X__"}
 		else {Active = "_X_"}
+	var message_3UR =  "SET_ACTIV: "+ Active	
+		
+		
+	// Selecteur ON OFF - sur OFF pas de Comm Active-------------------------------------
+	if (dataread_posit(KaTZPit_data["URadio_SW"],7) ==0) {
+	message_3UR = "SET_ACTIV: ___"
+	message_2UR = "SET_RADIO: 000.000A 000.000A 000.000A 000.000 0"
 	}
 	
-	var message_3UR =  "SET_ACTIV: "+ Active
+	console.log (message_2UR)
 	console.log (message_3UR)
+	
+	CmdSiocSpe(4,message_2UR)
 	CmdSiocSpe(4,message_3UR)
 	
 }
@@ -280,15 +281,15 @@ function Radio_Volume(vol,sens){
 // sens = incrément ou decrément (1 ou -1)
 
 // Récupération des valeurs de volume
-	var vol1 = (dataread_split_3(KaTZPit_data["URadio1"])[0])
-	var vol2 = (dataread_split_3(KaTZPit_data["URadio2"])[0])
+	var volV = (dataread_split_3(KaTZPit_data["URadio1"])[0])
+	var volU = (dataread_split_3(KaTZPit_data["URadio2"])[0])
 	
 	if (vol == 0){
 		// Volume UHF, incrément/decrément de 10
-		vol1 = vol1 + 10 * sens
-		if (vol1 > 100) {vol1 = 100};
-		if (vol1 < 0) {vol1 = 0};
-		KaTZPit_data["URadio1"] = (Math.floor((KaTZPit_data["URadio1"])/1000)) * 1000 + 500 + vol1
+		volU = volU + 10 * sens
+		if (volU > 100) {volU = 100};
+		if (volU < 0) {volU = 0};
+		KaTZPit_data["URadio2"] = (Math.floor((KaTZPit_data["URadio2"])/1000)) * 1000 + 500 + volU
 		
 			
 		
@@ -296,17 +297,17 @@ function Radio_Volume(vol,sens){
 	else
 	{
 		// Volume VHF, incrément/decrément de 10
-		vol2 = vol2 + 10 * sens
-		if (vol2 > 100) {vol2 = 100};
-		if (vol2 < 0) {vol2 = 0};
-		KaTZPit_data["URadio2"] = (Math.floor((KaTZPit_data["URadio2"])/1000)) * 1000 + 500 + vol2
+		volV = volV + 10 * sens
+		if (volV > 100) {volV = 100};
+		if (volV < 0) {volV = 0};
+		KaTZPit_data["URadio1"] = (Math.floor((KaTZPit_data["URadio1"])/1000)) * 1000 + 500 + volV
 	}
 	
-	//console.log ("vol1",vol1)
-	//console.log ("vol2",vol2)
+	//console.log ("volVHF",volV)
+	//console.log ("volUHF",volU)
 	
 	// Message pour UR
-	var message_UR =  "SET_VOLUM: "+vol1+" "+vol2+" 0"
+	var message_UR =  "SET_VOLUM: "+volV+" "+volU+" 0"
 	console.log (message_UR)
 	CmdSiocSpe(4,message_UR)
 	
