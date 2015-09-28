@@ -102,6 +102,9 @@ function Pit_Start(plane){
 	RWY_data = RWY_init();
 	FL_data = fl_mode_init();
 	Weapon_data = weapon_name_type() ;
+	
+	Radio1 = radio1data_init()
+	Radio2 = radio2data_init()
 
 
 	if (plane == 15) { Plane_data = F15_init() ; KaTZPit_data["Radiotype"]=1	};
