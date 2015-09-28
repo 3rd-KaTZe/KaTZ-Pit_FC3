@@ -70,3 +70,27 @@ function time_format_1(t){
 	return stringout
 
 }
+
+function freq_format(frequence){
+	// Fonction de formatage des fréquences sur aaa.bbb (avec zero significatifs)
+	
+	var FreqU = Math.floor(frequence/1000)
+	var FreqD = frequence%1000
+
+	var s_FreqU = FreqU.toString()
+	var s_FreqD = FreqD.toString()
+	
+	var l_FreqU = s_FreqU.length
+		if (l_FreqU <2) {s_FreqU = "00" + s_FreqU}
+		else if (l_FreqU < 3) {s_FreqU = "0" + s_FreqU}
+		else { s_FreqU = s_FreqU}
+		
+	var l_FreqD = s_FreqD.length
+		if (l_FreqD <2) {s_FreqD = "00" + s_FreqD}
+		else if (l_FreqD < 3) {s_FreqD = "0" + s_FreqD}
+		else { s_FreqD = s_FreqD}
+		
+	var stringout = s_FreqU+"."+s_FreqD
+		
+	return stringout
+}
