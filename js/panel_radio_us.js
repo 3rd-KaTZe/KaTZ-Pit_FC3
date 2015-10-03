@@ -437,9 +437,6 @@ function Radio_Switch(digit,value){
 
 function Radio_Switch1(digit,value){
 
-
-	//console.log(digit,value)
-	// Commande des switches de la radio
 	// On vérifie si le switch a bougé
 	var old_value = dataread_posit(KaTZPit_data["URadio_SW1"],digit)
 	// console.log(digit,value)
@@ -455,7 +452,7 @@ function Radio_Switch1(digit,value){
 		// Mise à jour de l'affichage
 		panel_radio_us_update(KaTZPit_data)
 		
-		// Si le switch On/Off a été activé, on envoie à UR l'intégralité des positions, ou tout à zero
+		// Le switch CHF/UHF va conditionner l'affichage de fréquence sur la bande VHF
 		if (digit == 3) {if (value == 1){Radio_US_Commande("C");Radio_US_Commande("X");Radio_US_Commande("V")} else {Radio_US_Commande("OFF")}}
 
 	}
@@ -854,7 +851,7 @@ if (band ==1){
 	console.log("Syntonisation VHF")
 	KaTZPit_data["URadioV"] = KaTZPit_data["URadioVM"]
 	// Si on est en mode manuel, on envoi le changement à UR
-	var ModeV = dataread_posit(KaTZPit_data["URadio_SW1"],2)
+	var ModeV = dataread_posit(KaTZPit_data["URadio_SW1"],1)
 	if (ModeV==0){Radio_US_Commande("C")}
 	
 	}
