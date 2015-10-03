@@ -309,7 +309,7 @@ function panel_radio_us_on(KaTZPit_data){
 	var chanU = ChanUD * 10 + ChanUU
 	
 	var main = 1
-	var uhf = dataread_posit(KaTZPit_data["URadio_SW"],6)
+	var uhf = dataread_posit(KaTZPit_data["URadio_SW1"],3)
 	var modeV = dataread_posit(KaTZPit_data["URadio_SW1"],1)
 	var modeU = dataread_posit(KaTZPit_data["URadio_SW1"],2)
 	var cript = dataread_posit(KaTZPit_data["URadio_SW"],7)
@@ -339,8 +339,8 @@ function Radio_us_Selecteurs(main,uhf,modeU,modeV,cript,chanV,chanU,volV,volU){
 	
 	
 	// Selecteur Uhf/Vhf
-	var u_origine = 45
-	var u_gain = 90
+	var u_origine = 135
+	var u_gain = -90
 	
 	$("#R_uhfvhf").css({
 		'-moz-transform':'rotate('+(u_origine+u_gain*uhf)+'deg)',
@@ -439,7 +439,7 @@ function Radio_Switch1(digit,value){
 
 	// On vérifie si le switch a bougé
 	var old_value = dataread_posit(KaTZPit_data["URadio_SW1"],digit)
-	// console.log(digit,value)
+	//console.log(digit,value)
 	
 	// Si changement, mise à jour
 	if (old_value != value){
@@ -447,13 +447,13 @@ function Radio_Switch1(digit,value){
 		// digit = chiffre à changer
 		// value = valeur à insérer
 		KaTZPit_data["URadio_SW1"] = datachange_posit(KaTZPit_data["URadio_SW1"],value+5,digit);
-
+		//console.log(KaTZPit_data["URadio_SW1"])
 		
 		// Mise à jour de l'affichage
 		panel_radio_us_update(KaTZPit_data)
 		
 		// Le switch CHF/UHF va conditionner l'affichage de fréquence sur la bande VHF
-		if (digit == 3) {if (value == 1){Radio_US_Commande("C");Radio_US_Commande("X");Radio_US_Commande("V")} else {Radio_US_Commande("OFF")}}
+		// En developpement
 
 	}
 
