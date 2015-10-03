@@ -3,9 +3,6 @@
 <!-- KaTZ-Pit V5000 Q1-2015, 3rd Wing KaTZe : Remi Perrin -->
 
 
-
-
-
 <head>
 	<meta charset="utf-8" />
 	<title>KaTZ-Pit F15</title>
@@ -42,7 +39,7 @@
 	<script type="text/javascript" src="js/panel_weapon.js"></script>
 	<script type="text/javascript" src="js/panel_gear.js"></script>
 	<script type="text/javascript" src="js/panel_ils.js"></script>
-	<script type="text/javascript" src="js/panel_radio_ur.js"></script>
+	<script type="text/javascript" src="js/panel_radio_us.js"></script>
 	<script type="text/javascript" src="js/panel_detection.js"></script>
 	<script type="text/javascript" src="js/panel_target.js"></script>
 
@@ -104,7 +101,7 @@
 
 	<map name="Panel_Launcher">
 		
-		<area shape="rect" coords="10,20,90,80" href="javascript:menu_Toggle('Radio_360')">
+		<area shape="rect" coords="10,20,90,80" href="javascript:menu_Toggle('Radio_UR')">
 		<area shape="rect" coords="10,80,90,120" href="javascript:menu_Toggle('Vierge')">
 		<area shape="rect" coords="10,120,90,180" href="javascript:menu_Toggle('ILS_15')">
 		<area shape="rect" coords="10,180,90,220" href="javascript:menu_Toggle('Vierge')">
@@ -752,14 +749,299 @@
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="Panel_Radio_UR">
+
+	<img src="images/raiur_15/raiur_US.png" width="500" height="548" border="0">
+	
+	
+	<!-- Rotacteur Volume UHF -->
+	<SPAN style="position: absolute; left: 401px; top: 34px; width: 40px; height: 40px">
+	<img src="images/raiur_15/Rotactor_3.png" width="40" height="40" border="0" id="R_VolUhf">
+	</SPAN> 
+	
+	<!-- --------------------------------------- -->
+	
+	<!-- Rotacteur Selection Chan UHF -->
+	<SPAN style="position: absolute; left: 65px; top: 95px; width: 40px; height: 40px">
+	<img src="images/raiur_15/Rotactor_2.png" width="40" height="40" border="0" id="R_ChanUhf">
+	</SPAN> 
+
+	<!-- Rotacteur Selection Man Freq UHF Cent -->
+	<SPAN style="position: absolute; left: 163px; top: 95px; width: 40px; height: 40px">
+	<img src="images/raiur_15/Rotactor_2.png" width="40" height="40" border="0" id="R_FreqUhf100">
+	</SPAN> 
+	
+	<!-- Rotacteur Selection Man Freq UHF Unit -->
+	<SPAN style="position: absolute; left: 245px; top: 95px; width: 40px; height: 40px">
+	<img src="images/raiur_15/Rotactor_2.png" width="40" height="40" border="0" id="R_FreqUhf1">
+	</SPAN> 
+	
+	<!-- Rotacteur Selection Man Freq UHF Decimal -->
+	<SPAN style="position: absolute; left: 316px; top: 95px; width: 40px; height: 40px">
+	<img src="images/raiur_15/Rotactor_2.png" width="40" height="40" border="0" id="R_FreqUhf-1">
+	</SPAN> 	
+	
+	<!-- --------------------------------------- -->
+
+	<!-- Selection ON MAIN BOTH   -->
+	<SPAN style="position: absolute; left: 74px; top: 158px; width: 70px; height: 70px">
+	<img src="images/raiur_15/Rotactor_4.png" width="70" height="70" border="0" id="R_onoff">
+	</SPAN>
+	
+	<!-- Rotacteur Selection Mode UHF (Manual Channel Guard) -->
+	<SPAN style="position: absolute; left: 339px; top: 158px; width: 70px; height: 70px">
+	<img src="images/raiur_15/Rotactor_1.png" width="70" height="70" border="0" id="R_ModeUhf">
+	</SPAN> 
+	
+	
+	
+	<!-- ----------------------------------------- VHF --------------------------------------->
+		
+	<!-- Rotacteur Volume VHF -->
+	<SPAN style="position: absolute; left: 414px; top: 277px; width: 40px; height: 40px">
+	<img src="images/raiur_15/Rotactor_3.png" width="40" height="40" border="0" id="R_VolVhf">
+	</SPAN> 
+	
+	<!-- --------------------------------------- -->
+		
+	<!-- Rotacteur Selection Man Freq VHF Cent -->
+	<SPAN style="position: absolute; left: 85px; top: 345px; width: 40px; height: 40px">
+	<img src="images/raiur_15/Rotactor_2.png" width="40" height="40" border="0" id="R_FreqVhf100">
+	</SPAN> 
+	
+	<!-- Rotacteur Selection Man Freq VHF Unit -->
+	<SPAN style="position: absolute; left: 146px; top: 345px; width: 40px; height: 40px">
+	<img src="images/raiur_15/Rotactor_2.png" width="40" height="40" border="0" id="R_FreqVhf1">
+	</SPAN> 
+	
+	<!-- Rotacteur Selection Man Freq VHF Decimal -->
+	<SPAN style="position: absolute; left: 216px; top: 345px; width: 40px; height: 40px">
+	<img src="images/raiur_15/Rotactor_2.png" width="40" height="40" border="0" id="R_FreqVhf-1">
+	</SPAN> 
+	
+	<!-- Rotacteur Selection Chan VHF -->
+	<SPAN style="position: absolute; left: 288px; top: 345px; width: 40px; height: 40px">
+	<img src="images/raiur_15/Rotactor_2.png" width="40" height="40" border="0" id="R_ChanVhf">
+	</SPAN> 
+	
+	<!-- --------------------------------------- -->
+	
+	<!-- Selection de UHF VHF -->
+	<SPAN style="position: absolute; left: 368px; top: 364px; width: 40px; height: 40px">
+	<img src="images/raiur_15/Rotactor_4.png" width="40" height="40" border="0" id="R_uhfvhf">
+	</map>
+	</SPAN>
+	
+	<!-- Selection OFF C/RAD1   -->
+	<SPAN style="position: absolute; left: 45px; top: 460px; width: 70px; height: 70px">
+	<img src="images/raiur_15/Rotactor_4.png" width="70" height="70" border="0" id="R_crad"> 
+	</map>
+	</SPAN>
+	
+	<!-- Selection AM FM -->
+	<SPAN style="position: absolute; left: 267px; top: 450px; width: 30px; height: 80px">
+	<img src="images/raiur_15/Switch_AF_up.png" width="30" height="80" border="0" id="R_AMFM" usemap="#radio1">
+	<map name="radio1">
+	
+	</map>
+	</SPAN>
+	
+	<!-- Rotacteur Selection Mode VHF -->
+	<SPAN style="position: absolute; left: 366px; top: 458px; width: 70px; height: 70px">
+	<img src="images/raiur_15/Rotactor_1.png" width="70" height="70" border="0" id="R_ModeVhf">
+	</SPAN> 
+	
+	
+	
+
+	<!-- ----------------------------------------- 7 Seg --------------------------------------->
+		
+	<!-- Affichage 7Seg CHAN UHF-->
+	<SPAN style="position: absolute; left: 75px; top: 40px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_SV_0.png" width="20" height="30" border="0" id="R_ChanUDigit10" >
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 105px; top: 40px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_SV_0.png" width="20" height="30" border="0" id="R_ChanUDigit1" >
+	</SPAN> 
+	
+	<!-- Affichage 7Seg FREQ UHF-->
+	
+	<SPAN style="position: absolute; left: 175px; top: 40px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_SV_0.png" width="20" height="30" border="0" id="R_FreqUDigit100" >
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 208px; top: 40px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_SV_0.png" width="20" height="30" border="0" id="R_FreqUDigit10" >
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 241px; top: 40px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_SV_0.png" width="20" height="30" border="0" id="R_FreqUDigit1" >
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 265px; top: 40px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_SV_point.png" width="20" height="30" border="0" id="R_FreqUDigit-Point" >
+	</SPAN> 
+
+	<SPAN style="position: absolute; left: 285px; top: 40px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_SV_0.png" width="20" height="30" border="0" id="R_FreqUDigit-1" >
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 310px; top: 40px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_SV_00.png" width="40" height="30" border="0" id="R_FreqUDigit-10" >
+	</SPAN> 
+	
+		
+	
+	
+	<!-- Affichage 7Seg FREQ VHF-->
+	
+	<SPAN style="position: absolute; left: 102px; top: 284px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_0.png" width="20" height="30" border="0" id="R_FreqVDigit100" >
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 123px; top: 284px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_0.png" width="20" height="30" border="0" id="R_FreqVDigit10" >
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 144px; top: 284px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_0.png" width="20" height="30" border="0" id="R_FreqVDigit1" >
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 165px; top: 284px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_point.png" width="20" height="30" border="0" id="R_FreqVDigit-Point" >
+	</SPAN> 
+
+	<SPAN style="position: absolute; left: 186px; top: 284px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_0.png" width="20" height="30" border="0" id="R_FreqVDigit-1" >
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 208px; top: 284px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_00.png" width="40" height="30" border="0" id="R_FreqVDigit-10" >
+	</SPAN> 
+	
+	<!-- Affichage 7Seg CHAN VHF -->
+	<SPAN style="position: absolute; left: 303px; top: 284px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_0.png" width="20" height="30" border="0" id="R_ChanVDigit10" >
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 324px; top: 284px; width: 20px; height: 30px">
+	<img src="images/raiur_15/Digit_0.png" width="20" height="30" border="0" id="R_ChanVDigit1" >
+	</SPAN> 
+	
+	
+	
+	<!-- Voyants marche de UHF -->
+	<SPAN style="position: absolute; left: 08px; top: 78px; width: 40px; height: 40px">
+	<img src="images/raiur_15/Led_v_on.png" width="40" height="40" border="0" id="RU_V_Led">	
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 08px; top: 128px; width: 40px; height: 40px">
+	<img src="images/raiur_15/Led_j_on.png" width="40" height="40" border="0" id="RU_J_Led">	
+	</SPAN> 
+	
+	<!-- Voyants marche de VHF -->
+	<SPAN style="position: absolute; left: 08px; top: 288px; width: 40px; height: 40px">
+	<img src="images/raiur_15/Led_v_on.png" width="40" height="40" border="0" id="RV_V_Led">	
+	</SPAN> 
+	
+	<SPAN style="position: absolute; left: 08px; top: 338px; width: 40px; height: 40px">
+	<img src="images/raiur_15/Led_j_on.png" width="40" height="40" border="0" id="RV_J_Led">	
+	</SPAN> 
+	
+	<!-- Zone CmdMap Empty -->
+	<SPAN style="position: absolute; left: 0px; top: 0px; width: 500px; height: 548px">
+	<img src="images/raiur_15/empty.png" width="500" height="548" border="0" usemap="#RaIUrClickMap">
+	<!--<img src="images/raiur_15/raiur_US_clickmap.png" width="500" height="548" border="0" usemap="#RaIUrClickMap">-->
+	
+	<map name="RaIUrClickMap">
+	
+	<!-- OFF Main (L/R) -->
+	<area shape="rect" coords="70,160,110,230"  href="javascript:Radio_Switch(8,0)"> 
+	<area shape="rect" coords="110,160,150,230"  href="javascript:Radio_Switch(8,1)"> 
+		
+	<!-- Chan UHF -->
+	<area shape="rect" coords="50,70,120,115"  href="javascript:Radio_Channel(0,1)"> 
+	<area shape="rect" coords="50,115,120,160"  href="javascript:Radio_Channel(0,-1)"> 
+	
+	<!-- Freq UHF Cent -->
+	<area shape="rect" coords="145,70,215,115"  href="javascript:Radio_Freq(1,1)"> 
+	<area shape="rect" coords="145,115,215,160"  href="javascript:Radio_Freq(1,-1)"> 
+	
+	<!-- Freq UHF Unit -->
+	<area shape="rect" coords="230,70,300,115"  href="javascript:Radio_Freq(2,1)"> 
+	<area shape="rect" coords="230,115,300,160"  href="javascript:Radio_Freq(2,-1)"> 
+	
+	<!-- Freq UHF Dec -->
+	<area shape="rect" coords="305,70,375,115"  href="javascript:Radio_Freq(3,1)"> 
+	<area shape="rect" coords="305,115,375,160"  href="javascript:Radio_Freq(3,-1)"> 
+	
+	<!-- Vol UHF -->
+	<area shape="rect" coords="390,20,450,50"  href="javascript:Radio_Volume(0,1)"> 
+	<area shape="rect" coords="390,50,450,80"  href="javascript:Radio_Volume(0,-1)"> 
+	
+	<!-- Syntonisation UHF -->
+	<area shape="circle" coords="235,190,50"  href="javascript:Radio_Tone(0)"> 
+		
+	
+	<!-- Freq VHF Cent -->
+	<area shape="rect" coords="65,320,135,365"  href="javascript:Radio_Freq(4,1)"> 
+	<area shape="rect" coords="65,365,135,410"  href="javascript:Radio_Freq(4,-1)"> 
+	
+	<!-- Freq VHF Unit -->
+	<area shape="rect" coords="130,320,200,365"  href="javascript:Radio_Freq(5,1)"> 
+	<area shape="rect" coords="130,365,200,410"  href="javascript:Radio_Freq(5,-1)"> 
+	
+	<!-- Freq VHF Dec -->
+	<area shape="rect" coords="200,320,270,365"  href="javascript:Radio_Freq(6,1)"> 
+	<area shape="rect" coords="200,365,270,410"  href="javascript:Radio_Freq(6,-1)"> 
+	
+	<!-- Chan VHF -->
+	<area shape="rect" coords="280,320,340,365"  href="javascript:Radio_Channel(1,1)"> 
+	<area shape="rect" coords="280,365,340,410"  href="javascript:Radio_Channel(1,-1)"> 
+	
+	<!-- Vol VHF -->
+	<area shape="rect" coords="400,270,460,300"  href="javascript:Radio_Volume(1,1)"> 
+	<area shape="rect" coords="400,300,460,330"  href="javascript:Radio_Volume(1,-1)"> 
+	
+	<!-- UHF/VHF-->
+	<area shape="rect" coords="360,340,440,380"  href="javascript:Radio_Switch(6,0)"> 
+	<area shape="rect" coords="360,380,440,420"  href="javascript:Radio_Switch(6,1)"> 
+		
+	<!-- Mode UHF (L/R)-->
+	<area shape="rect" coords="315,160,375,220"  href="javascript:Radio_Mode(2,-1)"> 
+	<area shape="rect" coords="375,160,435,220"  href="javascript:Radio_Mode(2,1)"> 
+		
+	<!-- Criptage-->
+	<area shape="rect" coords="40,455,80,525"  href="javascript:Radio_Switch(7,0)"> 
+	<area shape="rect" coords="80,455,120,525"  href="javascript:Radio_Switch(7,1)"> 
+	
+	<!-- Syntonisation VHF -->
+	<area shape="circle" coords="200,490,50"  href="javascript:Radio_Tone(1)"> 
+		
+	<!-- AM/FM-->
+	<area shape="rect" coords="240,445,320,490"  href="javascript:Radio_Switch(5,1)"> 
+	<area shape="rect" coords="240,490,320,530"  href="javascript:Radio_Switch(5,0)"> 
+			
+	<!-- Mode VHF-->
+	<area shape="rect" coords="350,460,400,520"  href="javascript:Radio_Mode(1,-1)"> 
+	<area shape="rect" coords="400,460,450,520"  href="javascript:Radio_Mode(1,1)"> 
+	
+	
+	<!-- Led Verte , Active_X-->
+	<area shape="circle" coords="30,95,30" href="javascript:Radio_Switch(6,1)">
+	<area shape="circle" coords="30,310,30" href="javascript:Radio_Switch(6,0)">
+	
+	
+	</map>
+	</SPAN> 
+	
+
+	
 </div>
-
-
-
 
 <div id="Frequency_List">
 	<img src="doc/ToF.png" width="744" height="687"> 
-</div>	
+</div>
 
 <div id="Panel_Doc">
 

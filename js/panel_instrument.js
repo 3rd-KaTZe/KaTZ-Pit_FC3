@@ -22,7 +22,7 @@ function FltTime(){
 function panel_instrument_flight_F15(KaTZPit_data){
 	
 		// Animation des jauges instrument de vol du F15-------------------------------------------------------------
-		console.log("Mise à jour des instruements du panel")
+		//console.log("Mise à jour des instruements du panel")
 		
 		// Badin et Vario	
 		instrument_Mach_F15(KaTZPit_data["IAS"]/ 1.852)

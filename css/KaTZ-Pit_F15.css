@@ -194,8 +194,8 @@ p {
 
 #Panel_ILS_15 {
 	position: absolute;
-	top: 660px;
-	left: 1810px;
+	top: 600px;
+	left: 2100px;
 	
 	font-family:arial, sans-serif;
 	font-size:100%;
@@ -213,7 +213,7 @@ p {
 
 #Panel_Target {
 	position: absolute;
-	top: 250px;
+	top: 600px;
 	left: 1810px;
 	
 	font-family:arial, sans-serif;
@@ -224,24 +224,22 @@ p {
 
 }
 
-#Panel_Radio {
+#Panel_Radio_UR {
 	position: absolute;
 	top: 010px;
 	left: 1810px;
-	
-	font-family:arial, sans-serif;
-	font-size:100%;
-	color:white;
-	background-color:transparent;
-	text-align: right; 
 
+	font-family:arial, sans-serif;
+	text-align: center; 
 }
 
 #Frequency_List {
 	position: absolute;
 	top: 250px;
-	left: 1810px;
+	left: 1800px;
 }
+
+
 
 #Panel_Doc {
 	position: absolute;
