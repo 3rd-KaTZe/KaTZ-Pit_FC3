@@ -48,27 +48,32 @@ function pit_main(){
 	panel_instrument_flight_F15(KaTZPit_data) ;
 	panel_instrument_engine_F15(KaTZPit_data) ;
 	
+	
 	} else if (Plane_data["ID"] == 25) {
 	panel_instrument_flight_SU25(KaTZPit_data) ;
 	panel_instrument_engine_SU25(KaTZPit_data) ;
 	panel_pilototo_update(KaTZPit_data) ;
 	panel_attitude_update(KaTZPit_data) ;
 	
+	
 	} else if (Plane_data["ID"] == 29) {
 	panel_instrument_flight_Mig29(KaTZPit_data) ;
 	panel_instrument_engine_Mig29(KaTZPit_data) ;
 	panel_pilototo_update(KaTZPit_data) ;
 	panel_attitude_update(KaTZPit_data) ;
+	
 		
 	} else if (Plane_data["ID"] == 33) {
 	panel_instrument_flight_SU33(KaTZPit_data) ;
 	panel_instrument_engine_SU33(KaTZPit_data) ;
 	panel_pilototo_update(KaTZPit_data) ;
+	
 			
 	} else if (Plane_data["ID"] == 27) {
 	panel_instrument_flight_SU27(KaTZPit_data) ;
 	panel_instrument_engine_SU27(KaTZPit_data) ;
 	panel_pilototo_update(KaTZPit_data) ;
+	
 			
 	} 
 		
@@ -86,7 +91,7 @@ function pit_main(){
 	
 	if (Panel_On["Weapon"]==1){ panel_weapon_update(KaTZPit_data)}
 	
-	if (Panel_On["Radio_UR"]==1){panel_radio_ur_update(KaTZPit_data)}
+	
 		
 	CmdSend()
 	

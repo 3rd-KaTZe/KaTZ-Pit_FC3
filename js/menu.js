@@ -51,8 +51,19 @@ function menu_Toggle(panel){
 	//else { document.getElementById("Panel_Weapon").style.display = "block"}
 	
 	// Panel Radio-TS
-	if (Panel_On["Radio_UR"] == 0) {document.getElementById("Panel_Radio_UR").style.display = "none"}
-	else {document.getElementById("Panel_Radio_UR").style.display = "block"}
+	// Quand on affiche le panneau Radio, on met à jour les valeurs
+	// La mise à jour, n'est pas dans la routine 100ms mais à chaque toggle, ou commande.
+	if (Panel_On["Radio_UR"] == 0) {
+		document.getElementById("Panel_Radio_UR").style.display = "none"}
+	else {
+		// Affichage du Panel Radio UR
+		document.getElementById("Panel_Radio_UR").style.display = "block"
+		// Update des valeurs
+		console.log(Plane_data["ID"])
+		if (Plane_data["ID"] == 15){panel_radio_us_update(KaTZPit_data);console.log("F15")} else {panel_radio_ru_update(KaTZPit_data);console.log("Russe")}
+	}
+
+
 	
 	// FrequencyList
 	if (Panel_On["FreqList"] == 0) {document.getElementById("Frequency_List").style.display = "none"}

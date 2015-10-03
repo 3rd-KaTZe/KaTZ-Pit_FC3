@@ -46,6 +46,29 @@ function dataread_split_3(data){
 
 }
 
+function dataread_split_3P(data){
+	// Fonction de lecture de trois données contenues dans une export_data_chaine de 9 chiffres ; cccbbbaaa
+	// Les valeures réelles ont été encapsulé dans DCS export
+	// Les valeurs sont positives, et varient de 0 à 999
+	//
+	// Appel de la fonction sous la forme :
+	// Valeur = dataread_split_3P(data)
+	// Nombre a = Valeur[0]
+	// Nombre b = Valeur[1]
+	// Nombre c = Valeur[2]
+	
+	var a = (data % 1000)
+	var b = (Math.floor (data / 1000))% 1000
+	var c = (Math.floor (data / 1000000))
+	
+	//console.log("a= ",a)
+	//console.log("b= ",b)
+	//console.log("c= ",c)
+	
+	return [a,b,c];
+
+}
+
 function dataread_posit(data,position){
 	// Fonction de lecture d'une valeur 0-9, contenue dans une export_data_chaine de 8 chiffres
 	// Les valeures réelles ont été encapsulé dans DCS export avec +5
