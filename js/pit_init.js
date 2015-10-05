@@ -54,7 +54,7 @@ function paneldata_init(){
 		Freq_main:310, Freq_sub:100, Radiotype:1,
 		Chan_1_main:310, Chan_2_main:320, Chan_3_main:330, Chan_4_main:340, Chan_1_dec:100, Chan_2_dec:200, Chan_3_dec:300, Chan_4_dec:400, TS_Chan:000,
 		Active_main:310, Active_sub:100, Active_chan:1,	VT_M1:0, VT_M2:0, VT_M3:0,
-		URadio_SW:55550101, URadio_SW1: 555, URadioV : 118000050, URadioU : 225000050, URadioVM : 118000050, URadioUM : 225000050,URCode : 1000,
+		URadio_SW:55560101, URadio_SW1: 555, URadioV : 118000050, URadioU : 225000050, URadioVM : 118000050, URadioUM : 225000050,URCode : 1000, URadioU2M : 225000050, URadio_Rot : 5111111,
 		}
 	
 	console.log("KaTZPit_data Initialisé")
