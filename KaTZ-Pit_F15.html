@@ -750,7 +750,7 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div id="Panel_Radio_UR">
 
-	<img src="images/raiur_15/raiur_US.png" width="500" height="548" border="0">
+	<img src="images/raiur_15/raiur_US_v2.png" width="500" height="548" border="0">
 	
 	
 	<!-- Rotacteur Volume UHF -->
@@ -804,7 +804,7 @@
 	<!-- --------------------------------------- -->
 		
 	<!-- Rotacteur Selection Man Freq VHF Cent -->
-	<SPAN style="position: absolute; left: 85px; top: 345px; width: 40px; height: 40px">
+	<SPAN style="position: absolute; left: 75px; top: 345px; width: 40px; height: 40px">
 	<img src="images/raiur_15/Rotactor_2.png" width="40" height="40" border="0" id="R_FreqVhf100">
 	</SPAN> 
 	
@@ -823,13 +823,12 @@
 	<img src="images/raiur_15/Rotactor_2.png" width="40" height="40" border="0" id="R_ChanVhf">
 	</SPAN> 
 	
-	<!-- --------------------------------------- -->
-	
-	<!-- Selection de UHF VHF -->
-	<SPAN style="position: absolute; left: 368px; top: 364px; width: 40px; height: 40px">
-	<img src="images/raiur_15/Rotactor_4.png" width="40" height="40" border="0" id="R_uhfvhf">
-	</map>
+	<!-- Selection AM FM -->
+	<SPAN style="position: absolute; left: 372px; top: 330px; width: 30px; height: 80px">
+	<img src="images/raiur_15/Switch_AF_up.png" width="30" height="80" border="0" id="R_AMFM">
 	</SPAN>
+	
+	<!-- --------------------------------------- -->
 	
 	<!-- Selection OFF C/RAD1   -->
 	<SPAN style="position: absolute; left: 45px; top: 460px; width: 70px; height: 70px">
@@ -837,12 +836,9 @@
 	</map>
 	</SPAN>
 	
-	<!-- Selection AM FM -->
-	<SPAN style="position: absolute; left: 267px; top: 450px; width: 30px; height: 80px">
-	<img src="images/raiur_15/Switch_AF_up.png" width="30" height="80" border="0" id="R_AMFM" usemap="#radio1">
-	<map name="radio1">
-	
-	</map>
+	<!-- Selection DIS FREQ -->
+	<SPAN style="position: absolute; left: 220px; top: 457px; width: 30px; height: 80px">
+	<img src="images/raiur_15/Switch_AF_mid.png" width="30" height="80" border="0" id="R_DisFreq">
 	</SPAN>
 	
 	<!-- Rotacteur Selection Mode VHF -->
@@ -851,8 +847,6 @@
 	</SPAN> 
 	
 	
-	
-
 	<!-- ----------------------------------------- 7 Seg --------------------------------------->
 		
 	<!-- Affichage 7Seg CHAN UHF-->
@@ -960,53 +954,52 @@
 	<area shape="rect" coords="110,160,150,230"  href="javascript:Radio_Switch(8,1)"> 
 		
 	<!-- Chan UHF -->
-	<area shape="rect" coords="50,70,120,115"  href="javascript:Radio_Channel(0,1)"> 
-	<area shape="rect" coords="50,115,120,160"  href="javascript:Radio_Channel(0,-1)"> 
+	<area shape="rect" coords="50,80,85,150"  href="javascript:Radio_Channel(1,-1)"> 
+	<area shape="rect" coords="85,80,120,150"  href="javascript:Radio_Channel(1,1)"> 
 	
 	<!-- Freq UHF Cent -->
-	<area shape="rect" coords="145,70,215,115"  href="javascript:Radio_FreqU(1,1)"> 
-	<area shape="rect" coords="145,115,215,160"  href="javascript:Radio_FreqU(1,-1)"> 
+	<area shape="rect" coords="145,80,180,150"  href="javascript:Radio_FreqU(1,-1)"> 
+	<area shape="rect" coords="180,80,215,150"  href="javascript:Radio_FreqU(1,1)"> 
 	
 	<!-- Freq UHF Unit -->
-	<area shape="rect" coords="230,70,300,115"  href="javascript:Radio_FreqU(2,1)"> 
-	<area shape="rect" coords="230,115,300,160"  href="javascript:Radio_FreqU(2,-1)"> 
+	<area shape="rect" coords="230,80,265,150"  href="javascript:Radio_FreqU(2,-1)"> 
+	<area shape="rect" coords="265,80,300,150"  href="javascript:Radio_FreqU(2,1)"> 
 	
 	<!-- Freq UHF Dec -->
-	<area shape="rect" coords="305,70,375,115"  href="javascript:Radio_FreqU(3,1)"> 
-	<area shape="rect" coords="305,115,375,160"  href="javascript:Radio_FreqU(3,-1)"> 
+	<area shape="rect" coords="305,80,340,150"  href="javascript:Radio_FreqU(3,-1)"> 
+	<area shape="rect" coords="340,80,375,150"  href="javascript:Radio_FreqU(3,1)"> 
 	
 	<!-- Vol UHF -->
-	<area shape="rect" coords="390,20,450,50"  href="javascript:Radio_Volume(0,1)"> 
-	<area shape="rect" coords="390,50,450,80"  href="javascript:Radio_Volume(0,-1)"> 
+	<area shape="rect" coords="385,15,420,85"  href="javascript:Radio_Volume(0,-1)"> 
+	<area shape="rect" coords="420,15,455,85"  href="javascript:Radio_Volume(0,1)"> 
 	
-	<!-- Syntonisation UHF -->
-	<area shape="circle" coords="235,190,50"  href="javascript:Radio_Tone(1)"> 
 		
-	
 	<!-- Freq VHF Cent -->
-	<area shape="rect" coords="65,320,135,365"  href="javascript:Radio_FreqV(1,1)"> 
-	<area shape="rect" coords="65,365,135,410"  href="javascript:Radio_FreqV(1,-1)"> 
+	<area shape="rect" coords="60,330,95,400"  href="javascript:Radio_FreqV(1,-1)"> 
+	<area shape="rect" coords="95,330,130,400"  href="javascript:Radio_FreqV(1,1)"> 
 	
 	<!-- Freq VHF Unit -->
-	<area shape="rect" coords="130,320,200,365"  href="javascript:Radio_FreqV(2,1)"> 
-	<area shape="rect" coords="130,365,200,410"  href="javascript:Radio_FreqV(2,-1)"> 
+	<area shape="rect" coords="130,330,165,400"  href="javascript:Radio_FreqV(2,-1)"> 
+	<area shape="rect" coords="165,330,200,400"  href="javascript:Radio_FreqV(2,1)"> 
 	
 	<!-- Freq VHF Dec -->
-	<area shape="rect" coords="200,320,270,365"  href="javascript:Radio_FreqV(3,1)"> 
-	<area shape="rect" coords="200,365,270,410"  href="javascript:Radio_FreqV(3,-1)"> 
+	<area shape="rect" coords="200,330,235,400"  href="javascript:Radio_FreqV(3,-1)"> 
+	<area shape="rect" coords="235,330,270,400"  href="javascript:Radio_FreqV(3,1)"> 
 	
 	<!-- Chan VHF -->
-	<area shape="rect" coords="280,320,340,365"  href="javascript:Radio_Channel(1,1)"> 
-	<area shape="rect" coords="280,365,340,410"  href="javascript:Radio_Channel(1,-1)"> 
+	<area shape="rect" coords="280,330,310,400"  href="javascript:Radio_Channel(2,-1)"> 
+	<area shape="rect" coords="310,330,340,400"  href="javascript:Radio_Channel(2,1)"> 
+	
+	<!-- AM/FM-->
+	<area shape="rect" coords="355,320,415,365"  href="javascript:Radio_Switch(5,1)"> 
+	<area shape="rect" coords="355,365,415,410"  href="javascript:Radio_Switch(5,0)"> 
+	
 	
 	<!-- Vol VHF -->
-	<area shape="rect" coords="400,270,460,300"  href="javascript:Radio_Volume(1,1)"> 
-	<area shape="rect" coords="400,300,460,330"  href="javascript:Radio_Volume(1,-1)"> 
+	<area shape="rect" coords="405,265,435,335"  href="javascript:Radio_Volume(1,-1)"> 
+	<area shape="rect" coords="435,265,465,335"  href="javascript:Radio_Volume(1,1)"> 
 	
-	<!-- UHF/VHF-->
-	<area shape="rect" coords="360,340,440,380"  href="javascript:Radio_Switch1(3,1)"> 
-	<area shape="rect" coords="360,380,440,420"  href="javascript:Radio_Switch1(3,0)"> 
-		
+			
 	<!-- Mode UHF (L/R)-->
 	<area shape="rect" coords="315,160,375,220"  href="javascript:Radio_Mode(2,-1)"> 
 	<area shape="rect" coords="375,160,435,220"  href="javascript:Radio_Mode(2,1)"> 
@@ -1015,13 +1008,13 @@
 	<area shape="rect" coords="40,455,80,525"  href="javascript:Radio_Switch(7,0)"> 
 	<area shape="rect" coords="80,455,120,525"  href="javascript:Radio_Switch(7,1)"> 
 	
-	<!-- Syntonisation VHF -->
-	<area shape="circle" coords="200,490,50"  href="javascript:Radio_Tone(0)"> 
 		
-	<!-- AM/FM-->
-	<area shape="rect" coords="240,445,320,490"  href="javascript:Radio_Switch(5,1)"> 
-	<area shape="rect" coords="240,490,320,530"  href="javascript:Radio_Switch(5,0)"> 
-			
+	<!-- DIS Freq-->
+	<area shape="rect" coords="205,445,265,475"  href="javascript:Radio_Switch1(3,1)"> 
+	<area shape="rect" coords="205,475,290,505"  href="javascript:Radio_Switch1(3,0)"> 
+	<area shape="rect" coords="205,505,265,535"  href="javascript:Radio_Switch1(3,2)"> 
+	
+				
 	<!-- Mode VHF-->
 	<area shape="rect" coords="350,460,400,520"  href="javascript:Radio_Mode(1,-1)"> 
 	<area shape="rect" coords="400,460,450,520"  href="javascript:Radio_Mode(1,1)"> 
