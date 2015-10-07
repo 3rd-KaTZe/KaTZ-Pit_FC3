@@ -22,7 +22,9 @@
 // 2- Mode UHF
 // 1- Mode VHF
 
-// Les données de fréquence et volume sont stockées dans URadioU : 500500500, URadioV : 500500500
+// Les données de fréquence et volume sont stockées dans URadioU : 500500500, URadioV : 500500500 (fréquences actives)
+// Les données de fréquence et volume sont stockées dans URadioUC : 500500500, URadioVC : 500500500 (fréquences canaux)
+// Les données de fréquence et volume sont stockées dans URadioUM : 500500500, URadioVM : 500500500 (fréquences manuelles)
 // lecture avec dataread_slip_3
 // 0- Volume
 // 1- Fréquence Decimal (Mode Manuel)
@@ -42,14 +44,22 @@
 function panel_radio_us_update(KaTZPit_data){
 
 	// Mise à jour de l'affichage
-	// Selecteur UHF VHF -----------------------------------------------
-	//if (dataread_posit(KaTZPit_data["URadio_SW"],6) ==1) {$("#R_uhfvhf").attr('src','images/raiur_33/Switch_H_R.png')} else {$("#R_uhfvhf").attr('src','images/raiur_33/Switch_H_L.png')}
+	// Selecteur R1/0/R2 -----------------------------------------------
+	var Display = dataread_posit(KaTZPit_data["URadio_SW1"],3)
+		
+	if (Display ==1) {	$("#R_DisFreq").attr('src','images/raiur_15/Switch_AF_up.png')	} 
+	else if (Display ==2)  {$("#R_DisFreq").attr('src','images/raiur_15/Switch_AF_dn.png')} 
+	else {$("#R_DisFreq").attr('src','images/raiur_15/Switch_AF_mid.png')} 
 	
 	// Selecteur AM FM (1=AM)-----------------------------------------------
 	if (dataread_posit(KaTZPit_data["URadio_SW"],5) ==1) {$("#R_AMFM").attr('src','images/raiur_15/Switch_AF_up.png')} else {$("#R_AMFM").attr('src','images/raiur_15/Switch_AF_dn.png')}
 
 	// Rotacteur ON OFF -----------------------------------------------
 	if (dataread_posit(KaTZPit_data["URadio_SW"],8) ==1) {panel_radio_us_on(KaTZPit_data)} 	else {	panel_radio_us_off() }
+	
+	console.log("frequences UHF : ",KaTZPit_data["URadioU"] , ":" , KaTZPit_data["URadioUC"] , ";", KaTZPit_data["URadioUM"])
+	console.log("frequences VHF : ",KaTZPit_data["URadioV"] , ":" , KaTZPit_data["URadioVC"], ";", KaTZPit_data["URadioVM"])
+	
 
 }
 
@@ -237,16 +247,21 @@ switch (ChanUD){
 	
 	
 	// Radio VHF ou UHF2
-	// En fonction de la position du selecteur UHF/VHF
-	var mode_VHF = dataread_posit(KaTZPit_data["URadio_SW1"],3)
+	// En fonction de la position du selecteur R1/0/R2
+	// Selecteur R1/0/R2 -----------------------------------------------
+	var Display = dataread_posit(KaTZPit_data["URadio_SW1"],3)
 	
-	if (mode_VHF == 0){
+	if (Display == 1){
+		var FreqV = (dataread_split_3P(KaTZPit_data["URadioUC"])[2])
+		var FreqVD =(dataread_split_3P(KaTZPit_data["URadioUC"])[1])
+	}
+	else if (Display == 2){
+		var FreqV = (dataread_split_3P(KaTZPit_data["URadioVC"])[2])
+		var FreqVD =(dataread_split_3P(KaTZPit_data["URadioVC"])[1])
+	}
+	else {
 		var FreqV = (dataread_split_3P(KaTZPit_data["URadioVM"])[2])
 		var FreqVD =(dataread_split_3P(KaTZPit_data["URadioVM"])[1])
-	}
-	else{
-		var FreqV = (dataread_split_3P(KaTZPit_data["URadioU2M"])[2])
-		var FreqVD =(dataread_split_3P(KaTZPit_data["URadioU2M"])[1])
 	}
 	
 	var FreqV10 = Math.floor(FreqV / 10)%10
@@ -313,7 +328,6 @@ function Radio_us_Selecteurs(KaTZPit_data){
 
 	// Position des selecteurs rotatifs
 	var main = dataread_posit(KaTZPit_data["URadio_SW"],8)
-	var uhf = dataread_posit(KaTZPit_data["URadio_SW1"],3)
 	var modeV = dataread_posit(KaTZPit_data["URadio_SW1"],1)
 	var modeU = dataread_posit(KaTZPit_data["URadio_SW1"],2)
 	var cript = dataread_posit(KaTZPit_data["URadio_SW"],7)
@@ -346,15 +360,7 @@ function Radio_us_Selecteurs(KaTZPit_data){
 	})
 	
 	
-	// Selecteur Uhf/Vhf
-	var u_origine = 135
-	var u_gain = -90
 	
-	$("#R_uhfvhf").css({
-		'-moz-transform':'rotate('+(u_origine+u_gain*uhf)+'deg)',
-		'-webkit-transform':'rotate('+(u_origine+u_gain*uhf)+'deg)',
-		'-ms-transform':'rotate('+(u_origine+u_gain*uhf)+'deg)',
-	})
 	
 	// Selecteur Mode Uhf, Vhf
 	var m_origine = -60
@@ -493,7 +499,21 @@ function Radio_Switch(digit,value){
 		if (digit == 7) {Radio_US_Commande("C");}
 		
 		// Si le switch On/Off a été activé, on envoie à UR l'intégralité des positions, ou tout à zero
-		if (digit == 8) {if (value == 1){Radio_US_Commande("C");Radio_US_Commande("X");Radio_US_Commande("V")} else {Radio_US_Commande("OFF")}}
+		// Chargement des fréquences active via Radio Mode (0 incrément)
+		// Envoi à UR de l'intégralité des positions
+		if (digit == 8) {if (value == 1){
+			
+			//Syntonisation des Canaux
+			Radio_Channel(0,0)
+			Radio_Channel(1,0)
+			
+			Radio_Mode(1,0)
+			Radio_Mode(2,0)
+			
+			Radio_Channel(0,0)
+			Radio_Channel(1,0)
+					
+			Radio_US_Commande("C");Radio_US_Commande("X");Radio_US_Commande("V")} else {Radio_US_Commande("OFF")}}
 
 	}
 
@@ -510,15 +530,13 @@ function Radio_Switch1(digit,value){
 		// digit = chiffre à changer
 		// value = valeur à insérer
 		KaTZPit_data["URadio_SW1"] = datachange_posit(KaTZPit_data["URadio_SW1"],value+5,digit);
-		//console.log(KaTZPit_data["URadio_SW1"])
-		
 		
 		// Si le switch VHF/UHF2 a été activé, on envoie à UR la commande de chan
 		// Le switch VHF/UHF2 va conditionner l'affichage de fréquence sur la bande VHF
 		if (digit == 3) {
 			//Mise à jour de la fréquence manuelle
 			// Faire tourner la subroutine Freq avec valeur de changement zero
-			Radio_FreqV(1,0)
+			//Radio_FreqV(1,0)
 		}
 		
 		Radio_US_Commande("C");
@@ -546,18 +564,86 @@ function Radio_Mode(digit,sens){
 		modU = modU + sens
 		// si modU > 2 ou < 0 , on ne fait rien, le bouton était déjà au maxi, ou mini
 
-		if (modU <=2 && modU >=0) {
-			KaTZPit_data["URadio_SW1"] = datachange_posit(KaTZPit_data["URadio_SW1"],modU+5,2);
+		if (modU == 0){
+			// Mode Manuel
+			// Mise à jour de la variable des switches
+			KaTZPit_data["URadio_SW1"] = datachange_posit(KaTZPit_data["URadio_SW1"],5,2);
+			// Stockage de la valeur freq manuelle, dans la frequence active
+			KaTZPit_data["URadioU"] = KaTZPit_data["URadioUM"]
+			// Envoi à UR de la valeur
 			Radio_US_Commande("C")
 		}
+		
+		if (modU == 1){
+			// Mode Channel
+			// Mise à jour de la variable des switches
+			KaTZPit_data["URadio_SW1"] = datachange_posit(KaTZPit_data["URadio_SW1"],6,2);
+			// Stockage de la valeur freq auto, dans la frequence active
+			KaTZPit_data["URadioU"] = KaTZPit_data["URadioUC"]
+						
+			// Envoi à UR de la valeur
+			Radio_US_Commande("C")
+		}
+		
+		if (modU == 2){
+			// Mode Guard
+			// Mise à jour de la variable des switches
+			KaTZPit_data["URadio_SW1"] = datachange_posit(KaTZPit_data["URadio_SW1"],7,2);
+			// Stockage de la valeur freq guard, dans la frequence active
+			var FreqU = 243000
+			var volU = (dataread_split_3P(KaTZPit_data["URadioU"])[0])
+			KaTZPit_data["URadioU"] = FreqU * 1000 + volU
+			
+			// Passage de la radio en "AM"
+			//KaTZPit_data["URadio_SW1"] = datachange_posit(KaTZPit_data["URadio_SW"],5,1);
+			
+				
+			// Envoi à UR de la valeur
+			Radio_US_Commande("C")
+		}
+			
 	}
 
 	else {
 		
 		modV = modV + sens
 
-		if (modV <=2 && modV >=0) {
-			KaTZPit_data["URadio_SW1"] = datachange_posit(KaTZPit_data["URadio_SW1"],modV+5,1);	
+		if (modV == 0){
+			// Mode Manuel
+			// Mise à jour de la variable des switches
+			KaTZPit_data["URadio_SW1"] = datachange_posit(KaTZPit_data["URadio_SW1"],5,1);
+			// Stockage de la valeur freq manuelle, dans la frequence active
+			KaTZPit_data["URadioV"] = KaTZPit_data["URadioVM"]
+			// Envoi à UR de la valeur
+			Radio_US_Commande("C")
+		}
+		
+		if (modV == 1){
+			// Mode Channel
+			// Mise à jour de la variable des switches
+			KaTZPit_data["URadio_SW1"] = datachange_posit(KaTZPit_data["URadio_SW1"],6,1);
+			// Stockage de la valeur freq canal, dans la frequence active
+			KaTZPit_data["URadioV"] = KaTZPit_data["URadioVC"]
+			
+			// Envoi à UR de la valeur
+			Radio_US_Commande("C")
+		}
+		
+		if (modV == 2){
+			// Mode Guard
+			// Mise à jour de la variable des switches
+			KaTZPit_data["URadio_SW1"] = datachange_posit(KaTZPit_data["URadio_SW1"],7,1);
+			// Stockage de la valeur freq guard, dans la frequence active
+			var FreqV = 121500
+			var volV = (dataread_split_3P(KaTZPit_data["URadioV"])[0])
+			KaTZPit_data["URadioV"] = FreqV * 1000 + volV
+			
+			// Passage de la radio en "AM"
+			//KaTZPit_data["URadio_SW1"] = datachange_posit(KaTZPit_data["URadio_SW"],5,1);
+			
+			
+				
+			// Envoi à UR de la valeur
 			Radio_US_Commande("C")
 		}
 	}
@@ -567,11 +653,11 @@ function Radio_Mode(digit,sens){
 
 }
 
-function Radio_Channel(chan,sens){
+function Radio_Channel(radio,sens){
 
 	// Commande des canaux radio
 	// On modifie les variables : KaTZPit_data["URadio_SW"]
-	// chan = 0 (UHF) , 1 (VHF)
+	// radio = 1 (UHF) , 2 (VHF)
 	// sens = -1 , +1 incrément ou decrément
 
 
@@ -582,17 +668,28 @@ function Radio_Channel(chan,sens){
 	var chanV = ChanVD * 10 + ChanVU
 	var chanU = ChanUD * 10 + ChanUU
 
-	if (chan == 0){
+	if (radio == 1){
 		chanU = chanU + sens;
 		if (chanU > 20) {chanU = 1};
 		if (chanU < 1) {chanU = 20};
 		ChanUD = Math.floor(chanU/10);
 		ChanUU = chanU % 10;
+		// Mise à jour dans la variable de valeur de canal
 		KaTZPit_data["URadio_SW"] = datachange_posit(KaTZPit_data["URadio_SW"],ChanUD,4);
 		KaTZPit_data["URadio_SW"] = datachange_posit(KaTZPit_data["URadio_SW"],ChanUU,3);
-		// Changement de si on est en mode Channel
+		
+		// Mise à jour de la fréquence canal
+		var ChannelU = "CHANNEL" + ChanUD + ChanUU	
+		var FreqU = Radio2[ChannelU]
+		var volU = (dataread_split_3P(KaTZPit_data["URadioU"])[0])
+		// Stockage de la valeur freq canal, dans la frequence active
+		KaTZPit_data["URadioUC"] = FreqU * 1000 + volU
+		
+		// Message UR si on est en mode Channel
 		if (dataread_posit(KaTZPit_data["URadio_SW1"],2)==1){
-		Radio_US_Commande("C")
+			// Chargement de la fréquence canal en dans la fréquence active
+			KaTZPit_data["URadioU"] = KaTZPit_data["URadioUC"]
+			Radio_US_Commande("C")
 		}
 		
 	}
@@ -606,9 +703,22 @@ function Radio_Channel(chan,sens){
 		ChanVU = chanV % 10;
 		KaTZPit_data["URadio_SW"] = datachange_posit(KaTZPit_data["URadio_SW"],ChanVD,2);
 		KaTZPit_data["URadio_SW"] = datachange_posit(KaTZPit_data["URadio_SW"],ChanVU,1);
-		// Changement de si on est en mode Channel
+		
+		// Constitution des Numéros de Canaux, suivant le format des deux tables canaux <> fréquences
+		var ChannelV = "CHANNEL" + ChanVD + ChanVU	
+		// Fréquence des Canaux (unitaire/décimale)
+		var FreqV = Radio1[ChannelV]
+		var volV = (dataread_split_3P(KaTZPit_data["URadioV"])[0])
+			
+		// Stockage de la valeur freq canal, dans la frequence canal
+		KaTZPit_data["URadioVC"] = FreqV * 1000 + volV
+		
+		
+		// Si on est en mode Channel
 		if (dataread_posit(KaTZPit_data["URadio_SW1"],1)==1){
-		Radio_US_Commande("C")
+			// Chargement de la fréquence canal en dans la fréquence active
+			KaTZPit_data["URadioV"] = KaTZPit_data["URadioVC"]
+			Radio_US_Commande("C")
 		}
 	}
 
@@ -715,11 +825,11 @@ function Radio_FreqU(digit,sens){
 	
 	if (digit == 3){
 		// Frequence Decimale UHF, incrément/decrément de 050MHz
-		FreqUD = FreqUD + sens * 50
+		FreqUD = FreqUD + sens * 25
 		
 		// Bornage 0 à 9 , cyclage du rotactor
 		if (FreqUD > 950) {FreqUD = 0};
-		if (FreqUD < 0) {FreqUD = 950};		
+		if (FreqUD < 0) {FreqUD = 975};		
 		
 		// Calcul de la position du rotacteur de frequence
 		var btn = dataread_posit(KaTZPit_data["URadio_Rot"],4)+5
@@ -731,10 +841,10 @@ function Radio_FreqU(digit,sens){
 	// Bornage des fréquences 225-400 en UHF
 	var Freq = FreqU10 * 10000 + FreqU1 * 1000 + FreqUD
 	if (Freq < 225000){Freq = 225000}
-	if (Freq > 399950){Freq = 399950}
+	if (Freq > 399975){Freq = 399975}
 	
 	KaTZPit_data["URadioUM"]= (Freq)*1000 + volU
-	console.log(KaTZPit_data["URadioUM"])
+	//console.log(KaTZPit_data["URadioUM"])
 	
 	// Syntonisation Automatique UHF
 	// Décision Tacno, Raiden de lancer la syntonisaiton à chaque changement
@@ -753,152 +863,75 @@ function Radio_FreqV(digit,sens){
 
 	var volV = (dataread_split_3P(KaTZPit_data["URadioVM"])[0])	
 	
-	// Gestion VHF vs UHF2
-	var mode_VHF = dataread_posit(KaTZPit_data["URadio_SW1"],3)
 		
 	// Gestion VHF
-	if (mode_VHF == 0) {
-		// Mode VHF
-		//console.log ("Mode VHF")
-		var FreqV = (dataread_split_3P(KaTZPit_data["URadioVM"])[2])
-		var FreqV10 = Math.floor(FreqV / 10)
-		var FreqV1 = FreqV % 10
-		var FreqVD =(dataread_split_3P(KaTZPit_data["URadioVM"])[1])
+	var FreqV = (dataread_split_3P(KaTZPit_data["URadioVM"])[2])
+	var FreqV10 = Math.floor(FreqV / 10)
+	var FreqV1 = FreqV % 10
+	var FreqVD =(dataread_split_3P(KaTZPit_data["URadioVM"])[1])
 		
-		if (digit == 1){
-			// Frequence Dizaine VHF, incrément/decrément de 10
-			FreqV10 = FreqV10 + sens
+	if (digit == 1){
+		// Frequence Dizaine VHF, incrément/decrément de 10
+		FreqV10 = FreqV10 + sens
 			
-			// encadrement de la fréquence UHF (225 , 400)
-			// si FreqU10 > 15 ou < 11 , on cycle le rotacteur, on était déjà au maxi, ou mini
-			if (FreqV10 >14) {FreqV10=11}
-			if (FreqV10 <11) {FreqV10=14}
-			FreqV = FreqV10 * 10 + FreqV1
+		// encadrement de la fréquence UHF (225 , 400)
+		// si FreqU10 > 15 ou < 11 , on cycle le rotacteur, on était déjà au maxi, ou mini
+		if (FreqV10 >39) {FreqV10=11}
+		if (FreqV10 <11) {FreqV10=39}
+		FreqV = FreqV10 * 10 + FreqV1
 			
-			// Calcul de la position du rotacteur de frequence
-			var btn = dataread_posit(KaTZPit_data["URadio_Rot"],3)+5
-			btn = (10 + btn + sens)%10
-			KaTZPit_data["URadio_Rot"]= datachange_posit(KaTZPit_data["URadio_Rot"],btn,3)
+		// Calcul de la position du rotacteur de frequence
+		var btn = dataread_posit(KaTZPit_data["URadio_Rot"],3)+5
+		btn = (10 + btn + sens)%10
+		KaTZPit_data["URadio_Rot"]= datachange_posit(KaTZPit_data["URadio_Rot"],btn,3)
 	
-		}
-		
-		if (digit == 2){
-			// Frequence Unitaire VHF, incrément/decrément de 1
-			FreqV1 = FreqV1 + sens
-			
-			// Bornage 0 à 9 , cyclage du rotactor
-			if (FreqV1 > 9) {FreqV1 = 0};
-			if (FreqV1 < 0) {FreqV1 = 9};		
-			
-			FreqV = FreqV10 * 10 + FreqV1
-			
-			// Calcul de la position du rotacteur de frequence
-			var btn = dataread_posit(KaTZPit_data["URadio_Rot"],2)+5
-			btn = (10 + btn + sens)%10
-			KaTZPit_data["URadio_Rot"]= datachange_posit(KaTZPit_data["URadio_Rot"],btn,2)
-	
-		}
-		
-		if (digit == 3){
-			// Frequence Decimale VHF, incrément/decrément de 025MHz
-			FreqVD = FreqVD + sens * 25
-			
-			// Bornage 0 à 9 , cyclage du rotactor
-			if (FreqVD > 975) {FreqVD = 0};
-			if (FreqVD < 0) {FreqVD = 975};		
-			
-			// Calcul de la position du rotacteur de frequence
-			var btn = dataread_posit(KaTZPit_data["URadio_Rot"],1)+5
-			btn = (10 + btn + sens)%10
-			KaTZPit_data["URadio_Rot"]= datachange_posit(KaTZPit_data["URadio_Rot"],btn,1)
-					
-		}
-		
-		// Bornage des fréquences 118-150 en VHF 
-		var Freq = FreqV10 * 10000 + FreqV1 * 1000 + FreqVD
-		if (Freq < 118000){Freq = 118000}
-		if (Freq > 149975){Freq = 149975}
-		
-		//  Enregistrement de la nouvelle fréquence manuelle
-		KaTZPit_data["URadioVM"]= (Freq)*1000 + volV
-				
-		// Syntonisation Automatique VHF
-		// Décision Tacno, Raiden de lancer la syntonisaiton à chaque changement
-		// Et non sur appui du bouton Tone
-		Radio_Tone(0)
-		
 	}
 		
-	else {
-		// Mode UHF2
-		//console.log("Mode UHF2")
-		var FreqV = (dataread_split_3P(KaTZPit_data["URadioU2M"])[2])
-		var FreqV10 = Math.floor(FreqV / 10)
-		var FreqV1 = FreqV % 10
-		var FreqVD =(dataread_split_3P(KaTZPit_data["URadioU2M"])[1]) 
-				
-		if (digit == 1){
-			
-			// Frequence Dizaine VHF, incrément/decrément de 10
-			FreqV10 = FreqV10 + sens
-			
-			// encadrement de la fréquence UHF2 (225 , 400)
-			// si FreqV10 > 39 ou < 22 , on cycle le rotacteur, on était déjà au maxi, ou mini
-			if (FreqV10 >39) {FreqV10=22}
-			if (FreqV10 <22) {FreqV10=39}
-			FreqV = FreqV10 * 10 + FreqV1
-			
-			// Calcul de la position du rotacteur de frequence
-			var btn = dataread_posit(KaTZPit_data["URadio_Rot"],3)+5
-			btn = (10 + btn + sens)%10
-			KaTZPit_data["URadio_Rot"]= datachange_posit(KaTZPit_data["URadio_Rot"],btn,3)
-			
-		}
+	if (digit == 2){
+		// Frequence Unitaire VHF, incrément/decrément de 1
+		FreqV1 = FreqV1 + sens
 		
-		if (digit == 2){
-			// Frequence Unitaire UHF2, incrément/decrément de 1
-			FreqV1 = FreqV1 + sens
-			
-			// Bornage 0 à 9 , cyclage du rotactor
-			if (FreqV1 > 9) {FreqV1 = 0};
-			if (FreqV1 < 0) {FreqV1 = 9};		
-			
-			FreqV = FreqV10 * 10 + FreqV1
-			
-			// Calcul de la position du rotacteur de frequence
-			var btn = dataread_posit(KaTZPit_data["URadio_Rot"],2)+5
-			btn = (10 + btn + sens)%10
-			KaTZPit_data["URadio_Rot"]= datachange_posit(KaTZPit_data["URadio_Rot"],btn,2)
-		}
+		// Bornage 0 à 9 , cyclage du rotactor
+		if (FreqV1 > 9) {FreqV1 = 0};
+		if (FreqV1 < 0) {FreqV1 = 9};		
 		
-		if (digit == 3){
-			// Frequence Decimale UHF2, incrément/decrément de 050MHz
-			FreqVD = FreqVD + sens * 50
-			
-			// Bornage 0 à 9 , cyclage du rotactor
-			if (FreqVD > 950) {FreqVD = 0};
-			if (FreqVD < 0) {FreqVD = 950};	
+		FreqV = FreqV10 * 10 + FreqV1
+		
+		// Calcul de la position du rotacteur de frequence
+		var btn = dataread_posit(KaTZPit_data["URadio_Rot"],2)+5
+		btn = (10 + btn + sens)%10
+		KaTZPit_data["URadio_Rot"]= datachange_posit(KaTZPit_data["URadio_Rot"],btn,2)
 
-			// Calcul de la position du rotacteur de frequence
-			var btn = dataread_posit(KaTZPit_data["URadio_Rot"],1)+5
-			btn = (10 + btn + sens)%10
-			KaTZPit_data["URadio_Rot"]= datachange_posit(KaTZPit_data["URadio_Rot"],btn,1)			
-					
-		}
+	}
 		
-		// Bornage des fréquences 225-400 en UHF2
-		var Freq = FreqV10 * 10000 + FreqV1 * 1000 + FreqVD
-		if (Freq < 225000){Freq = 225000}
-		if (Freq > 399950){Freq = 399950}
+	if (digit == 3){
+		// Frequence Decimale VHF, incrément/decrément de 025MHz
+		FreqVD = FreqVD + sens * 25
 		
-		KaTZPit_data["URadioU2M"]= (Freq)*1000 + volV
+		// Bornage 0 à 9 , cyclage du rotactor
+		if (FreqVD > 975) {FreqVD = 0};
+		if (FreqVD < 0) {FreqVD = 975};		
+		
+		// Calcul de la position du rotacteur de frequence
+		var btn = dataread_posit(KaTZPit_data["URadio_Rot"],1)+5
+		btn = (10 + btn + sens)%10
+		KaTZPit_data["URadio_Rot"]= datachange_posit(KaTZPit_data["URadio_Rot"],btn,1)
 				
-		// Syntonisation Automatique VHF
-		// Décision Tacno, Raiden de lancer la syntonisaiton à chaque changement
-		// Et non sur appui du bouton Tone
-		Radio_Tone(2)
+	}
 		
-	}	
+	// Bornage des fréquences 118-399 en VHF 
+	var Freq = FreqV10 * 10000 + FreqV1 * 1000 + FreqVD
+	if (Freq < 118000){Freq = 118000}
+	if (Freq > 399975){Freq = 399975}
+		
+	//  Enregistrement de la nouvelle fréquence manuelle
+	KaTZPit_data["URadioVM"]= (Freq)*1000 + volV
+				
+	// Syntonisation Automatique VHF
+	// Décision Tacno, Raiden de lancer la syntonisaiton à chaque changement
+	// Et non sur appui du bouton Tone
+	Radio_Tone(0)
+		
 		
 	// Mise à jour de l'affichage
 	panel_radio_us_update(KaTZPit_data)
@@ -911,33 +944,32 @@ function Radio_Tone(band){
 // Ecriture de la valeur manuelle temporaire dans la valeur de fréquence manual
 
 if (band ==0){
-	console.log("Syntonisation VHF")
-	KaTZPit_data["URadioV"] = KaTZPit_data["URadioVM"]
+	
 	// Si on est en mode manuel, on envoi le changement à UR
 	var ModeV = dataread_posit(KaTZPit_data["URadio_SW1"],1)
-	if (ModeV==0){Radio_US_Commande("C")}
+	if (ModeV==0){
+		//console.log("Syntonisation VHF")
+		KaTZPit_data["URadioV"] = KaTZPit_data["URadioVM"]
+		Radio_US_Commande("C")}
 	
 	}
 
 if (band ==1){
-	console.log("Syntonisation UHF")
-	KaTZPit_data["URadioU"] = KaTZPit_data["URadioUM"]
+		
 	// Si on est en mode manuel, on envoi le changement à UR
 	var ModeU = dataread_posit(KaTZPit_data["URadio_SW1"],2)
-	if (ModeU==0){Radio_US_Commande("C")}
+	if (ModeU==0){
+		//console.log("Syntonisation UHF")
+		KaTZPit_data["URadioU"] = KaTZPit_data["URadioUM"]
+		Radio_US_Commande("C")}
 	
 	}
 	
-	if (band ==2){
-	console.log("Syntonisation UHF2")
-	KaTZPit_data["URadioV"] = KaTZPit_data["URadioU2M"]
-	// Si on est en mode manuel, on envoi le changement à UR
-	var ModeV = dataread_posit(KaTZPit_data["URadio_SW1"],1)
-	if (ModeV==0){Radio_US_Commande("C")}
-	
-	}
 
+	
 }
+
+
 
 
 function Radio_US_Commande(type){
@@ -982,74 +1014,23 @@ function Radio_US_Commande(type){
 
 	if (type=="C"){
 	
-		// Calcul de la Fréquence UHF en fonction du mode utilisé (manuel/channel/guard)
-		var ModeU = dataread_posit(KaTZPit_data["URadio_SW1"],2)
 		
-		if (ModeU == 0){
-		// Mode Manuel
-		// Récupération de la fréquence manuelle dans URadioU
+		// Récupération de la fréquence active dans URadioU
 		var FreqUn = (dataread_split_3P(KaTZPit_data["URadioU"])[2]) * 1000 + (dataread_split_3P(KaTZPit_data["URadioU"])[1])
 		// Mise en forme string avec les zero
 		var FreqU = freq_format(FreqUn)
-		}
 		
-		if (ModeU == 1){
-			// Message de changement de canal
-			// Recupération des données Chan
-			
-			var ChanUD = (dataread_posit(KaTZPit_data["URadio_SW"],4)+5)
-			var ChanUU = (dataread_posit(KaTZPit_data["URadio_SW"],3)+5)
-			// Constitution des Numéros de Canaux, suivant le format des deux tables canaux <> fréquences
-			var ChannelU = "CHANNEL" + ChanUD + ChanUU	
-			// Fréquence des Canaux (unitaire/décimale)
-			
-			var FreqU = freq_format(Radio2[ChannelU])
-		}
-		
-		if (ModeU == 2){
-			// Frequence de Garde 243.000
-			var FreqU = "243.000"
-		}
-		
-		// Calcul de la Fréquence VHF en fonction du mode utilisé (manuel/channel/guard)
-		var ModeV = dataread_posit(KaTZPit_data["URadio_SW1"],1)
-		var Modulation1 = "F"
-		if (dataread_posit(KaTZPit_data["URadio_SW"],5) ==1) {Modulation1 = "A"} else {Modulation1 = "F"}
+				
+		var Modulation = "F"
+		if (dataread_posit(KaTZPit_data["URadio_SW"],5) ==1) {Modulation = "A"} else {Modulation = "F"}
+		// Frequence de guarde toujours AM
+		if (dataread_posit(KaTZPit_data["URadio_SW1"],1)==2) {Modulation = "A"}
 		
 		
-		if (ModeV == 0){
-		// Mode Manuel
-		// Récupération de la fréquence manuelle dans URadioU
+		// Récupération de la fréquence active dans URadioV
 		var FreqVn = (dataread_split_3P(KaTZPit_data["URadioV"])[2]) * 1000 + (dataread_split_3P(KaTZPit_data["URadioV"])[1])
 		// Mise en forme string avec les zero
 		var FreqV = freq_format(FreqVn)
-		}
-		
-		if (ModeV == 1){
-		
-			// Message de changement de canal
-			// Recupération des données Chan
-			var ChanVD = (dataread_posit(KaTZPit_data["URadio_SW"],2)+5)
-			var ChanVU = (dataread_posit(KaTZPit_data["URadio_SW"],1)+5)
-			// Constitution des Numéros de Canaux, suivant le format des deux tables canaux <> fréquences
-			var ChannelV = "CHANNEL" + ChanVD + ChanVU	
-			// Fréquence des Canaux (unitaire/décimale)
-			
-			// Recherche de la fréquence dans la table UHF ou VHF suivant le switch
-			var mode_VHF = dataread_posit(KaTZPit_data["URadio_SW1"],3)
-			if (mode_VHF == 0) {
-				var FreqV = freq_format(Radio1[ChannelV])
-			}
-			else {
-				var FreqV = freq_format(Radio2[ChannelV])
-			}
-		}
-		
-		if (ModeV == 2){
-			// Frequence de Garde 121.500
-			var FreqV = "121.500"
-			Modulation1 = "A"
-		}
 		
 		var Cript = dataread_posit(KaTZPit_data["URadio_SW"],7)
 		
@@ -1065,7 +1046,7 @@ function Radio_US_Commande(type){
 		
 
 		// Creation du message UR -------------------------------------------		
-		var message_UR =  "SET_RADIO: "+FreqV+Modulation1+" "+FreqU+"A"+" 000.000A "+FreqCript+" "+ CodeCript
+		var message_UR =  "SET_RADIO: "+FreqV+Modulation+" "+FreqU+"A"+" 000.000A "+FreqCript+" "+ CodeCript
 		
 		// Message uniquement si radio On
 		if (dataread_posit(KaTZPit_data["URadio_SW"],8) ==1){
