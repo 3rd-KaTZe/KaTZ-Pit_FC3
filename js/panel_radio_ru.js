@@ -51,11 +51,11 @@ function panel_radio_ru_update(KaTZPit_data){
 	
 	// Test log des valeurs de chan/vol
 	console.log("FreQ, Unit")
-	console.log(dataread_split_3(KaTZPit_data["URadioU"])[2])
+	console.log(dataread_split_3P(KaTZPit_data["URadioU"])[2])
 	console.log("FreQ, Dec")
-	console.log(dataread_split_3(KaTZPit_data["URadioU"])[1])
+	console.log(dataread_split_3P(KaTZPit_data["URadioU"])[1])
 	console.log("FreQ, Vol")
-	console.log(dataread_split_3(KaTZPit_data["URadioU"])[0])
+	console.log(dataread_split_3P(KaTZPit_data["URadioU"])[0])
 	
 	
 
@@ -64,14 +64,20 @@ function panel_radio_ru_update(KaTZPit_data){
 function panel_radio_ru_off() {
 	
 	// Extinction des diodes
-	$("#R_U_Led").attr('src','images/raiur_33/Led-Jaune_Off.png')
-	$("#R_V_Led").attr('src','images/raiur_33/Led-Jaune_Off.png')
+	//$("#R_U_Led").attr('src','images/raiur_33/Led-Jaune_Off.png')
+	//$("#R_V_Led").attr('src','images/raiur_33/Led-Jaune_Off.png')
+	$("#R_U_Led").fadeOut()
+	$("#R_V_Led").fadeOut()
 	
 	// Extinction des 7Seg
-	$("#R_ChanUDigit10").attr('src','images/raiur_33/7-Seg_off.png')
-	$("#R_ChanUDigit1").attr('src','images/raiur_33/7-Seg_off.png')
-	$("#R_ChanVDigit10").attr('src','images/raiur_33/7-Seg_off.png')
-	$("#R_ChanVDigit1").attr('src','images/raiur_33/7-Seg_off.png')
+	//$("#R_ChanUDigit10").attr('src','images/raiur_33/7-Seg_off.png')
+	//$("#R_ChanUDigit1").attr('src','images/raiur_33/7-Seg_off.png')
+	//$("#R_ChanVDigit10").attr('src','images/raiur_33/7-Seg_off.png')
+	//$("#R_ChanVDigit1").attr('src','images/raiur_33/7-Seg_off.png')
+	$("#R_ChanUDigit10").fadeOut()
+	$("#R_ChanUDigit1").fadeOut()
+	$("#R_ChanVDigit10").fadeOut()
+	$("#R_ChanVDigit1").fadeOut()
 
 	// Récupération des valeurs de chan et de volume
 	// Ajout de +5 à la fonciton datareadswitch (codage 5=0)
@@ -92,6 +98,9 @@ function panel_radio_ru_off() {
 
 function panel_radio_ru_on(KaTZPit_data){
 
+	$("#R_U_Led").fadeIn()
+	$("#R_V_Led").fadeIn()
+
 
 	// Allumage de la bonne diode UHF, VHF
 	if (dataread_posit(KaTZPit_data["URadio_SW"],6) ==1){
@@ -109,6 +118,11 @@ function panel_radio_ru_on(KaTZPit_data){
 	var ChanUU = (dataread_posit(KaTZPit_data["URadio_SW"],3)+5)
 	var ChanVD = (dataread_posit(KaTZPit_data["URadio_SW"],2)+5)
 	var ChanVU = (dataread_posit(KaTZPit_data["URadio_SW"],1)+5)
+
+	$("#R_ChanUDigit10").fadeIn()
+	$("#R_ChanUDigit1").fadeIn()
+	$("#R_ChanVDigit10").fadeIn()
+	$("#R_ChanVDigit1").fadeIn()
 	
 	
 	switch (ChanUD){
@@ -170,14 +184,25 @@ function panel_radio_ru_on(KaTZPit_data){
 	var chanU = ChanUD * 10 + ChanUU
 	
 	// Rotation des selecteurs
-	Radio_ru_Selecteurs(chanV,chanU,volV,volU)
+	Radio_ru_Selecteurs(KaTZPit_data)
 		
 }
 
-function Radio_ru_Selecteurs(chanV,chanU,volV,volU){
+function Radio_ru_Selecteurs(KaTZPit_data){
+	var ChanUD = (dataread_posit(KaTZPit_data["URadio_SW"],4)+5)
+	var ChanUU = (dataread_posit(KaTZPit_data["URadio_SW"],3)+5)
+	var ChanVD = (dataread_posit(KaTZPit_data["URadio_SW"],2)+5)
+	var ChanVU = (dataread_posit(KaTZPit_data["URadio_SW"],1)+5)
+	var chanV = ChanVD * 10 + ChanVU
+	var chanU = ChanUD * 10 + ChanUU
+	
+	var volV = (dataread_split_3P(KaTZPit_data["URadioV"])[0])
+	var volU = (dataread_split_3P(KaTZPit_data["URadioU"])[0])
+	
+	console.log(volV)
 
 
-	var v_origine = -135
+	var v_origine = -125
 	var v_gain = 0.90
 	
 	$("#R_VolUhf").css({
@@ -262,7 +287,7 @@ function Radio_Channel(chan,sens){
 	var chanV = ChanVD * 10 + ChanVU
 	var chanU = ChanUD * 10 + ChanUU
 
-	if (chan == 0){
+	if (chan == 1){
 		chanU = chanU + sens;
 		if (chanU > 20) {chanU = 1};
 		if (chanU < 1) {chanU = 20};
@@ -301,7 +326,7 @@ function Radio_Volume(vol,sens){
 	var volV = (dataread_split_3P(KaTZPit_data["URadioV"])[0])
 	var volU = (dataread_split_3P(KaTZPit_data["URadioU"])[0])
 	
-	if (vol == 0){
+	if (vol == 1){
 		// Volume UHF, incrément/decrément de 10
 		volU = volU + 10 * sens
 
@@ -337,8 +362,8 @@ function Radio_UR_Commande(type){
 
 		// Message de changement de volume
 		// Récupération des valeurs de volume
-		var volV = (dataread_split_3(KaTZPit_data["URadioV"])[0])
-		var volU = (dataread_split_3(KaTZPit_data["URadioU"])[0])
+		var volV = (dataread_split_3P(KaTZPit_data["URadioV"])[0])
+		var volU = (dataread_split_3P(KaTZPit_data["URadioU"])[0])
 
 		// Creation du message UR -------------------------------------------	
 		//console.log ("volVHF",volV)
@@ -359,8 +384,8 @@ function Radio_UR_Commande(type){
 		// Message de changement d'active X		
 		// Chan Active en fonction du bouton UHF/VHF
 		var Active = "___"
-		if (dataread_posit(KaTZPit_data["URadio_SW"],6) ==1){Active = "X__"}
-			else {Active = "_X_"}
+		if (dataread_posit(KaTZPit_data["URadio_SW"],6) ==1){Active = "_X_"}
+			else {Active = "X__"}
 		var message_UR =  "SET_ACTIV: "+ Active	
 
 		// Message uniquement si radio On
