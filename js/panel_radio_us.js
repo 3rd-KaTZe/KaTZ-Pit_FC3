@@ -747,6 +747,9 @@ function Radio_Volume(vol,sens){
 			KaTZPit_data["URadioU"] = (Math.floor((KaTZPit_data["URadioU"])/1000)) * 1000 + volU
 			// Ecriture de la valeur également dans la variable Fréquence Manuel
 			KaTZPit_data["URadioUM"] = (Math.floor((KaTZPit_data["URadioUM"])/1000)) * 1000 + volU
+			// Ecriture de la valeur également dans la variable Fréquence Canal
+			KaTZPit_data["URadioUC"] = (Math.floor((KaTZPit_data["URadioUC"])/1000)) * 1000 + volU
+			
 			Radio_US_Commande("V")
 		}
 	}
@@ -758,6 +761,7 @@ function Radio_Volume(vol,sens){
 		if (volV <=100 && volV >=0) {
 			KaTZPit_data["URadioV"] = (Math.floor((KaTZPit_data["URadioV"])/1000)) * 1000 + volV
 			KaTZPit_data["URadioVM"] = (Math.floor((KaTZPit_data["URadioVM"])/1000)) * 1000 + volV
+			KaTZPit_data["URadioVC"] = (Math.floor((KaTZPit_data["URadioVC"])/1000)) * 1000 + volV
 			Radio_US_Commande("V")
 		}
 	}

@@ -11,6 +11,8 @@
 
 
 
+
+
 function Mig29_init(){
 	
 	console.log("Initialisation des données du Mig-29C")
