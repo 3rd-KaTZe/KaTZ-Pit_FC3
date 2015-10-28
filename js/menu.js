@@ -2,7 +2,7 @@
 // Connection Panel et Toggle Panel
 // --------------------------------------------------------------------
 
-function menu_connection(KaTZPit_data){
+function menu_connection(){
 	
 	// Affichage de l'Ip et du Port
 	document.getElementById('IP_Host').innerHTML = serverws.ip

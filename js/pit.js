@@ -20,10 +20,12 @@ var CmdDelay;
 window.onload = function(){
 	// Chargement et indication de l'IP et Port
 	// Sur le panel Emergency
+	console.log ("pits.js >> windows.onload")
 
-	menu_connection(KaTZPit_data) ;
+	// Affichage des données IP dans le panel
+	menu_connection() ;
 
-	// Initialisation des Panels affichés
+	// Initialisation des Panels affichés (pit_init.js >> panel_on_init)
 	Panel_On = panel_On_init();
 	menu_Toggle("Init")
 }
